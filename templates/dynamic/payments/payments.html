@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SA Loans |Payments Details</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../../static/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../../static/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../../static/plugins/pace/pace.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../../static/plugins/datatables/dataTables.bootstrap.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="../../../static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#DynamicHeader').load("/navigation/admin/header")
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#DynamicSideBar').load("/navigation/admin/sidebar")
+    });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#ButtonAll').click(function(){
+        var vstrLoadDate= 0;
+        var dataString = '&vstrLoadDate=' + vstrLoadDate;
+          $.ajax({
+                type: "get",
+                url: "/loans/loaddate",
+                data: dataString,
+                cache: false,
+              success: function(html){
+                $('#AdvanceList').html(html)
+              }
+          });
+      });
+  });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#Button15').click(function(){
+            var vstrLoadDate= 15;
+            var dataString = '&vstrLoadDate=' + vstrLoadDate;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/loaddate",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AdvanceList').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#Button1').click(function(){
+            var vstrLoadDate= 1;
+            var dataString = '&vstrLoadDate=' + vstrLoadDate;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/loaddate",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AdvanceList').html(html)
+                  }
+              });
+          });
+      });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#Button22').click(function(){
+            var vstrLoadDate= 22;
+            var dataString = '&vstrLoadDate=' + vstrLoadDate;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/loaddate",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AdvanceList').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#Button25').click(function(){
+            var vstrLoadDate= 25;
+            var dataString = '&vstrLoadDate=' + vstrLoadDate;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/loaddate",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AdvanceList').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#Button27').click(function(){
+            var vstrLoadDate= 27;
+            var dataString = '&vstrLoadDate=' + vstrLoadDate;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/loaddate",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AdvanceList').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#Button30').click(function(){
+            var vstrLoadDate= 30;
+            var dataString = '&vstrLoadDate=' + vstrLoadDate;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/loaddate",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AdvanceList').html(html)
+                  }
+              });
+          });
+      });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#SaveAccountSettingsButt').click(function(){
+            var vstrCompanyName = document.getElementById('strCompanyName').value;
+            var vstrCompanyRegistrationNumber = document.getElementById('strCompanyRegistrationNumber').value;
+            var vstrBankName = document.getElementById('strBankName').value;
+            var vstrBankAccountNumber = document.getElementById('strBankAccountNumber').value;
+            var vstrAccountType = document.getElementById('strAccountType').value;
+            var vstrBranchCode = document.getElementById('strBranchCode').value;
+            var vstrReferenceNumber = document.getElementById('strReferenceNumber').value;
+
+            var dataString = '&vstrCompanyName=' + vstrCompanyName + '&vstrCompanyRegistrationNumber=' + vstrCompanyRegistrationNumber +
+                    '&vstrBankName=' + vstrBankName + '&vstrBankAccountNumber=' + vstrBankAccountNumber + '&vstrAccountType=' + vstrAccountType +
+                    '&vstrBranchCode=' + vstrBranchCode + '&vstrReferenceNumber=' + vstrReferenceNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/saveaccountsett",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AccountSettingsDIV').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#ActivateAccountButt').click(function(){
+            var vstrLoadDate= 30;
+            var dataString = '&vstrLoadDate=' + vstrLoadDate;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/setupcollection",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AccountSettingsDIV').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#LoadCSVButt').click(function(){
+            var vstrLoadDate= 30;
+            var dataString = '&vstrLoadDate=' + vstrLoadDate;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/payments/loadcsv",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AccountSettingsDIV').html(html)
+                  }
+              });
+          });
+      });
+</script>
+
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+   <div id="DynamicHeader"></div>
+  <!-- =============================================== -->
+  <!-- Left side column. contains the sidebar -->
+  <div id="DynamicSideBar"></div>
+  <!-- =============================================== -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        SA Loans
+        <small>SA Loans Online Information System</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/employees/payments"><i class="fa fa-dashboard"></i> Payments</a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+      <!-- Default box -->
+      <div class="col-md-3">
+          <div class="box">
+              <div class="box box-info">
+                  <div class="box box-title">
+                      <h3>Dashboard</h3>
+                  </div>
+                  <a href="/employees/payments" class="btn btn-warning btn-block margin-bottom"><i class="fa fa-refresh"> </i> <strong>Refresh</strong> </a>
+                  <a href="#Upcoming" class="btn btn-success btn-block" data-toggle="tab"><i class="glyphicon glyphicon-credit-card"> </i> <strong> Upcoming</strong></a>
+                  <a href="#OutStanding" class="btn btn-success btn-block" data-toggle="tab"><i class="glyphicon glyphicon-credit-card"> </i> <strong> OutStanding</strong></a>
+                  <a href="#AccountChange" class="btn btn-success btn-block" data-toggle="tab"><i class="glyphicon glyphicon-credit-card"> </i> <strong> Account Change</strong></a>
+                  <a href="#Complete" class="btn btn-success btn-block margin-bottom" data-toggle="tab"><i class="glyphicon glyphicon-credit-card"> </i> <strong> Complete</strong></a>
+              </div>
+              <div class="box box-info">
+                  <div class="box box-title">
+                      <h3>Settings</h3>
+                  </div>
+                  <a href="#Settings" class="btn btn-warning btn-block" data-toggle="tab"><i class="glyphicon glyphicon-cog"> </i> <strong> Settings</strong></a>
+                  <a href="#LoadCSV"  class="btn btn-bitbucket btn-block" data-toggle="tab"><i class="glyphicon glyphicon-file"> </i> <strong> Load Payment Information</strong></a>
+              </div>
+          </div>
+
+      </div>
+
+      <div class="col-md-9">
+          <div class="box box-info">
+              <div class="box box-title">
+                  <div class="form-group">
+                    <h3>   <i class="fa fa-credit-card"> </i> Payment Processing...</h3>
+                  </div>
+              </div>
+                  <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                             <li class="active"><a href="#Upcoming" data-toggle="tab"><i class="glyphicon glyphicon-credit-card"> </i><strong> Upcoming</strong></a></li>
+                             <li><a href="#OutStanding" data-toggle="tab"><i class="glyphicon glyphicon-credit-card"> </i><strong> Out-Standing</strong></a></li>
+                             <li><a href="#AccountChange" data-toggle="tab"><i class="glyphicon glyphicon-credit-card"> </i><strong> Account Change</strong></a> </li>
+                             <li><a href="#Complete" data-toggle="tab"><i class="glyphicon glyphicon-credit-card"> </i><strong> Complete</strong></a></li>
+                        </ul>
+                        <div class="tab-content">
+                          <div class="active tab-pane" id="Upcoming">
+                              <div class="box box-title">
+                              <h3>Upcoming Payments</h3>
+                              </div>
+                              <div class="box box-tools">
+                                  <button type="button" class="btn btn-primary" id="Button1"><i class="glyphicon glyphicon-list-alt"> </i> <strong> Load 1 </strong> </button>
+                                  <button type="button" class="btn btn-primary" id="Button15"><i class="glyphicon glyphicon-list-alt"> </i> <strong> Load 15 </strong> </button>
+                                  <button type="button" class="btn btn-primary" id="Button22"><i class="glyphicon glyphicon-list-alt"> </i> <strong> Load 22 </strong> </button>
+                                  <button type="button" class="btn btn-primary" id="Button25"><i class="glyphicon glyphicon-list-alt"> </i> <strong> Load 25 </strong> </button>
+                                  <button type="button" class="btn btn-primary" id="Button27"><i class="glyphicon glyphicon-list-alt"> </i> <strong> Load 27 </strong> </button>
+                                  <button type="button" class="btn btn-primary" id="Button30"><i class="glyphicon glyphicon-list-alt"> </i> <strong> Load 30 </strong> </button>
+                                  <button type="button" class="btn btn-primary" id="ButtonAll"><i class="glyphicon glyphicon-list-alt"> </i> <strong> All </strong> </button>
+                              </div>
+                              <div class="box box-info">
+                                <div id="AdvanceList">
+                                    <table id="UpcomingPaymentsTable" class="table table-bordered table-striped">
+
+                                    <thead>
+                                    <tr>
+                                      <th>Account Number</th>
+                                      <th>Advanced Capital</th>
+                                      <th>Number Installments</th>
+                                      <th>Total Installments</th>
+                                      <th>Total Paid</th>
+                                      <th>Date Taken</th>
+                                      <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for advanced in UpcomingList %}
+                                    <tr>
+                                      <td><a href="/loans/list/{{ advanced.strAccountNumber }}">{{ advanced.strAccountNumber }}</a></td>
+                                      <td>{{ advanced.strCreditAdvancedCapital }}</td>
+                                      <td>{{ advanced.strNumberInstallments }}</td>
+                                      <td>{{ advanced.strTotalInstallments }}</td>
+                                      <td>{{ advanced.strTotalAmountRePaid }}</td>
+                                      <td>{{ advanced.strDateTaken }}</td>
+                                      <td><a href="/loans/repayments/{{ advanced.strAdvancedIndex }}" type="button" class="btn btn-warning btn-block">Process</a> </td>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                      <th>Account Number</th>
+                                      <th>Advanced Capital</th>
+                                      <th>Number Installments</th>
+                                      <th>Total Installments</th>
+                                      <th>Total Paid</th>
+                                      <th>Date Taken</th>
+                                      <th>Action</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="tab-pane" id="OutStanding">
+                              <div class="box box-title">
+                                <h3>Out Standing</h3>
+                              </div>
+                              <div class="box box-info">
+                                <table id="OutStandingPaymentsTable" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                      <th>Account Number</th>
+                                      <th>Advanced Capital</th>
+                                      <th>Number Installments</th>
+                                      <th>Total Installments</th>
+                                      <th>Total Paid</th>
+                                      <th>Date Taken</th>
+                                      <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for advanced in OutStandingList %}
+                                    <tr>
+                                      <td><a href="/loans/list/{{ advanced.strAccountNumber }}">{{ advanced.strAccountNumber }}</a></td>
+                                      <td>{{ advanced.strCreditAdvancedCapital }}</td>
+                                      <td>{{ advanced.strNumberInstallments }}</td>
+                                      <td>{{ advanced.strTotalInstallments }}</td>
+                                      <td>{{ advanced.strTotalAmountRePaid }}</td>
+                                      <td>{{ advanced.strDateTaken }}</td>
+                                      <td><a href="/loans/repayments/{{ advanced.strAdvancedIndex }}" type="button" class="btn btn-warning btn-block">Process</a> </td>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                      <th>Account Number</th>
+                                      <th>Advanced Capital</th>
+                                      <th>Number Installments</th>
+                                      <th>Total Installments</th>
+                                      <th>Total Paid</th>
+                                      <th>Date Taken</th>
+                                      <th>Action</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                              </div>
+                          </div>
+                          <div class="tab-pane" id="AccountChange">
+                              <div class="box box-title">
+                                <h3>Account Change</h3>
+                              </div>
+
+                              <div class="box box-info">
+                               <table id="AccountChangeTable" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                      <th>Account Number</th>
+                                      <th>Advanced Capital</th>
+                                      <th>Number Installments</th>
+                                      <th>Total Installments</th>
+                                      <th>Total Paid</th>
+                                      <th>Date Taken</th>
+                                      <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for advanced in AccountChangeList %}
+                                    <tr>
+                                      <td><a href="/loans/list/{{ advanced.strAccountNumber }}">{{ advanced.strAccountNumber }}</a></td>
+                                      <td>{{ advanced.strCreditAdvancedCapital }}</td>
+                                      <td>{{ advanced.strNumberInstallments }}</td>
+                                      <td>{{ advanced.strTotalInstallments }}</td>
+                                      <td>{{ advanced.strTotalAmountRePaid }}</td>
+                                      <td>{{ advanced.strDateTaken }}</td>
+                                      <td><a href="/loans/repayments/{{ advanced.strAdvancedIndex }}" type="button" class="btn btn-warning btn-block">Process</a> </td>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                      <th>Account Number</th>
+                                      <th>Advanced Capital</th>
+                                      <th>Number Installments</th>
+                                      <th>Total Installments</th>
+                                      <th>Total Paid</th>
+                                      <th>Date Taken</th>
+                                      <th>Action</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                              </div>
+                          </div>
+                          <div class="tab-pane" id="Complete">
+                              <div class="box box-title">
+                                <h3>Complete</h3>
+                              </div>
+
+                              <div class="box box-info">
+                                <table id="CompletePaymentsTable" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                      <th>Account Number</th>
+                                      <th>Advanced Capital</th>
+                                      <th>Number Installments</th>
+                                      <th>Total Installments</th>
+                                      <th>Total Paid</th>
+                                      <th>Date Taken</th>
+                                      <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for advanced in CompleteList %}
+                                    <tr>
+                                      <td><a href="/loans/list/{{ advanced.strAccountNumber }}">{{ advanced.strAccountNumber }}</a></td>
+                                      <td>{{ advanced.strCreditAdvancedCapital }}</td>
+                                      <td>{{ advanced.strNumberInstallments }}</td>
+                                      <td>{{ advanced.strTotalInstallments }}</td>
+                                      <td>{{ advanced.strTotalAmountRePaid }}</td>
+                                      <td>{{ advanced.strDateTaken }}</td>
+                                      <td><a href="/loans/repayments/{{ advanced.strAdvancedIndex }}" type="button" class="btn btn-warning btn-block">Process</a> </td>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                      <th>Account Number</th>
+                                      <th>Advanced Capital</th>
+                                      <th>Number Installments</th>
+                                      <th>Total Installments</th>
+                                      <th>Total Paid</th>
+                                      <th>Date Taken</th>
+                                      <th>Action</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                              </div>
+                          </div>
+                          <div class="tab-pane" id="Settings">
+                              <div class="box">
+                                  <div class="box box-warning">
+                                      <div class="box box-title">
+                                          <h3>Settings</h3>
+                                      </div>
+                                      <div class="box box-body">
+
+                                          <form class="form-horizontal">
+                                              <div class="form-group">
+                                                  <label for="strCompanyName" class="col-sm-2 control-label" >Company Name</label>
+                                                  <div class="col-sm-6">
+                                                      {% if CompanyRepayAcc %}
+                                                            <input type="text" class="form-control" id="strCompanyName" name="vstrCompanyName" value="{{ CompanyRepayAcc.strCompanyName }}">
+                                                      {% else %}
+                                                            <input type="text" class="form-control" id="strCompanyName" name="vstrCompanyName">
+                                                      {% endif %}
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="strCompanyRegistrationNumber" class="col-sm-2 control-label" >Company Registration</label>
+                                                  <div class="col-sm-6">
+                                                      {% if CompanyRepayAcc %}
+                                                            <input type="text" class="form-control" id="strCompanyRegistrationNumber" name="vstrCompanyRegistrationNumber" value="{{ CompanyRepayAcc.strCompanyReg }}">
+                                                      {% else %}
+                                                            <input type="text" class="form-control" id="strCompanyRegistrationNumber" name="vstrCompanyRegistrationNumber">
+                                                      {% endif %}
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="strBankName" class="col-sm-2 control-label" >Bank Name</label>
+                                                  <div class="col-sm-6">
+                                                      {% if CompanyRepayAcc %}
+                                                            <input type="text" class="form-control" id="strBankName" name="vstrBankName" value="{{ CompanyRepayAcc.strBankName }}">
+                                                      {% else %}
+                                                            <input type="text" class="form-control" id="strBankName" name="vstrBankName">
+                                                      {% endif %}
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="strBankAccountNumber" class="col-sm-2 control-label" >Account Number</label>
+                                                  <div class="col-sm-6">
+                                                      {% if CompanyRepayAcc %}
+                                                            <input type="text" class="form-control" id="strBankAccountNumber" name="vstrBankAccountNumber" value="{{ CompanyRepayAcc.strBankAccount }}">
+                                                      {% else %}
+                                                            <input type="text" class="form-control" id="strBankAccountNumber" name="vstrBankAccountNumber">
+                                                      {% endif %}
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="strAccountType" class="col-sm-2 control-label" >Account Type</label>
+                                                  <div class="col-sm-6">
+                                                      <select class="form-control select2" style="width: 100%;" id="strAccountType">
+                                                          {% if CompanyRepayAcc.strAccountType == "Savings" %}
+                                                                <option value="Savings" selected="selected">Savings</option>
+                                                          {% else %}
+                                                                <option value="Savings">Savings</option>
+                                                          {% endif %}
+                                                          {% if CompanyRepayAcc.strAccountType == "Cheque" %}
+                                                                <option value="Cheque" selected="selected">Cheque</option>
+                                                          {% else %}
+                                                                <option value="Cheque">Cheque</option>
+                                                          {% endif %}
+
+                                                          {% if CompanyRepayAcc.strAccountType == "Transmission" %}
+                                                                <option value="Transmission" selected="selected">Transmission</option>
+                                                          {% else %}
+                                                                <option value="Transmission">Transmission</option>
+                                                          {% endif %}
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="strBranchCode" class="col-sm-2 control-label" >Branch Code</label>
+                                                  <div class="col-sm-6">
+                                                      {% if CompanyRepayAcc %}
+                                                            <input type="text" class="form-control" id="strBranchCode" name="vstrBranchCode" value="{{ CompanyRepayAcc.strBranchCode }}">
+                                                      {% else %}
+                                                            <input type="text" class="form-control" id="strBranchCode" name="vstrBranchCode">
+                                                      {% endif %}
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="strReferenceNumber" class="col-sm-2 control-label" >Reference</label>
+                                                  <div class="col-sm-6">
+                                                      {% if CompanyRepayAcc %}
+                                                            <input type="text" class="form-control" id="strReferenceNumber" name="vstrReferenceNumber" value="{{ CompanyRepayAcc.strAccountReference }}">
+                                                      {% else %}
+                                                            <input type="text" class="form-control" id="strReferenceNumber" name="vstrReferenceNumber">
+                                                      {% endif %}
+                                                  </div>
+                                              </div>
+                                          </form>
+
+                                          <div class="box box-footer">
+                                              {% if CompanyRepayAcc.strCompanyName == None %}
+                                                    <button type="button" class="btn btn-success btn-block" id="SaveAccountSettingsButt"><i class="fa fa-save"> </i> <strong> Save</strong> </button>
+                                              {% else %}
+                                                    <button type="button" class="btn btn-warning btn-block" id="SaveAccountSettingsButt"><i class="fa fa-save"> </i> <strong> Update</strong> </button>
+                                                    <button type="button" class="btn btn-primary btn btn-block" id="ActivateAccountButt"><i class="glyphicon glyphicon-usd"> </i> <strong> Setup Local Collection</strong> </button>
+                                              {% endif %}
+                                          </div>
+                                          <div class="box box-info">
+                                              <div id="AccountSettingsDIV"></div>
+                                          </div>
+
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="tab-pane" id="LoadCSV">
+                              <div class="box">
+                                  <div class="box box-warning">
+                                      <div class="box box-title">
+                                          <h3>Load Re-Payment Information</h3>
+                                      </div>
+                                      <div class="box box-body">
+
+                                          <div class="form-group">
+                                              <label for="strCheck" class="col-sm-2 control-label" >Indicate Source</label>
+                                              <div class="col-sm-6">
+                                                <label> AllPs <input type="checkbox" id="strCheck"></label>
+
+                                              </div>
+                                          </div>
+
+                                              <div class="form-group">
+                                                  <label for="strFileUpload" class="col-sm-2 control-label" >CSV File Upload</label>
+                                                  <div class="col-sm-6">
+                                                      <input type="file" class="form-control" id="strFileUpload">
+                                                  </div>
+                                              </div>
+                                          <div class="form-group">
+                                                  <div class="col-sm-6">
+                                                      <button type="button" class="btn btn-success btn-block">Upload</button>
+                                                  </div>
+                                          </div>
+
+                                          <div class="form-group">
+                                              <textarea cols="120" rows="12" id="rePaymentData"> </textarea>
+                                          </div>
+
+
+
+                                      </div>
+                                      <div class="box box-footer">
+                                          This allows you to load payment information from a third party app
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+          </div>
+          </div>
+
+      </div>
+
+
+      </div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<div id="FooterDIV"></div>
+
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- Bootstrap 3.3.6 -->
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../../../static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../../static/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../../static/dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../../static/dist/js/demo.js"></script>
+<!-- DataTables -->
+<script src="../../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- PACE -->
+<script src="../../../static/plugins/pace/pace.min.js"></script>
+
+<script>
+  $(function () {
+    $('#UpcomingPaymentsTable').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+
+<script>
+  $(function () {
+    $('#OutStandingPaymentsTable').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+
+<script>
+  $(function () {
+    $('#AccountChangeTable').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+<script>
+  $(function () {
+    $('#CompletePaymentsTable').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,556 @@
+
+<div class="box box-body">
+        <div class="col-md-9">
+        <div class="row invoice-info">
+
+
+<div class="box-body">
+    <div class="box box-title">
+      <h3>SA Loans Client File</h3>
+    </div>
+
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Personal Information</h3>
+    </div>
+    <div class="box box-comment">
+      <h5>Account Number : {{ LoanApplicant.strAccountNumber }}</h5>
+    </div>
+
+    <div class="box box-comment">
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Full Names : {{ LoanApplicant.strFullNames }}</strong></li>
+        <li class="list-group-item"><strong>Title : {{ LoanApplicant.strTitle }}</strong></li>
+        <li class="list-group-item"><strong>ID Number : {{ LoanApplicant.strIDNumber }}</strong></li>
+        <li class="list-group-item"><strong>Date Of Birth : {{ LoanApplicant.strDateOfBirth }}</strong></li>
+        <li class="list-group-item"><strong>Tel Work : {{ LoanApplicant.strTel }}</strong></li>
+        <li class="list-group-item"><strong>Tel Home : </strong></li>
+        <li class="list-group-item"><strong>Cell : {{ LoanApplicant.strCell }}</strong></li>
+        <li class="list-group-item"><strong>Email : {{ LoanApplicant.strEmail}}</strong></li>
+        <li class="list-group-item"><strong>Physical Address :</strong>
+        <ol class="list-group">
+        <li class="list-group-item"><strong>House/Stand Number : {{ LoanApplicant.strHouseNumber }}</strong></li>
+        <li class="list-group-item"><strong>Street Name : {{ LoanApplicant.strStreetName }}</strong></li>
+        <li class="list-group-item"><strong>City/Town : {{ LoanApplicant.strCityTown }}</strong></li>
+        <li class="list-group-item"><strong>Province : {{ LoanApplicant.strProvince }}</strong></li>
+        <li class="list-group-item"><strong>Country : {{ LoanApplicant.strCountry }}</strong></li>
+        <li class="list-group-item"><strong>Postal Code : {{ LoanApplicant.strPostalCode }} </strong></li>
+
+        </ol>
+
+        </li>
+        <li class="list-group-item">
+          Postal Address:
+          <ol class="list-group">
+            <li class="list-group-item"><strong>Box /Private Bag : {{ LoanApplicant.strBoxNumber }}</strong></li>
+            <li class="list-group-item"><strong>Town/City : {{ LoanApplicant.strPostalCityTown }}</strong></li>
+            <li class="list-group-item"><strong>Province : {{ LoanApplicant.strPostalProvince }}</strong></li>
+            <li class="list-group-item"><strong>Country : {{ LoanApplicant.strPostalCountry }}</strong></li>
+            <li class="list-group-item"><strong>Postal Code: {{ LoanApplicant.strPostalPostalCode }}</strong></li>
+          </ol>
+        </li>
+        <li class="list-group-item"><strong>Next Of Kin :</strong>
+        <ol class="list-group">
+          <li class="list-group-item"><strong>Names : {{ LoanApplicant.strNextOfKinNames }}</strong></li>
+          <li class="list-group-item"><strong>Cell : {{ LoanApplicant.strNextOfKinCell }}</strong></li>
+          <li class="list-group-item"><strong>Address : {{ LoanApplicant.strNextOfKinAddress }}</strong></li>
+
+        </ol>
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Employment Details</h3>
+    </div>
+    {% if Employment.strNameOfEmployer == None %}
+     <ul class="list-group">
+       <li class="list-group-item"><strong>Are you Employed ? : No</strong></li>
+     </ul>
+    {% else %}
+    <ul class="list-group">
+      <li class="list-group-item"> <strong>Are you Employed ? : Yes  </strong></li>
+      <li class="list-group-item"><strong>Name of Employer : {{ Employment.strNameOfEmployer }}</strong> </li>
+      <li class="list-group-item"><strong>Employee Number : {{ Employment.strEmployeeNumber }}</strong></li>
+      <li class="list-group-item"><strong>Department : {{ Employment.strDepartment }}</strong></li>
+      <li class="list-group-item"><strong>Employer Contract : {{ Employment.strContract }}</strong></li>
+      <li class="list-group-item"><strong>Date Joined : {{ Employment.strDateJoined }}</strong></li>
+      <li class="list-group-item"><strong>Employer Address</strong>
+        <ol class="list-group">
+          <li class="list-group-item"><strong>Stand Number : {{ Employment.strStandNumber }}</strong></li>
+          <li class="list-group-item"><strong>Street Name : {{ Employment.strStreetName }}</strong></li>
+          <li class="list-group-item"><strong>City/Town : {{ Employment.strTownCity }}</strong></li>
+          <li class="list-group-item"><strong>Province : {{ Employment.strProvince }}</strong></li>
+          <li class="list-group-item"><strong>Country : {{ Employment.strCountry }}</strong></li>
+          <li class="list-group-item"><strong>Postal Code : {{ Employment.strPostalCode }}</strong></li>
+        </ol>
+      </li>
+    </ul>
+    {% endif %}
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Income &amp; Expenses</h3>
+    </div>
+
+    <div class="box box-comment">
+      <h4>Income</h4>
+      <ul class="list-group">
+        {% if IncomeExp.strIncomeAfterDeduction == None %}
+          <li class="list-group-item"><strong>Payroll Income After Deduction : R 0.00</strong></li>
+        {% else %}
+          <li class="list-group-item"><strong>Payroll Income After Deduction : R {{ IncomeExp.strIncomeAfterDeduction }}.00</strong></li>
+        {% endif %}
+        <li class="list-group-item"><strong>Overtime : R {{ IncomeExp.strOverTime }}.00</strong></li>
+        <li class="list-group-item"><strong>Commission : R {{ IncomeExp.strCommission }}.00</strong></li>
+        <li class="list-group-item"><strong>Other Income : R {{ IncomeExp.strOtherIncome }}.00</strong></li>
+      </ul>
+    </div>
+
+    <div class="box box-comment">
+      <h4>Expenses</h4>
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Bond Repayments/ Rental : R {{ IncomeExp.strBondRepayments }}.00</strong></li>
+        <li class="list-group-item"><strong>Other Credit / Loan Installments : R {{ IncomeExp.strLoanInstallments }}.00</strong></li>
+        <li class="list-group-item"><strong>Water/ Electricity and Telephone : R {{ IncomeExp.strWaterElectricityTel }}.00</strong></li>
+        <li class="list-group-item"><strong>Insurance : R {{ IncomeExp.strInsurance }}.00</strong></li>
+        <li class="list-group-item"><strong>Children Maintenance : R {{ IncomeExp.strChildrenMaintenance }}.00</strong></li>
+        <li class="list-group-item"><strong>Vehicle Maintenance : R {{ IncomeExp.strVehicleMaintenance }}.00</strong></li>
+        <li class="list-group-item"><strong>Basic Neccessities(Food, Cellphone Bill etc ) : R {{ IncomeExp.strBasicNecessities }}.00</strong></li>
+        <li class="list-group-item"><strong>Domestic Wages : R {{ IncomeExp.strDomesticWages }}.00</strong></li>
+        <li class="list-group-item"><strong>Education : R {{ IncomeExp.strEducation }}.00</strong></li>
+        <li class="list-group-item"><strong>Other Expenses : R {{ IncomeExp.strOtherExpenses }}.00</strong></li>
+
+      </ul>
+    </div>
+
+    <div class="box box-comment">
+      <h4>Totals</h4>
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Total Income : R {{ IncomeExp.strTotalIncome }}.00</strong></li>
+        <li class="list-group-item"><strong>Total Expenses : R {{ IncomeExp.strTotalExpenses }}.00</strong></li>
+        <li class="list-group-item"><strong>Affordability : R {{ IncomeExp.strAffordability }}.00</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Credit Provider Details</h3>
+    </div>
+    <div class="box-comment">
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Name of Credit Provider : SA Loans</strong></li>
+        <li class="list-group-item"><strong>Physical Address : Mashapa Complex, 1st Floor, Office No. B12&amp;14, Thohoyandou, 0950</strong></li>
+        <li class="list-group-item"><strong>Telephone Number : (015) 962-0976</strong></li>
+        <li class="list-group-item"><strong>Credit provider NCR Registration Number : NCRCP5905</strong></li>
+        <li class="list-group-item"><strong>Company Registration Number : 2007/036777/23</strong></li>
+        <li class="list-group-item"><strong>Branch : {{ Employ.strBranchCode }} </strong></li>
+        <li class="list-group-item"><strong>Loan Officer : {{ Employ.strFullNames }} - {{ Employ.strSurname }}</strong> </li>
+        <li class="list-group-item"><strong>Date : {{ vstrTodayDate }}</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Loan Receiver Details</h3>
+    </div>
+
+    <div class="box box-comment">
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Name of Credit Receiver : {{ LoanApplicant.strFullNames }} - {{ LoanApplicant.strSurname }}</strong> </li>
+        <li class="list-group-item"><strong>Physical Address</strong>
+          <ol class="list-group">
+              <li class="list-group-item"><strong>Stand Number : {{ LoanApplicant.strHouseNumber }}</strong></li>
+              <li class="list-group-item"><strong>Street Name : {{ LoanApplicant.strStreetName }}</strong></li>
+              <li class="list-group-item"><strong>City/Town : {{ LoanApplicant.strCityTown }}</strong></li>
+              <li class="list-group-item"><strong>Province : {{ LoanApplicant.strProvince }}</strong></li>
+              <li class="list-group-item"><strong>Country : {{ LoanApplicant.strCountry }}</strong></li>
+              <li class="list-group-item"><strong>Postal Code : {{ LoanApplicant.strPostalCode }}</strong> </li>
+          </ol>
+        </li>
+        <li class="list-group-item"><strong>Work Tel : {{ Employment.strTel }}</strong></li>
+        <li class="list-group-item"><strong>Home Tel : {{ LoanApplicant.strTel }}</strong></li>
+        <li class="list-group-item"><strong>Cell : {{ LoanApplicant.strCell }}</strong></li>
+
+        <li class="list-group-item"><strong>ID Number : {{ LoanApplicant.strIDNumber }}</strong></li>
+        <li class="list-group-item"><strong>Client Account Number : {{ LoanApplicant.strAccountNumber }}</strong></li>
+        <li class="list-group-item"><strong>Employer : {{ Employment.strNameOfEmployer }}</strong></li>
+        <li class="list-group-item"><strong>Date : {{ vstrTodayDate }} </strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Advanced Amount</h3>
+    </div>
+    <div class="box box-comment">
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Credit Advanced (Capital) : R {{ AmountAdvanced.strCreditAdvancedCapital }}</strong></li>
+        <li class="list-group-item"><strong>Initiation Fee (You can choose to pay separately at Maximum 15% of credit Advanced ) : {{ AmountAdvanced.strInitiationFee }}</strong></li>
+        <li class="list-group-item"><strong>Monthly Service Fee :  R {{ AmountAdvanced.strMonthlyServiceFee }} </strong></li>
+        <li class="list-group-item"><strong>Amount Advanced To Client : R {{ AmountAdvanced.strAmountAdvancedToClient }}</strong></li>
+        <li class="list-group-item"><strong>Monthly Interest Rate : {{ AmountAdvanced.strMonthlyInterest }} %</strong></li>
+        <li class="list-group-item"><strong>Interest Type : </strong></li>
+        <li class="list-group-item"><strong>Total Interest Payable : </strong></li>
+        <li class="list-group-item"><strong>Total Installments : R {{ AmountAdvanced.strTotalInstallments }}</strong></li>
+        <li class="list-group-item"><strong>Number Installments : {{ AmountAdvanced.strNumberInstallments }}</strong></li>
+        <li class="list-group-item"><strong>Frequency : {{ AmountAdvanced.strFreequency }}</strong></li>
+        <li class="list-group-item"><strong>Term of Loan : {{ AmountAdvanced.strLoanTerm }}</strong></li>
+        <li class="list-group-item"><strong>Loan Officer Signature :_______________________ </strong></li>
+        <li class="list-group-item"><strong>Date : {{ vstrTodayDate }}</strong></li>
+        <li class="list-group-item"><strong>Receiver Signature :___________________________ </strong></li>
+        <li class="list-group-item">Date : {{ vstrTodayDate }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Banking Details</h3>
+    </div>
+
+    <div class="box box-comment">
+      <ul class="list-group">
+        <li class="list-group-item">Account Holder : {{ Banking.strAccountHolder }}</li>
+        <li class="list-group-item">Banking Institution : {{ Banking.strBankingInstitution }}</li>
+        <li class="list-group-item">Account Number : {{ Banking.strBankAccountNumber }}</li>
+        <li class="list-group-item">Branch Code : {{ Banking.strBranchCode }}</li>
+        <li class="list-group-item">Account Type : {{ Banking.strAccountType }}</li>
+        <li class="list-group-item">Commencing Date : {{ Banking.strDateCommencement }}</li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Declaration</h3>
+    </div>
+
+    <div class="box box-comment">
+      I {{ LoanApplicant.strFullNames }} {{ LoanApplicant.strSurname }} of ID Number : {{ LoanApplicant.strIDNumber }}
+      hereby Acknowledge that i have fully and trustfully disclosed all my financial commitments to SA Loans in order for
+      them to make an accurate assessment to my affordabilty status as required by the nca.i further declared that
+      i am currently not over indebted and accepting this loan,i will not be putting myself in a position of indebtedness.
+      <ol>
+      <li>This pre-agreement/qouatatiom is valid for a period of 5 days and will form part of the contemplated loan
+      agreement if acceptable and signed by the client within the 5 days period.</li>
+      <li>The debit order instruction is only required to be signed by the client on acceptance of quote</li>
+        <Li>The adminstration/in future instruction are only required to be signed on acceptance qoute</Li>
+        <li>Should it be determined that any of the information provided by the borrower in order ton determine
+          the offer made in this qoutation was incomplete or incorrect,SA Loans reserves the right to cancel the
+          qoutation and issue the borrower with a quatation which reflrcts the accurate client
+                                                            information</li>
+       </ol>
+
+      I hearby  irrevocably instruct the payroll department not of the BORROWER ("employer") to deduct the instalment
+      as reflected in the pre agrement statement and qoutation from myremmunaration until the contractual amoubnt
+      has been paid in full.
+
+      The  installment amount may be varied or rescheduled as a results of default.
+      A variation as afore mentioned will results in total contractual amount being adjusted accordingly.
+      I acknowledge that deductions made in accordance to the employer ,or once the loan has been repaid in full.
+      If the salary deduction implemented on my payroll falls for whatsoever reason,
+      i authorize SA Loans to apply the debit order authorization as completed and agreed below.
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">Signature : </li>
+      <li class="list-group-item">Name : </li>
+      <li class="list-group-item">Date  : {{ vstrTodayDate }}</li>
+      <li class="list-group-item">Place :</li>
+    </ul>
+  </div>
+  <div class="box box-comment">
+    This part is only completed and signed upon acceptance of this quotation/pre-agreement I {{ LoanApplicant.strFullNames }} {{ LoanApplicant.strSurname }}
+    hereby authorize you the lender to draw (or any other bank or branch, which i may transfer my account) in accordance with the bank details
+    as stated above (in terms of the bank Act 94 of 1990).
+
+    All such withdrawals from my bank account by you shall be treated as though i have signed them personally. i understand that the:
+
+    <ol class="list-group">
+      <li class="list-group-item">Withdrawals hereby authorize will be processed by computer through an electronic system and i also understand that the
+      details of each withdrawal will be printed on my bank statement. i agree to bear all the cost and bank charges to me by my bank associated
+      with this debit order instruction.</li>
+      <li class="list-group-item">Should be paid weekly or fortnightly, i agree that the instalment be collected partly on weekly or fortnightly basis.</li>
+      <li class="list-group-item">in the event of there being insufficient funds available in my bank account to fully satisfy my contractual obligations to SA Loans</li>
+
+
+    </ol>
+  </div>
+
+  <div class="box box-comment">
+    I instruct my bank to collect a portion of the payment that is due, owing and payable by me to SA Loans and will permit SA Loans to as its discretion to continue
+    to re-present the payment instructions to my Bank until such time that my obligation in terms of the payment instruction is fully satisfied.
+    i further instruct my bank that SA Loans may issue and deliver payment instruction to my bank in addition to the number stipulated payments
+    in respect of any amount that maybe in arrears, including and not limited to any arrears iunterest, penalty costs and charges, that may
+    have occured as a result to me having made regular payments of my obligations as obtained in teh credit agreement concluded with SA Loans.
+
+    <ol class="list-group">
+      <li class="list-group-item">Signature : </li>
+      <li class="list-group-item">Name : </li>
+      <li class="list-group-item">Date : {{ vstrTodayDate }}</li>
+      <li class="list-group-item">Place: </li>
+    </ol>
+  </div>
+
+  <div class="box box-comment">
+    <div class="box box-title">
+      <h3>Interpretation and Definitions</h3>
+    </div>
+    <div class="box box-comment">
+      <h5>in the Agreement</h5>
+      <p>any Gender includes the other genders, the singular includes the plural, and natural person includes a juristic person.</p>
+      <p>any number of days prescribed shall be determined by including the last day, or where the last day falls on a day that is not a business
+      day, the next business day.</p>
+      <p>"Act" means the National Credit Act, Act 34of 2005 including all regulations to it.</p>
+      <p>"Agreement" mean the Pre-Agreement Statement and Qoutation. Pay out schedule, terms and Conditions, Credit Life Insurance Policy ( and any annexure or references to it),
+      which contains the material elements of the Credit Transact ion with the Credit Provider.</p>
+      <p>"Consumer" means the applicant as described in Credit Receiver details of the Pre-Agreement statement and Quotation.</p>
+      <p>"Credit Bureau" Means any Credit Bureau that the Credit Provider may use from time to time.</p>
+      <p>"Credit Provider" Means </p>
+      <p>"Quote or Quotation" Means the Pre-Agreement statement and Qoutation as prescribed inspection 92 of the Act.</p>
+    </div>
+
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Consent and Acknowledgements by the Consumer</h3>
+    </div>
+
+    <p>The Consumer acknowledges that:</p>
+      <ol>
+      <li>he/she understands the cost,risks and implication of the agreement,</li>
+      <li>acknowledges that it has been explained to him/her in a language that
+          he/she understands and that the consumer have no objections to the agreement.</li>
+          <li>The consumer is a natural person neither of sound and sober mind and not an
+      emancipated minor nor subject to a court order holding the consumer mentally unfit.</li>
+        <li>The consumer was offered a signed copy of the agreement.</li>
+          <li>The consumer has not applied to be declared insolvent nor been declared insolvent
+              at the time of the conclusion of the agreement.</li>
+
+        <li>The consumer has not applied to be placed under administration in terms of
+            section 74 of the  magistrates court act,at the time of the conclusion of the agreement.</li>
+            <li>The consumer has not applied for debt-review with debt counsellor,nor alleged in court tha the consumer is not indebted,at the time of agreement.</li>
+
+          <li>The consumer is not subject to a debt re-arrangement order in terms of section 87(1((b)(ii)of the act.</li>
+          <li>The consumer is aware that if two or more consumers sign the agreement,said shall be liable,jointly,severally and per person.</li>
+            <li>Notwithstanding the fact that reference to the consumer is made in the singular or male or female,such reference shall incluede several consumers where applicable.if the agreement implies more than one consumers,the
+      signatories here to shall remain liable in full even if the other consumers so implied did not sign the agreement.</li>
+              <li>The consumer agrees and gives the credit provider the right to contact any third party to confirm the information supplied
+                  or to acquire or extract any information regarding the consumers financial status,
+      including banking details,credit record,payment history and any information listed on the national credit(loans)register or any registered credit bureau and
+      to confirm the employment record with the employer,including the status of employment,remuneration,pay date and account that salary is deposited into.</li>
+        </ol>
+
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Cost of Credit</h3>
+    </div>
+
+    <h4>Principal Debt</h4>
+      <p>The Principal Debt,as set out in the quote,will be paid either in
+      cash to the consumer or in a preferred and stipulated bank account,nominated by
+      the consumer as per the pay out schedule.</p><p>In the SA Loans event of a consolidation
+      loan,the principal debt will be paid out ectronically as instructed by the
+      consumer and agreed to by both parties in the pay schedule.</p>
+      <h4>Initiation Fee</h4>
+      <p>it has been explained to the consumer that he/she has the option of
+      paying the initiation fee upfront.the consumer has chosen not to pay initiation
+      fee upfront and understand that it will now form part of the principal debt as set
+      out in the quote. initiation fee will be charged at the maximum rate prescribed in
+      the act.</p>
+      <h4>Service Fee</h4>
+    <p>The Consumer understands that the service fee will be charged on a monthly basis until the agreement has been paid in full.
+    in any event the service fee will be charged at the maximum rate prescribed in the Act.</p>
+      <h4>Interest</h4>
+          <p>The interest rater is a fixed rate as stipilated and calculated in part c of the qoute. interest
+           will accrue at the fixed interest disclosed in the qoute and will be calculated and charged from the date
+          on which the loan amount or any part thereof is advanced to thr consumer,or on the consumer,s behalf  and calculated
+          dairly on the basis of a year of 365.25 days(capitalized monthly arears),wheather or not the year is a leap year,
+          and debited monthly arrears.interest will be calculated as prescribed in the act at the maximum rate  allowed.</p>
+
+    <h4>Default Administration Charges</h4>
+      <p>When a consumer is in default a noticemay be sent to draw the consumwer,s attention to the default.For each and
+       every notice sent in term of section 12 9(1) of the act ,the neessary and reasonable cost to deliver such a
+      letter r plus the prescribed costs for a registered letter of demand in undefended actions in terms of the magistrate
+      court act of 994 will be charged.</p>
+
+    <h4>Collection Costs</h4>
+       <p>In the event that the credit provider needs to aproach a court to enforce an
+       agreement , the consumer is liable for all legal and tracing cost on an
+       attorney and own client scale as well as collection commision and disbursements.</p>
+
+       <p>Collection costss will be calculated at the maximum rate in terms of the
+       supreme court act (1959),Magistrates Couert Act(194 4), atorneys act(1979) or
+       the Debt Collector s act(19980,whichever is applicable to the enforcement
+       of the agreement.</p>
+
+    <h4>Penalty Interest</h4>
+      <p>Any penalty Interest that is charged while the consumer is in arrears or default
+      will be the same rate as the maximum interest prescribed in the qoute.</p>
+    <h4>Right to Repay Any Amount</h4>
+    The Consumer has the right to repay any amount owed, at any time, without notice or penalty in terms of Section 126 of the Act. the Consumer has the right to re-pay any payment
+    before the due date in terms of Section 126(2) of the Act. Should the Consumer have more than one loan with the Credit Provider, the Consumer agrees that the
+    Credit Provider may use any credit balance due to the Consumer to pay off any amount the consumer owes on any other Agreement.
+  <h5>Payment will be allocated as follows in terms of Section 126(3) of the Act:</h5>
+
+  <ol class="list-group">
+    <li class="list-group-item">Firstly to satisfy any due or upaid interest charges</li>
+    <li class="list-group-item">Secondly, to satisfy any due or unpaid fees or charges, and </li>
+    <li class="list-group-item">Thirdly, to reduce the amount of the principal debt.</li>
+  </ol>
+  </div>
+
+<div class="box box-comments">
+  <div class="box box-title">
+    <h3>Statement</h3>
+  </div>
+  The Consumer agreed to receive Statements of the account on a three monthly basis, collectible at any of the Credit Provider branch.
+</div>
+
+<div class="box box-comments">
+  <div class="box box-title">
+    <h3>Information Sharing Practices (Credit Bureaus)</h3>
+  </div>
+
+  In Accordance with Section 69 of the Act, any and all agreement, defaults, traversal's of rights as well as accounts that are paid, must be submitted to the National
+  Credit (Loans) Registered or to a registered Credit Bureau. The Consumer confirms that the Credit Provider may disclose information regarding the Consumer's application,
+  opening and termination of accounts with the Credit Provider and any non-compliance with the Agreement to Any Credit Bureau. The Credit Bureaus provides a credit profile and credit
+  score on the credit worthiness of the Consumer  subject to all this records. The Credit Provider may contact any third party to the extent permitted by the act or any other law
+  gain information relating to the Consumer's credit application. The Credit Provider may request a credit profile of the Consumer from any Credit Bureau. The Consumer has the
+  right to contact the Credit Bureau, request its credit record and correct any inaccurate information in relation to its credit record. The Contact details of the Credit Breaus to
+  which the Credit. Provider provided credit information is as follows:
+
+  <h4>Marketing Practices:</h4>
+  The consumers was offered the option and opportunity to decline or to be excluded from the options mentioned in section 74(6) of the Act.
+
+</div>
+
+
+<div class="box box-comments">
+  <div class="box box-title">
+    <h3>Disputes:</h3>
+  </div>
+  The Consumer may contact the Credit Provider during office hours and submit a written query, which will be answered within 3 working days time. The Consumer has
+  the right to resolve a compliant by way of revering the matter to a Debt Counsellor, alternative Dispute Resolution Agent, Consumer Court or the amount
+  or by filling a compliant is The Consumer can contact the department of Trade and industry for the relevant telephone number or alternatively The National Credit Regulator
+  and National Consumer Tribunal can be contacted on 0860 627627 or www.ncr.org.za or www.thenct.org.za
+
+</div>
+
+<div class="box box-comments">
+  <div class="box box-title">
+    <h3>Termination of the Agreement by the Credit Provider</h3>
+  </div>
+  In the event of the Agreement being in default, the Credit Provider may take steps in terms of Section 129 &amp; 130 of the Act, to enforce
+  and terminate the Agreement
+
+  <h4>Default Procedures</h4>
+
+  Should the Consumer breach any terms or conditions of the agreement, default in the punctual payment of the Account, commit any insolvency, or surrender his/her
+  estate or die having made any inaccurate statement or representation in connection with the Agreement or his/her financial affairs, then upon the happening of any these events, to the extent
+  permitted by the Act, the Credit Provider shall entitled to claim immediate payment of all amounts owing, all of which shall be deemed due and payable
+  in the event of any account or Agreement being in default, a notice in terms of Section 129(1) of the Act will be sent to the Consumer drawing his/her attention
+  to the default as well as the remedies available.
+  Should the Consumer ignore the Notice or ereject the proposal to bring the agreement up to date, the Credit Provider has the right to approach the court for an order to enforce
+  the agreement all amounts of whatsoever nature, due in terms of the Agreement and not paid when it is due, shall bear interest at the highest interest rate applicable (Section 103(1) of
+  the Act) to any part of the principal debt as stipulated on the Quote (Calculated daily and capitalized monthly), calculated d from due date until actual payment.
+
+  The Consumer acknowledges and gives consent that the Credit Provider may access any information (Including Credit Bureau Checks) and approaches any party to confirm and assist them in the tracing
+  and collecttion processes. The Consumer understands and consents that adverse information will be submitted to the Credit Bureaus.
+
+
+</div>
+
+
+<div class="box box-comments">
+  <div class="box box-title">
+    <h3>Debt Review</h3>
+  </div>
+  in the event of the Consumer experiencing financial difficulty or at any given time, the Consumer has the right to approach a Register Debt Counsellor to have
+  his/her debt reviewed. Should the Debt Counsellor find the Consumer over indebted, he may proceed to negotiate a re payment plan for and on behalf of the Consumer. if the Consumer's
+  account was defaulted and steps have been taken in terms of section 129(1) and 130 of the Act, the Credit Provider is excluded from the debt
+  review process and has the right to continue with legal action in terms of Section 8 6(2) of the Act. Effects of Debt Review: A Consumer who has filed an application
+  interms of section 86(1) of the Act (Debt Review) or who has alleged in court that he is over indebted,
+
+  <h4>Must not enter into any further agreements, until:</h4>
+  <ol class="list-group">
+    <li class="list-group-item">The Debt Counsellor has rejected the application</li>
+    <li class="list-group-item">The court has determined that the consumer is not over-indebted or</li>
+  </ol>
+</div>
+
+
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Address for Notices:</h3>
+    </div>
+    The Consumer chooses his/her street address as described in Credit receiver details at the Quote as the Domicialliary executant-meaning that
+    all legal notices may be served at this specified address and even if the Consumer does not receive such documents in person, it shall be deemed
+    served. For the purposes of legal notifications from one party to the other, all notices must be delivered by registered by mail or by Hand.
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Session</h3>
+    </div>
+    The Credit Provider has the right at any time to cede, sell, assign, or transfer all or any of its rights under the Agreement, without the consent of/or Prior notice to the Consumer.
+    The Consumer may be notice, delegate, sell, assign, or transfer any of its rights or obligations in terms of the Agreement to any other party.
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Certificate:</h3>
+    </div>
+    The Consumer agrees that a certificate signed by a manager of the Credit Provider (whose appointement and authority need to be proven) shall in the absence
+    of proof to the contrary, be sufficient and satisfactory proof for all purposes under the Agreement of the matters stated therein, including the amount
+    of the Consumers indebtedness to the Credit Provider.
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Jurisdiction</h3>
+    </div>
+    <h5>Both parties agree to jurisdiction of the Magistrates Court.</h5>
+
+    <ol class="list-group">
+      <li class="list-group-item">Name : </li>
+      <li class="list-group-item">Signature : </li>
+      <li class="list-group-item">Date : {{ vstrTodayDate }} </li>
+      <li class="list-group-item">Place : </li>
+    </ol>
+
+      <ol class="list-group">
+      <li class="list-group-item">Name : </li>
+      <li class="list-group-item">Signature : </li>
+      <li class="list-group-item">Date : {{ vstrTodayDate }}</li>
+      <li class="list-group-item">Place : </li>
+    </ol>
+
+  </div>
+
+  <div class="box box-comments">
+    <div class="box box-comment">
+      <a href="/employees/loans/print" class="btn btn-success btn-block" id="PrintFileButt"><i class="fa fa-print"> </i> Print </a>
+    </div>
+  </div>
+
+
+</div>
+
+
+    </div>
+        </div>
+    <!-- /.row -->
+    </div>

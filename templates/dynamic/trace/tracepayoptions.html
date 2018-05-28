@@ -1,0 +1,39 @@
+
+
+<div class="box">
+    <div class="box box-info">
+        <div class="box box-title">
+            <strong><i class="fa fa-credit-card"> </i> Payment Options</strong>
+        </div>
+
+        <div class="box box-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-6">
+
+                        <button type="button" class="btn btn-instagram btn-block" id="DirectDepositButt"><i class="fa fa-money"> </i> <strong>Direct Deposit</strong></button>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="QLRMD2KHX2A4S">
+                            <table>
+                            <tr><td><input type="hidden" name="on0" value="Deposit Amount">Deposit Amount</td></tr><tr><td><select name="os0">
+                                <option value="10 Dollars">10 Dollars $10.00 USD</option>
+                                <option value="20 Dollars">20 Dollars $20.00 USD</option>
+                                <option value="50 Dollars">50 Dollars $50.00 USD</option>
+                                <option value="100 Dollars">100 Dollars $100.00 USD</option>
+                            </select> </td></tr>
+                            </table>
+                            <input type="hidden" name="currency_code" value="USD">
+                            <button type="submit" class="btn btn-dropbox btn-block" id="PaywithPayPalButt"><i class="fa fa-credit-card"> </i> <strong>PayPal / Credit Card</strong></button>
+                      </form>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

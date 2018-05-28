@@ -1,0 +1,134 @@
+handlers:
+- url: /employees/loans
+  login: required
+  script: loans.app
+
+- url: /employees/loan-applications
+  login: required
+  script: loans.app
+
+- url: /loans/employmentdetails
+  login: required
+  script: loans.app
+
+- url: /loans/creditprovider
+  login: required
+  script: loans.app
+
+- url: /loans/advancedamount
+  login: required
+  script: loans.app
+
+- url: /loans/incomeexpenditure
+  login: required
+  script: loans.app
+
+- url: /loans/clientbankingdetails
+  login: required
+  script: loans.app
+
+- url: /loans/closeaccountnumber
+  login: required
+  script: loans.app
+
+- url: /loans/createfile
+  login: required
+  script: loans.app
+
+- url: /loans/activate
+  login: required
+  script: loans.app
+
+- url: /loans/activateform
+  login: required
+  script: loans.app
+
+- url: /employees/loans/print
+  login: required
+  script: loans.app
+
+- url: /loans/notes
+  login: required
+  script: loans.app
+
+- url: /loans/edit
+  login: required
+  script: loans.app
+
+- url: /loans/delete
+  login: required
+  script: loans.app
+
+- url: /loans/printsettlement
+  login: required
+  script: loans.app
+
+- url: /loans/printpaidup
+  login: required
+  script: loans.app
+
+- url: /loans/renew
+  login: required
+  script: loans.app
+
+- url : /loans/payments
+  login: required
+  script: loans.app
+
+- url: /loans/paymentstatus
+  login: required
+  script: loans.app
+
+- url: /loans/payclient
+  login: required
+  script: loans.app
+
+- url : /loans/renew/print
+  login: required
+  script: loans.app
+
+- url: /employees/payments
+  login: required
+  script: loans.app
+
+- url: /loans/list/.*
+  login: required
+  script: loans.app
+
+- url: /loans/repayments/.*
+  login: required
+  script: loans.app
+
+- url: /loans/deleteadvanced
+  login: admin
+  script: loans.app
+
+- url: /loans/advanced/paid
+  login: required
+  script: loans.app
+
+- url: /loans/advanced/notpaid
+  login: required
+  script: loans.app
+
+- url: /loans/advanced/accountChange
+  login: required
+  script: loans.app
+
+- url : /loans/loaddate
+  login: required
+  script: loans.app
+
+- url: /loans/saveaccountsett
+  login: required
+  script: loans.app
+
+- url: /loans/setupcollection
+  login: required
+  script: loans.app
+
+- url: /loans/payments/loadcsv
+  login: required
+  script: loans.app
+
+

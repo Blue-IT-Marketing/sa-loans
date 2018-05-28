@@ -1,0 +1,76 @@
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#DepositFundsButt').click(function(){
+
+            var dataString  = 1;
+              $.ajax({
+                    type: "get",
+                    url: "/admin/trace/depositfunds",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#DepositFundsINFDIV').html(html)
+
+                  }
+              });
+        });
+    });
+</script>
+<div class="box box-info">
+    <div class="box box-title">
+        <strong><i class="glyphicon glyphicon-map-marker"> </i> Trace &amp; Verifications</strong>
+    </div>
+    <div class="box box-body">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Available Balance : <i class="glyphicon glyphicon-usd"> </i> {{ thisTrace.strAvailableBalance }}.00 </strong></li>
+            <li class="list-group-item"><button type="button" class="btn btn-bitbucket btn-block" id="DepositFundsButt"><i class="glyphicon glyphicon-usd"> </i><strong> Deposit Funds </strong> </button> </li>
+        </ul>
+    </div>
+    <div id="DepositFundsINFDIV">
+    <div class="box box-body">
+
+        <h4><strong>Buying Power</strong></h4>
+        <strong><small>Estimated Possible Transactions Estimated from Available Balance</small></strong>
+        <ul class="list-group">
+            <ul class="list-group">
+                {% if thisBuyingPower.strIDNumberVerifications == None %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-user"> </i> <strong> ID Number Verifications : 0 </strong></li>
+                {% else %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-user"> </i> <strong> ID Number Verifications : {{ thisBuyingPower.strIDNumberVerifications }}  </strong></li>
+                {% endif %}
+
+                {% if thisBuyingPower.strDriversLicenseVerification == None %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-road"> </i>  <strong> Driver License Verifications : 0</strong></li>
+                {% else %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-road"> </i>  <strong> Driver License Verifications : {{ thisBuyingPower.strDriversLicenseVerification }} </strong></li>
+                {% endif %}
+
+                {% if thisBuyingPower.strBankAccVer == None %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-credit-card"> </i> <strong> Bank Account Verifications : 0</strong></li>
+                {% else %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-credit-card"> </i> <strong> Bank Account Verifications : {{ thisBuyingPower.strBankAccVer }}</strong></li>
+                {% endif %}
+
+                {% if thisBuyingPower.strConsumerTrace == None %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-eye-open"> </i> <strong> Consumer Trace : 0</strong></li>
+                {% else %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-eye-open"> </i> <strong> Consumer Trace : {{ thisBuyingPower.strConsumerTrace }} </strong></li>
+                {% endif %}
+
+                {% if thisBuyingPower.strCellToID == None %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-phone"> </i> <strong>Cell to ID Number : 0</strong></li>
+                {% else %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-phone"> </i> <strong>Cell to ID Number : {{ thisBuyingPower.strCellToID }}</strong></li>
+                {% endif %}
+
+                {% if thisBuyingPower.strAddressTelTrace == None %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-envelope"> </i> <strong> Find Addresses : 0</strong></li>
+                {% else %}
+                    <li class="list-group-item"><i class="glyphicon glyphicon-envelope"> </i> <strong> Find Addresses : {{ thisBuyingPower.strAddressTelTrace }}</strong></li>
+                {% endif %}
+            </ul>
+        </ul>
+    </div>
+    </div>
+</div>

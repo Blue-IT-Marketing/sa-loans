@@ -1,0 +1,62 @@
+application: sa-loans
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+includes:
+
+- navigation.yaml
+- messaging.yaml
+- globalhistory.yaml
+- creditrating.yaml
+- profiles.yaml
+- loans.yaml
+- employee.yaml
+- branch.yaml
+- admin.yaml
+- dynamic.yaml
+- leads.yaml
+- chats.yaml
+- tasks.yaml
+- trace.yaml
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /static
+  static_dir: static
+
+- url: /employees
+  login: required
+  script: main.app
+
+- url: /register
+  login: required
+  script: main.app
+
+- url: /employees/leads
+  login: required
+  script: main.app
+
+- url: /contact/submit
+  login: required
+  script: contact.app
+
+- url: /contact
+  login: required
+  script: contact.app
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: latest
+
+
+inbound_services:
+- mail
+- warmup

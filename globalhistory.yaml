@@ -1,0 +1,8 @@
+handlers:
+
+- url: /clientcheck/withid/.*
+  script: clientglobalhistory.app
+- url: /sendreq/clientidcheck/.*
+  script: clientglobalhistory.app
+- url: /employees/rating/print/.*
+  script: clientglobalhistory.app

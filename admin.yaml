@@ -1,0 +1,74 @@
+handlers:
+
+- url: /admin
+  login: admin
+  script: admin.app
+
+- url: /admin/empexist
+  login: admin
+  script: admin.app
+
+- url: /admin/employees/delete
+  login: admin
+  script: admin.app
+
+- url: /admin/registration/request
+  login: required
+  script: admin.app
+
+- url: /admin/contactform
+  login: admin
+  script: admin.app
+
+- url: /admin/contact/.*
+  login: admin
+  script: admin.app
+
+- url: /admin/userrights/employees/.*
+  login: admin
+  script: admin.app
+
+- url: /dynamic/admin/branch/employees/.*
+  login: admin
+  script: admin.app
+
+- url: /admin/userpersonals/employees/.*
+  login: admin
+  script: admin.app
+
+- url: /dynamic/admin/userrights
+  login: admin
+  script: admin.app
+
+- url: /admin/financial/branch
+  login: admin
+  script: admin.app
+
+- url: /dynamic/management/companymanagement
+  login: admin
+  script: admin.app
+
+- url: /admin/companydetails
+  login: admin
+  script: admin.app
+
+- url: /loans/processadvanced
+  login: admin
+  script: loans.app
+
+- url: /admin/branchincome
+  login: admin
+  script: admin.app
+
+- url: /admin/branchcosts
+  login: admin
+  script: admin.app
+
+- url: /admin/lockstatus
+  login: admin
+  script: admin.app
+
+- url: /admin/globalhistorycheck
+  login: admin
+  script: admin.app
+

@@ -1,0 +1,80 @@
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#strDateCreditProviderSigned').click(function(){
+            var d = new Date();
+            var curday = d.getDate();
+            var curmonth = d.getMonth()+1;
+            var curyear = d.getFullYear();
+            document.getElementById('strDateCreditProviderSigned').value = curyear + "-" + curmonth + "-" + curday;
+          });
+      });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#SaveCreditProviderButt').click(function(){
+            var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+
+            var dataString = '&vstrAccountNumber=' + varstrAccoutNumber ;
+              $.ajax({
+                    type: "post",
+                    url: "/loans/creditprovider",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#CreditProviderDIVInf').html(html)
+                  }
+              });
+
+          });
+      });
+</script>
+
+<div class="box">
+    <div class="box box-info">
+        <div class="box box-title">
+            <h3>Credit Provider Details</h3>
+        </div>
+        <div class="box box-comments">
+            <ul class="box box-comment">
+                <li class="list-group-item"><h4>Name of Credit Provider</h4></li>
+                <li class="list-group-item">SA Loans</li>
+                <li class="list-group-item"><h4>Physical Address</h4></li>
+                <li class="list-group-item">Mashapa Complex</li>
+                <li class="list-group-item">1st Floor, Office No. B12 & 14</li>
+                <li class="list-group-item">Thohoyandou</li>
+                <li class="list-group-item">0950</li>
+                <li class="list-group-item">Tel : 015 962 0976</li>
+                <li class="list-group-item">NCR Registration : NCRCP5905</li>
+                <li class="list-group-item">Company Reg: 2007/036777/23</li>
+                <li class="list-group-item">Branch :
+                <select id="strBranches" name="vstrNraches">
+                    {% for branch in BranchList %}
+                      <option value="{{ branch.strCompanyBranchCode }}">{{ branch.strCompanyBranchName }}</option>
+                    {% endfor %}
+                </select></li>
+                <li class="list-group-item">Loan Officer:
+                <select id="strEmaployees" name="vstrEmployees">
+                    {% for employee in EmployeeList %}
+                    <option value="{{ employee.strEmployeeCode }}">{{ employee.strFullNames }} {{ employee.strSurname }}</option>
+                    {% endfor %}
+                </select>
+                </li>
+                <li class="list-group-item">Date: <input type="text" class="form-control" id="strDateCreditProviderSigned" name="vstrDateCreditProviderSigned" placeholder="Click" size="16"></li>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <button type="button" class="btn btn-facebook btn-block" id="SaveCreditProviderButt"><i class="fa fa-save"> </i> Save</button>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+        <div class="box box-comment">
+            <div id="CreditProviderDIVInf">
+
+            </div>
+        </div>
+    </div>
+
+</div>

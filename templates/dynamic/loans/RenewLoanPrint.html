@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Print File | SA Loans</title>
+
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../../static/dist/css/AdminLTE.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+    <script src="../../../static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body onload="window.print();">
+<div class="wrapper">
+  <!-- Main content -->
+  <section class="invoice">
+    <!-- title row -->
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="page-header">
+          <i class="fa fa-globe"></i> SA Loans.
+
+        </h2>
+        <small class="pull-left">Date: {{ vstrTodayDate }}</small>
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- info row -->
+    <div class="box box-body">
+        <div class="col-md-9">
+        <div class="row invoice-info">
+
+
+<div class="box-body">
+    <div class="box box-title">
+      <h3>SA Loans Client File</h3>
+    </div>
+
+  <!-- Credit Provider -->
+  <div class="row">
+  <div class="col-md-6">
+    <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Credit Provider Details</h3>
+    </div>
+    <div class="box-comment">
+      <ul>
+        <li><strong>Name of Credit Provider : SA Loans</strong></li>
+        <li><strong>Physical Address : Mashapa Complex, 1st Floor, Office No. B12&amp;14, Thohoyandou, 0950</strong></li>
+        <li><strong>Telephone Number : (015) 962-0976</strong></li>
+        <li><strong>Credit provider NCR Registration Number : NCRCP5905</strong></li>
+        <li><strong>Company Registration Number : 2007/036777/23</strong></li>
+        <li><strong>Branch : {{ Employee.strBranchCode }} </strong></li>
+        <li><strong>Loan Officer : {{ Employee.strFullNames }} , {{ Employee.strSurname }} </strong> </li>
+        <li><strong>Date : {{ vstrTodayDate }} </strong></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  <!-- Loan Receiver -->
+  <div class="col-md-6">
+    <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Loan Receiver Details</h3>
+    </div>
+
+    <div class="box box-comment">
+      <ul>
+        <li><strong>Name of Credit Receiver : {{ LoanApplicant.strFullNames }} - {{ LoanApplicant.strSurname }} </strong> </li>
+        <li><strong>Physical Address</strong>
+          <ol>
+              <li><strong>Stand Number : {{ LoanApplicant.strStandNumber }}</strong></li>
+              <li><strong>Street Name : {{ LoanApplicant.strStreetName }}</strong></li>
+              <li><strong>City/Town : {{ LoanApplicant.strCityTown }}</strong></li>
+              <li><strong>Province : {{ LoanApplicant.strProvince }}</strong></li>
+              <li><strong>Country : {{ LoanApplicant.strCountry }}</strong></li>
+              <li><strong>Postal Code : {{ LoanApplicant.strPostalCode }}</strong> </li>
+          </ol>
+        </li>
+        <li><strong>Work Tel : {{ LoanApplicant.strTel }}</strong></li>
+        <li><strong>Home Tel : {{ LoanApplicant.strTel }}</strong></li>
+        <li><strong>Cell : {{ LoanApplicant.strCell }}</strong></li>
+
+        <li><strong>ID Number : {{ LoanApplicant.strIDNumber }}</strong></li>
+        <li><strong>Client Account Number : {{ LoanApplicant.strAccountNumber }}</strong></li>
+        <li><strong>Date : {{ LoanApplicant.strDateReceived }}</strong></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+   <!-- Advanced Amount -->
+  <div class="box box-comments">
+    <div class="box box-title">
+      <h3>Advanced Amount</h3>
+    </div>
+    <div class="box box-comment">
+      <ul>
+        <li><strong>Credit Advanced (Capital) : {{ AmountAdvanced.strCreditAdvancedCapital }}</strong></li>
+        <li><strong>Initiation Fee (You can choose to pay separately at Maximum 15% of credit Advanced ) : {{ AmountAdvanced.strInitiationFee }}</strong></li>
+        <li><strong>Monthly Service Fee : {{ AmountAdvanced.strMonthlyServiceFee }} </strong></li>
+        <li><strong>Amount Advanced To Client : {{ AmountAdvanced.strAmountAdvancedToClient }}</strong></li>
+        <li><strong>Monthly Interest Rate : {{ AmountAdvanced.strMonthlyInterest }}</strong></li>
+        <li><strong>Interest Type : </strong></li>
+        <li><strong>Total Interest Payable : </strong></li>
+        <li><strong>Total Installments : {{ AmountAdvanced.strTotalInstallments }}</strong></li>
+        <li><strong>Number Installments : {{ AmountAdvanced.strNumberInstallments }}</strong></li>
+        <li><strong>Frequency : {{ AmountAdvanced.strFreequency }}</strong></li>
+        <li><strong>Term of Loan : {{ AmountAdvanced.strLoanTerm }}</strong></li>
+        <li><strong>Loan Officer Signature : </strong></li>
+        <li><strong>Date : {{ vstrTodayDate }}</strong></li>
+        <li><strong>Receiver Signature : </strong></li>
+        <li>Date : {{ vstrTodayDate }}</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+    </div>
+        </div>
+    <!-- /.row -->
+    </div>
+    <!-- /.row -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- ./wrapper -->
+</body>
+</html>

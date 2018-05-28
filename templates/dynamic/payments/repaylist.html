@@ -1,0 +1,53 @@
+
+
+
+          <table id="UpcomingPaymentsTable" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Account Number</th>
+                  <th>Advanced Capital</th>
+                  <th>Number Installments</th>
+                  <th>Total Installments</th>
+                  <th>Total Paid</th>
+                  <th>Date Taken</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for advanced in thisAdvanceList %}
+                <tr>
+                  <td><a href="/loans/list/{{ advanced.strAccountNumber }}">{{ advanced.strAccountNumber }}</a></td>
+                  <td>{{ advanced.strCreditAdvancedCapital }}</td>
+                  <td>{{ advanced.strNumberInstallments }}</td>
+                  <td>{{ advanced.strTotalInstallments }}</td>
+                  <td>{{ advanced.strTotalAmountRePaid }}</td>
+                  <td>{{ advanced.strDateTaken }}</td>
+                  <td><a href="/loans/repayments/{{ advanced.strAdvancedIndex }}" type="button" class="btn btn-warning btn-block">Process</a> </td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Account Number</th>
+                  <th>Advanced Capital</th>
+                  <th>Number Installments</th>
+                  <th>Total Installments</th>
+                  <th>Total Paid</th>
+                  <th>Date Taken</th>
+                  <th>Action</th>
+                </tr>
+                </tfoot>
+           </table>
+<script>
+  $(function () {
+    $('#UpcomingPaymentsTable').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>

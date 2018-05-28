@@ -1,0 +1,10 @@
+handlers:
+
+- url: /trace/admin
+  login: admin
+  script: trace.app
+
+- url: /trace/runtrace
+  login: required
+  script: trace.app
+

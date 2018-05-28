@@ -1,0 +1,5 @@
+handlers:
+
+- url: /employees/profiles
+  login: required
+  script: profiles.app

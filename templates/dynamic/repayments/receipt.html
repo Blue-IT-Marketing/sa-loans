@@ -1,0 +1,49 @@
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('#PrintReceiptButt').click(function(){
+
+            var dataString = 1;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/advanced/paid",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#DeleteAdvanceDivINF').html(html)
+                  }
+              });
+          });
+      });
+</script>
+
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+<div class="col-md-6">
+<div class="box box-info">
+    <div class="box box-title">
+        <h2>Payment Receipt</h2>
+        <small>SA Loans</small>
+    </div>
+    <div class="box box-body">
+        <ul class="list-group">
+            <li class="list-group-item">Reference Number : {{ vstrReferenceNum }} </li>
+            <li class="list-group-item">Account Number : {{ vstrAccountNumber }}</li>
+            <li class="list-group-item">Cashier : {{ vstrCashier }} </li>
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item">Amount Owed : {{ vstrAmountOwed }} </li>
+            <li class="list-group-item">Amount Paid : {{ vstrAmountPaid }}</li>
+            <li class="list-group-item">Balance : {{ vstrBalance }}</li>
+            <li class="list-group-item">Date of Last Payment : {{ vstrDateOfPayment }} </li>
+        </ul>
+    </div>
+    <div class="box box-body">
+        <button class="btn btn-success btn-block" id="PrintReceiptButt"><i class="fa fa-print"> </i> <strong>Print Receipt</strong></button>
+    </div>
+</div>
+</div>
+</div>

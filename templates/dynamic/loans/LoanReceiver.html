@@ -1,0 +1,213 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#strDate').click(function(){
+            var d = new Date();
+            var curday = d.getDate();
+            var curmonth = d.getMonth()+1;
+            var curyear = d.getFullYear();
+            document.getElementById('strDate').value = curyear + "-" + curmonth + "-" + curday;
+          });
+      });
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#LoanReceiverSaveButt').click(function(){
+            var vstrAccountNumber = document.getElementById('strAccountNumber').value;
+            var vstrNameCreditReceiver = document.getElementById('strNameCreditReceiver').value;
+            var vstrStandNumber =document.getElementById('strStandNumbers').value;
+            var vstrStreetName = document.getElementById('strStreetName').value;
+            var vstrCityTown = document.getElementById('strCityTown').value;
+            var vstrProvince = document.getElementById('strProvince').value;
+            var vstrCountry = document.getElementById('strCountry').value;
+            var vstrPostalCode = document.getElementById('strPostalCode').value;
+            var vstrWorkTel = document.getElementById('strWorkTel').value;
+            var vstrHomeTel = document.getElementById('strHomeTel').value;
+            var vstrCell = document.getElementById('strCell').value;
+            var vstrIDNumber = document.getElementById('strIDNumber').value;
+            var vstrEmployer = document.getElementById('strEmployer').value;
+            var vstrDate = document.getElementById('strDate').value;
+
+            var dataString = '&vstrAccountNumber=' + vstrAccountNumber + '&vstrNameCreditReceiver=' + vstrNameCreditReceiver +
+                    '&vstrStandNumber=' + vstrStandNumber + '&vstrStreetName=' + vstrStreetName + '&vstrCityTown=' + vstrCityTown +
+                    '&vstrProvince=' + vstrProvince + '&vstrCountry=' + vstrCountry + '&vstrPostalCode=' + vstrPostalCode +
+                    '&vstrWorkTel=' + vstrWorkTel + '&vstrHomeTel=' + vstrHomeTel + '&vstrCell=' + vstrCell + '&vstrIDNumber=' + vstrIDNumber +
+                    '&vstrEmployer=' + vstrEmployer + '&vstrDate=' + vstrDate;
+              $.ajax({
+                    type: "post",
+                    url: "/loans/loanreceiver",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AdvanceAmountDIVINF').html(html)
+
+                  }
+              });
+        });
+    });
+</script>
+
+<div class="box">
+    <div class="box box-info">
+        <div class="box box-title">
+            <h3>Loan Receiver Details</h3>
+        </div>
+        <form class="form-horizontal" id="LoanReceiver" action="/loans/loanreceiver" method="post">
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <button type="button" class="btn btn-warning btn-block" id="CopyFromApplicantButt">Copy Applicant Details</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strNameCreditReceiver" class="col-sm-3 control-label pull-left" title="">Name Credit Receiver</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strNameCreditReceiver == None %}
+                        <input type="text" class="form-control" id="strNameCreditReceiver" name="vstrNameCreditReceiver" placeholder="Name Credit Receiver">
+                    {% else %}
+                        <input type="text" class="form-control" id="strNameCreditReceiver" name="vstrNameCreditReceiver" value="{{ LoanReceiverDetail.strNameCreditReceiver }}">
+                    {% endif %}
+                </div>
+            </div>
+            <h4>Physical Address</h4>
+            <div class="form-group">
+                <label for="strStandNumber" class="col-sm-3 control-label pull-left" title="">Stand Number</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strStandNumber == None %}
+                        <input type="text" class="form-control" id="strStandNumber" name="vstrStandNumber" placeholder="Stand Number">
+                    {% else %}
+                        <input type="text" class="form-control" id="strStandNumber" name="vstrStandNumber" value="{{ LoanReceiverDetail.strStandNumber }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strStreetName" class="col-sm-3 control-label pull-left" title="">Street Name</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strStreetName == None %}
+                        <input type="text" class="form-control" id="strStreetName" name="vstrStreetName" placeholder="Street Name">
+                    {% else %}
+                        <input type="text" class="form-control" id="strStreetName" name="vstrStreetName" value="{{ LoanReceiverDetail.strStreetName }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCityTown" class="col-sm-3 control-label pull-left" title="">City/Town</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strCityTown == None %}
+                        <input type="text" class="form-control" id="strCityTown" name="vstrCityTown" placeholder="City/Town">
+                    {% else %}
+                        <input type="text" class="form-control" id="strCityTown" name="vstrCityTown" value="{{ LoanReceiverDetail.strCityTown }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strProvince" class="col-sm-3 control-label pull-left" title="">Province</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strProvince == None %}
+                        <input type="text" class="form-control" id="strProvince" name="vstrProvince" placeholder="Province">
+                    {% else %}
+                        <input type="text" class="form-control" id="strProvince" name="vstrProvince" value="{{ LoanReceiverDetail.strProvince }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCountry" class="col-sm-3 control-label pull-left" title="">Country</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strCountry == None %}
+                        <input type="text" class="form-control" id="strCountry" name="vstrCountry" placeholder="Country">
+                    {% else %}
+                        <input type="text" class="form-control" id="strCountry" name="vstrCountry" value="{{ LoanReceiverDetail.strCountry  }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strPostalCode" class="col-sm-3 control-label pull-left" title="">Postal Code</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strPostalCode == None %}
+                        <input type="text" class="form-control" id="strPostalCode" name="vstrPostalCode" placeholder="Postal Code">
+                    {% else %}
+                        <input type="text" class="form-control" id="strPostalCode" name="vstrPostalCode" value="{{ LoanReceiverDetail.strPostalCode }}">
+                    {% endif %}
+                </div>
+            </div>
+            <h4>Contact</h4>
+            <div class="form-group">
+                <label for="strWorkTel" class="col-sm-3 control-label pull-left" title="">Work Tel:</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strWorkTel == None %}
+                        <input type="text" class="form-control" id="strWorkTel" name="vstrWorkTel" placeholder="Work Tel">
+                    {% else %}
+                        <input type="text" class="form-control" id="strWorkTel" name="vstrWorkTel" value="{{ LoanReceiverDetail.strWorkTel }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strHomeTel" class="col-sm-3 control-label pull-left" title="">Home Tel:</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strHomeTel == None %}
+                        <input type="text" class="form-control" id="strHomeTel" name="vstrHomeTel" placeholder="Home Tel">
+                    {% else %}
+                        <input type="text" class="form-control" id="strHomeTel" name="vstrHomeTel" value="{{ LoanReceiverDetail.strHomeTel }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strCell" class="col-sm-3 control-label pull-left" title="">Cell:</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strCell == None %}
+                        <input type="text" class="form-control" id="strCell" name="vstrCell" placeholder="Cell">
+                    {% else %}
+                        <input type="text" class="form-control" id="strCell" name="vstrCell" value="{{ LoanReceiverDetail.strCell }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strIDNumber" class="col-sm-3 control-label pull-left" title="">ID Number:</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strIDNumber == None %}
+                        <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber" placeholder="ID Number">
+                    {% else %}
+                    <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber" value="{{ LoanReceiverDetail.strIDNumber }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strAccountNumber" class="col-sm-3 control-label pull-left" title="">Account Number :</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strAccountNumber == None %}
+                        <input type="text" class="form-control" id="strAccountNumber" name="vstrAccountNumber" placeholder="SA Loans Account Number">
+                    {% else %}
+                        <input type="text" class="form-control" id="strAccountNumber" name="vstrAccountNumber" value="{{ LoanReceiverDetail.strAccountNumber }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strEmployer" class="col-sm-3 control-label pull-left" title="">Employer :</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strEmployer == None %}
+                        <input type="text" class="form-control" id="strEmployer" name="vstrEmployer" placeholder="Employer">
+                    {% else %}
+                        <input type="text" class="form-control" id="strEmployer" name="vstrEmployer" value="{{ LoanReceiverDetail.strEmployer }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strDate" class="col-sm-3 control-label pull-left" title="">Date :</label>
+                <div class="col-sm-9">
+                    {% if LoanReceiverDetail.strDateReceived == None %}
+                        <input type="text" class="form-control" id="strDate" name="vstrEmployer" placeholder="yyyy-mm-dd">
+                    {% else %}
+                        <input type="text" class="form-control" id="strDate" name="vstrEmployer" value="{{ LoanReceiverDetail.strDateReceived }}">
+                    {% endif %}
+                </div>
+            </div>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <button type="button" class="btn btn-facebook btn-block" id="LoanReceiverSaveButt"><i class="fa fa-save"> </i> Save</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+
+
+</div>

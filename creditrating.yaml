@@ -1,0 +1,19 @@
+handlers:
+
+- url: /employees/rating
+  login: required
+  script: creditrating.app
+
+- url: /rating/check
+  login: required
+  script: creditrating.app
+
+- url: /loans/history
+  login: required
+  script: creditrating.app
+
+- url: /employees/rating/.*
+  login: required
+  script: creditrating.app
+
+

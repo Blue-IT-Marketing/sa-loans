@@ -1,0 +1,9 @@
+handlers:
+
+- url: /admin/employees/.*
+  login: admin
+  script: Employee.app
+
+- url: /employees/admin
+  login: required
+  script: Employee.app

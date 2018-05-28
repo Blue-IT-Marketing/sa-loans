@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SA Loans  | Employees leads Capturing Form</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../../static/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../../static/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../../static/plugins/pace/pace.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../../static/plugins/datatables/dataTables.bootstrap.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<script src="../../../static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#DynamicHeader').load("/navigation/admin/header")
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#DynamicSideBar').load("/navigation/admin/sidebar")
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#FooterDIV').load("/navigation/footer")
+    });
+</script>
+<script type="application/javascript">
+    $(document).ready(function() {
+                $('#CheckCreditButt').click(function () {
+                    var vstrIDNumber = document.getElementById('strIDNumber').value;
+                    var dataString = '&vstrIDNumber=' + vstrIDNumber;
+                    $.ajax({
+                    type: "post",
+                    url: "/employees/rating",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html)
+                        }
+                    });
+                });
+            });
+</script>
+<script type="application/javascript">
+    $(document).ready(function() {
+                $('#ClientHistoryButt').click(function () {
+                    var vstrIDNumber = document.getElementById('strIDNumber').value;
+                    var dataString = '&vstrIDNumber=' + vstrIDNumber;
+                    $.ajax({
+                    type: "get",
+                    url: "/loans/history",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html)
+                        }
+                    });
+                });
+            });
+</script>
+<script type="application/javascript">
+    $(document).ready(function() {
+                $('#GlobalHistoryButt').click(function () {
+                    var vstrIDNumber = document.getElementById('strIDNumber').value;
+                    var dataString = "";
+                    var thisURL = "/sendreq/clientidcheck/" + vstrIDNumber;
+                    $.ajax({
+                    type: "get",
+                    url: thisURL,
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html)
+                        }
+                    });
+                });
+            });
+</script>
+
+<script type="application/javascript">
+    $(document).ready(function() {
+                $('#PBfindAddressButt').click(function () {
+                    var vstrIDNumber = document.getElementById('strIDNumber').value;
+                    var vstrSelector = 1;
+                    var dataString = "&vstrIDNumber="+ vstrIDNumber + '&vstrSelector=' + vstrSelector;
+                    var thisURL = "/trace/runtrace";
+                    $.ajax({
+                    type: "get",
+                    url: thisURL,
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html)
+                        }
+                    });
+                });
+            });
+</script>
+<script type="application/javascript">
+    $(document).ready(function() {
+                $('#PBverifyIDNumberButt').click(function () {
+                    var vstrIDNumber = document.getElementById('strIDNumber').value;
+                    var vstrSelector = 2;
+                    var dataString = "&vstrIDNumber="+ vstrIDNumber + '&vstrSelector=' + vstrSelector;
+                    var thisURL = "/trace/runtrace";
+                    $.ajax({
+                    type: "get",
+                    url: thisURL,
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html)
+                        }
+                    });
+                });
+            });
+</script>
+<script type="application/javascript">
+    $(document).ready(function() {
+                $('#PBVerifyDriverLicenceButt').click(function () {
+                    var vstrIDNumber = document.getElementById('strIDNumber').value;
+                    var vstrSelector = 3;
+                    var dataString = "&vstrIDNumber="+ vstrIDNumber + '&vstrSelector=' + vstrSelector;
+                    var thisURL = "/trace/runtrace";
+                    $.ajax({
+                    type: "get",
+                    url: thisURL,
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html)
+                        }
+                    });
+                });
+            });
+</script>
+<script type="application/javascript">
+    $(document).ready(function() {
+                $('#PBConsumerTraceButt').click(function () {
+                    var vstrIDNumber = document.getElementById('strIDNumber').value;
+                    var vstrSelector = 4;
+                    var dataString = "&vstrIDNumber="+ vstrIDNumber + '&vstrSelector=' + vstrSelector;
+                    var thisURL = "/trace/runtrace";
+                    $.ajax({
+                    type: "get",
+                    url: thisURL,
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html)
+                        }
+                    });
+                });
+            });
+</script>
+<script type="application/javascript">
+    $(document).ready(function() {
+                $('#PBContactToIDButt').click(function () {
+                    var vstrIDNumber = document.getElementById('strIDNumber').value;
+                    var vstrSelector = 5;
+                    var dataString = "&vstrIDNumber="+ vstrIDNumber + '&vstrSelector=' + vstrSelector;
+                    var thisURL = "/trace/runtrace";
+                    $.ajax({
+                    type: "get",
+                    url: thisURL,
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html)
+                        }
+                    });
+                });
+            });
+</script>
+<script type="application/javascript">
+    $(document).ready(function() {
+                $('#PBBankAccountVeryButt').click(function () {
+                    var vstrIDNumber = document.getElementById('strIDNumber').value;
+                    var vstrSelector = 6;
+                    var dataString = "&vstrIDNumber="+ vstrIDNumber + '&vstrSelector=' + vstrSelector;
+                    var thisURL = "/trace/runtrace";
+                    $.ajax({
+                    type: "get",
+                    url: thisURL,
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html)
+                        }
+                    });
+                });
+            });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+                $('#LoadBalanceButt').click(function () {
+                    var dataString =1;
+                    $.ajax({
+                    type: "get",
+                    url: "/trace/admin",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientInfDIV').html(html);
+                        }
+                    });
+                });
+            });
+</script>
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Loading the Headerfile Dynamically -->
+  <div id="DynamicHeader"></div>
+  <!-- =============================================== -->
+  <!-- Left side column. contains the sidebar -->
+  <div id="DynamicSideBar"></div>
+  <!-- =============================================== -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        SA Loans 
+        <small>SA Loans Online Information System</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/employees"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="/employees/leads"><i class="fa fa-dashboard"></i> leads</a></li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="box">
+            <div class="box box-info">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="box box-info">
+                            <div class="box box-title">
+                                <h3>Credit Ratings</h3>
+                            </div>
+                            <div class="box box-body">
+                                <button type="button" class="btn btn-success btn-block" id="CheckCreditButt"><i class="fa  fa-gavel"><strong>Check Credit Score</strong></i> </button>
+                                <button type="button" class="btn btn-success btn-block" id="ClientHistoryButt"><i class="fa fa-gavel"> </i><strong>Client History</strong> </button>
+                                <button type="button" class="btn btn-success btn-block" id="GlobalHistoryButt"><i class="fa fa-gavel"> </i><strong>Global History</strong> </button>
+                            </div>
+                            <div class="box box-body">
+                                <div class="box box-title">
+                                    <strong><i class="glyphicon glyphicon-map-marker"> </i> Trace &amp; Verifications</strong>
+                                </div>
+                                <button type="button" class="btn btn-facebook btn-block" id="PBfindAddressButt"><i class="glyphicon glyphicon-envelope"> </i> <strong>Find Addresses</strong> </button>
+                                <button type="button" class="btn btn-facebook btn-block" id="PBverifyIDNumberButt"><i class="glyphicon glyphicon-user"> </i> <strong>Verify ID Number</strong> </button>
+                                <button type="button" class="btn btn-facebook btn-block" id="PBVerifyDriverLicenceButt"><i class="glyphicon glyphicon-road"> </i> <strong>Verify Driver Licence</strong> </button>
+                                <button type="button" class="btn btn-facebook btn-block" id="PBConsumerTraceButt"><i class="glyphicon glyphicon-eye-open"> </i> <strong>Consumer Trace</strong> </button>
+                                <button type="button" class="btn btn-facebook btn-block" id="PBContactToIDButt"><i class="glyphicon glyphicon-phone"> </i> <strong>Cell to ID</strong> </button>
+                                <button type="button" class="btn btn-facebook btn-block" id="PBBankAccountVeryButt"><i class="glyphicon glyphicon-credit-card"> </i> <strong>Bank Account Verification</strong> </button>
+                            </div>
+                            <div class="box box-body">
+                                <div class="box box-title">
+                                    <strong><i class="glyphicon glyphicon-map-marker"> </i> Available Balance </strong>
+                                </div>
+                                <button type="button" class="btn btn-bitbucket btn-block" id="LoadBalanceButt"><i class="glyphicon glyphicon-list-alt"> </i> <strong>Load Balance</strong> </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-9">
+                        <div class="box box-info">
+                            <div class="box box-title">
+                                <h3>Client Info</h3>
+                            </div>
+                            <div class="box box-body">
+                                <form class="form-horizontal">
+                                     <label for="strIDNumber" class="col-sm-2 control-label">ID Number</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="box box-footer">
+                                    <div id="ClientInfDIV"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<div id="FooterDIV"></div>
+
+
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+<!-- Bootstrap 3.3.6 -->
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../../../static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../../static/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../../static/dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../../static/dist/js/demo.js"></script>
+<!-- PACE -->
+<script src="../../../static/plugins/pace/pace.min.js"></script>
+<!-- DataTables -->
+<script src="../../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+</body>
+</html>

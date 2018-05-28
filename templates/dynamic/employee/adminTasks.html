@@ -1,0 +1,66 @@
+<div class="box box-info">
+      <div class="box box-title">
+          <h3 class="fa fa-tasks">Employee Tasks</h3>
+      </div>
+      <div class="box box-body">
+          <table id="TaskList" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                  <td>Task ID</td>
+                  <td>Sent By</td>
+                  <td>Target</td>
+                  <td>Task URL</td>
+                  <td>Task Subject</td>
+                  <td>Task Note</td>
+                  <td>Time Created</td>
+                  <td>Completed</td>
+              </tr>
+
+              </thead>
+              <tbody>
+
+              {% for thisTask in thisTasksList %}
+
+                <tr>
+                    <td><a href="/tasks/open/{{ thisTask.strTaskID }}"><i class="fa fa-link"> </i> {{ thisTask.strTaskID }}</a></td>
+                    <td><a href="/employee/reference/{{ thisTask.strReference }}"><i class="fa fa-link"> </i>{{ thisTask.strReference }}</a></td>
+                    <td>{{ thisTask.strTaskTarget }}</td>
+                    <td><a href="{{ thisTask.strTaskURL}}"><i class="fa fa-link"> </i> {{ thisTask.strTaskURL}}</a></td>
+                    <td>{{ thisTask.strTaskSubject }}</td>
+                    <td>{{ thisTask.strTaskNote }}</td>
+                    <td>{{ thisTask.strDateTimeCreated }}</td>
+                    <td>{{ thisTask.strTaskCompleted }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+              <tfoot>
+              <tr>
+                  <td>Task ID</td>
+                  <td>Sent By</td>
+                  <td>Target</td>
+                  <td>Task URL</td>
+                  <td>Task Subject</td>
+                  <td>Task Note</td>
+                  <td>Time Created</td>
+                  <td>Completed</td>
+              </tr>
+              </tfoot>
+          </table>
+
+      </div>
+
+  </div>
+
+
+<script>
+  $(function () {
+    $('#TaskList').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>

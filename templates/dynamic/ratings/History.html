@@ -1,0 +1,39 @@
+<div class="box">
+    <div class="box box-info">
+        <div class="box box-title">
+            <h3>Client History</h3>
+        </div>
+        {% if Message %}
+            <p> {{ Message }}</p>
+            <a href="/employees/loans" class="btn btn-success btn-block"><i class="fa fa-users"> </i> <strong>Create Loan</strong> </a>
+        {% else %}
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item">Title : {{ thisLoanApplicant.strTitle }} </li>
+                    <li class="list-group-item">Full Names : {{ thisLoanApplicant.strFullNames }}</li>
+                    <li class="list-group-item">Surname : {{ thisLoanApplicant.strSurname }}</li>
+                    <li class="list-group-item">ID Number : {{ thisLoanApplicant.strIDNumber }}</li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"><a href="/loans/list/{{ thisLoanApplicant.strAccountNumber }}" class="btn btn-success btn-block"><i class="fa fa-link"> </i> <strong>Open Account</strong> </a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                {% for thisAdvance in thisAdvanceList %}
+                <ul class="list-group">
+                    <li class="list-group-item">Credit Advanced : {{ thisAdvance.strCreditAdvancedCapital }}</li>
+                    <li class="list-group-item">Date Taken : {{ thisAdvance.strDateTaken }}</li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item">Paid Status : {{ thisAdvance.strLoanPaidStatus }}</li>
+                    <li class="list-group-item">Total Paid : {{ thisAdvance.strTotalAmountRePaid }}</li>
+                    <li class="list-group-item">Date Paid : {{ thisAdvance.strPaymentDate }}</li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% endif %}
+    </div>
+
+
+</div>

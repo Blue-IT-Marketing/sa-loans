@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SA Loans | Employees  Covers</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Ion Slider -->
+  <link rel="stylesheet" href="../static/plugins/ionslider/ion.rangeSlider.css">
+  <!-- ion slider Nice -->
+  <link rel="stylesheet" href="../static/plugins/ionslider/ion.rangeSlider.skinNice.css">
+  <!-- bootstrap slider -->
+  <link rel="stylesheet" href="../static/plugins/bootstrap-slider/slider.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="../static/plugins/daterangepicker/daterangepicker.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="../static/plugins/datepicker/datepicker3.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="../static/plugins/iCheck/all.css">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="../static/plugins/colorpicker/bootstrap-colorpicker.min.css">
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="../static/plugins/timepicker/bootstrap-timepicker.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../static/plugins/select2/select2.min.css">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../static/dist/css/skins/_all-skins.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../static/plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="../static/plugins/pace/pace.min.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- jQuery 2.2.3 -->
+<script src="../static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#strDateJoined').click(function(){
+            var d = new Date();
+            var curday = d.getDate();
+            var curmonth = d.getMonth()+1;
+            var curyear = d.getFullYear();
+            document.getElementById('strDateJoined').value = curyear + "-" + curmonth + "-" + curday;
+          });
+      });
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('#EmploymentDetailsButt').click(function(){
+             var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+             var dataString = '&vstrAccountNumber=' + varstrAccoutNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/employmentdetails",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#EmploymentDetailsInfoDiv').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('#CreditProviderButt').click(function(){
+
+            var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+
+            var dataString = '&vstrAccountNumber=' + varstrAccoutNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/creditprovider",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#CreditProviderDivINF').html(html)
+                  }
+              });
+          });
+      });
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('#IncomeExpenditureButt').click(function(){
+            var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+            var dataString = '&vstrAccountNumber=' + varstrAccoutNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/incomeexpenditure",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#IncomeExpenditureDivINF').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#AdvancedAmountButt').click(function(){
+            var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+            var dataString = '&vstrAccountNumber=' + varstrAccoutNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/advancedamount",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AdvancedAmountInfoDiv').html(html)
+                  }
+              });
+
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#ClientBankingButt').click(function(){
+            var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+            var dataString = '&vstrAccountNumber=' + varstrAccoutNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/clientbankingdetails",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#ClientBankingDetailsDIVINF').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+    function isNumber(n){
+    return typeof(n) != "boolean" && !isNaN(n);
+}
+</script>
+<script type="text/javascript">
+function getAge(dateString) {
+
+    var dates = dateString.split("-");
+    var d = new Date();
+
+    var userday = dates[2];
+    var usermonth = dates[1];
+    var useryear = dates[0];
+
+    var curday = d.getDate();
+    var curmonth = d.getMonth()+1;
+    var curyear = d.getFullYear();
+
+    var age = curyear - useryear;
+
+    if((curmonth < usermonth) || ( (curmonth == usermonth) && curday < userday   )){
+        age--;
+    }
+    return age;
+}
+</script>
+<script type="text/javascript">
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#CreateLoanApplicant').click(function(){
+
+            var vstrAccountNumber = document.getElementById('strAccountNumber').value;
+            var vstrTitle = document.getElementById('strTitle').value;
+            var vstrSurname = document.getElementById('strSurname').value;
+            var vstrFullnames = document.getElementById('strFullnames').value;
+            var vstrIDNumber = document.getElementById('strIDNumber').value;
+            var vstrDateofBirth = document.getElementById('strDateofBirth').value;
+            var vstrNationality = document.getElementById('strNationality').value;
+            var vstrHouseNumber = document.getElementById('strHouseNumber').value;
+            var vstrStreetName = document.getElementById('strStreetName').value;
+            var vstrCityTown = document.getElementById('strCityTown').value;
+            var vstrResidentialProvince = document.getElementById('strProvince').value;
+            var vstrResidentialCountry = document.getElementById('strCountry').value;
+            var vstrResidentialPostalCode = document.getElementById('strPostalCode').value;
+
+            var vstrBoxNumber = document.getElementById('strBoxNumber').value;
+            var vstrPostalCityTown = document.getElementById('strPostalCityTown').value;
+            var vstrPostalProvince = document.getElementById('strPostalProvince').value;
+            var vstrPostalCountry = document.getElementById('strPostalCountry').value;
+            var vstrPostalCode = document.getElementById('strPostalPostalCode').value;
+
+            var vstrDayTimeNumber = document.getElementById('strTel').value;
+            var vstrCellNumber = document.getElementById('strCell').value;
+            var vstrEmail = document.getElementById('strEmail').value;
+            var vstrNextOfKinNames = document.getElementById('strNextOfKinNames').value;
+            var vstrNextOfKinAddress = document.getElementById('strNextOfKinAddress').value;
+            var vstrNextOfKinCell = document.getElementById('strNextOfKinCell').value;
+
+            var dataString = '&vstrAccountNumber=' + vstrAccountNumber + '&vstrTitle=' + vstrTitle + '&vstrSurname='+ vstrSurname +
+                    '&vstrFullnames='+ vstrFullnames + '&vstrIDNumber=' + vstrIDNumber + '&vstrDateofBirth=' + vstrDateofBirth +
+                    '&vstrNationality='+ vstrNationality + '&vstrHouseNumber=' + vstrHouseNumber + '&vstrStreetName=' + vstrStreetName + '&vstrCityTown=' + vstrCityTown + '&vstrResidentialProvince=' + vstrResidentialProvince +
+                    '&vstrResidentialCountry=' + vstrResidentialCountry + '&vstrResidentialPostalCode=' + vstrResidentialPostalCode + '&vstrBoxNumber=' + vstrBoxNumber +
+                    '&vstrPostalCityTown=' + vstrPostalCityTown + '&vstrPostalProvince=' + vstrPostalProvince + '&vstrPostalCountry=' + vstrPostalCountry +
+                    '&vstrPostalCode=' + vstrPostalCode + '&vstrDayTimeNumber=' + vstrDayTimeNumber + '&vstrCellNumber=' + vstrCellNumber + '&vstrEmail=' + vstrEmail + '&vstrNextOfKinNames=' +
+                    vstrNextOfKinNames + '&vstrNextOfKinAddress=' + vstrNextOfKinAddress + '&vstrNextOfKinCell=' + vstrNextOfKinCell;
+            $.ajax({
+                type: "post",
+                url: "/employees/loans",
+                data: dataString,
+                cache: false,
+                success: function (html) {
+                    $('#LoansDivINF').html(html)
+                }
+            });
+        });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#DynamicHeader').load("/navigation/header")
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#DynamicSideBar').load("/navigation/sidebar")
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#FooterDIV').load("/navigation/footer")
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#CloseActivePolicyButt').click(function(){
+            var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+            var dataString = '&vstrAccountNumber=' + varstrAccoutNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/closeaccountnumber",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#CloseActivePolicyINFDIV').html(html)
+                  }
+              });
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#CreateFileButt').click(function(){
+            var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+            var dataString = '&vstrAccountNumber=' + varstrAccoutNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/createfile",
+                    data: dataString,
+                    cache: false,
+                      success: function(html){
+                        $('#DashBoardInfoDiv').html(html)
+                      }
+              });
+          });
+      });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#ActivateLoanButt').click(function(){
+            var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+            var dataString = '&vstrAccountNumber=' + varstrAccoutNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/activateform",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#DashBoardInfoDiv').html(html)
+                  }
+              });
+
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        window.addEventListener('userproximity', function (event) {
+            if (event.near) {
+                // let's power off the screen
+                navigator.mozPower.screenEnabled = false;
+            } else {
+                // Otherwise, let's power on the screen
+                navigator.mozPower.screenEnabled = true;
+            }
+        });
+    });
+</script>
+
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Loading the Headerfile Dynamically -->
+  <div id="DynamicHeader"></div>
+  <!-- =============================================== -->
+  <!-- Left side column. contains the sidebar -->
+  <div id="DynamicSideBar"></div>
+  <!-- =============================================== -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+       SA Loans
+        <small>SA Loans Online Information System</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/employees"><i class="fa fa-dashboard"></i> Employees</a></li>
+        <li class="active"><a href="/employees/-cover"><i class="fa fa-dashboard"></i>  Cover</a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Employees Section</h3>
+          <small>Loans</small>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <div class="box-info">
+                    <!-- /.box -->
+                  <div class="col-sm-3">
+                    <a href="/employees/loans"   class="btn btn-warning btn-block"> <i class="fa fa-refresh"> </i> Refresh</a>
+                  </div>
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li   class="active"><a href="#NewCreateLoans" data-toggle="tab"><i class="fa fa-file"> </i> <strong>Create/Edit Loans</strong></a></li>
+              <li><a href="#Loans" data-toggle="tab"> <i class="fa fa-user-plus"> </i> <strong>Active Loans</strong></a></li>
+            </ul>
+            <div class="tab-content">
+
+              <div class="active tab-pane" id="NewCreateLoans">
+                <span class="label label-info"><i class="fa fa-file"> </i> <strong>Create/Edit New Loans</strong></span>
+
+                  <div class="row">
+                     <div class="col-md-3">
+
+                      <!-- Profile Image -->
+                      <div class="box box-primary">
+                        <div class="box-body box-profile">
+                          <h4>Data Capture</h4>
+                          <a href="#ApplicantDetails" class="btn btn-primary btn-block" id="ApplicantDetailsButt" data-toggle="tab"><i class="fa fa-user"> </i> <b>Applicant Details</b></a>
+                          <a href="#EmploymentDetails" class="btn btn-primary btn-block" id="EmploymentDetailsButt" data-toggle="tab"><i class="fa fa-wrench"> </i> <b>Employment Details</b></a>
+                          <a href="#IncomeExpenditure" class="btn btn-primary btn-block" id="IncomeExpenditureButt" data-toggle="tab"><i class="fa fa-money"> </i> <b>Income and Expenditure</b></a>
+                          <a href="#CreditProvider" class="btn btn-primary btn-block" id="CreditProviderButt" data-toggle="tab"><i class="fa fa-credit-card"> </i> <b>Credit Provider Details</b></a>
+                          <a href="#AdvancedAmount" class="btn btn-primary btn-block" id="AdvancedAmountButt" data-toggle="tab"><i class="fa fa-plus-circle"> </i> <b>Advanced Amount/Install</b></a>
+                          <a href="#ClientBankingDetails" class="btn btn-primary btn-block" id="ClientBankingButt" data-toggle="tab"><i class="fa fa-bank"> </i> <b>Banking Details</b></a>
+                          <a href="#Dashboard" class="btn btn-primary btn-block" id="DashboardButt" data-toggle="tab"><i class="fa fa-dashboard"> </i> <b>Dashboard</b></a>
+                        </div>
+
+                        <!-- /.box-body -->
+                      </div>
+                    </div>
+                     <!-- /.col -->
+                    <div class="col-md-9">
+                      <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+
+                          <li class="active"><a href="#ApplicantDetails" data-toggle="tab"><i class="fa fa-user"> </i> <strong>Applicant Details</strong></a></li>
+                          <li><a href="#EmploymentDetails" data-toggle="tab"><i class="fa fa-wrench"> </i> <strong>Employment Details</strong></a></li>
+                          <li><a href="#IncomeExpenditure" data-toggle="tab"><i class="fa fa-money"> </i> <strong>Income and Expenditure</strong></a></li>
+                          <li><a href="#CreditProvider" data-toggle="tab"><i class="fa fa-credit-card"> </i> <strong>Credit Provider</strong></a></li>
+                          <li><a href="#AdvancedAmount" data-toggle="tab"><i class="fa fa-plus-circle"> </i> <strong>Advanced Amount/Inst</strong></a></li>
+                          <li><a href="#ClientBankingDetails" data-toggle="tab"><i class="fa fa-bank"> </i> <strong>Banking Details</strong></a> </li>
+                          <li><a href="#Dashboard" data-toggle="tab"><i class="fa fa-dashboard"> </i> <strong>Dashboard</strong></a> </li>
+
+                        </ul>
+                        <div class="tab-content">
+
+                          <div class="active tab-pane" id="ApplicantDetails">
+                            <h3>Applicant Details</h3>
+                             <div class="box">
+                                  <div class="box box-body">
+                    <label class="label-primary"> Account : {{ vstrAccountNumber }}</label>
+                    <input type="hidden" id="strAccountNumber" value="{{ vstrAccountNumber }}">
+
+                    <div class="box box-header">
+                       <h4>Applicant Details</h4>
+                    </div>
+                      <form class="form-horizontal" name="CreateNewCover" id="frmCreateNewLoanApplicant" action="" method="post">
+
+                        <div class="form-group">
+                            <label for="strTitle" class="col-sm-2 control-label pull-left" title="The Name of your Profile">Title</label>
+                            <div class="col-sm-6">
+                              <select class="form-control select2" style="width: 100%;" id="strTitle" name="vstrTitle">
+                                {% if vstrTitle == 'MR' %}
+                                  <option selected="selected" value="MR">MR</option>
+                                {% else %}
+                                  <option value="MR">MR</option>
+                                {% endif %}
+
+                                {% if vstrTitle == 'Mrs' %}
+                                    <option selected="selected" value="Mrs">Mrs</option>
+                                {% else %}
+                                    <option value="Mrs">Mrs</option>
+                                {% endif %}
+
+
+                                {% if vstrTitle %}
+                                  <option selected="selected" value="Miss">Miss</option>
+                                {% else %}
+                                  <option value="Miss">Miss</option>
+                                {% endif %}
+
+                              </select>
+                             </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="strSurname" class="col-sm-2 control-label" title="Enter the Surname of your Lead">Surname</label>
+                              <div class="col-sm-6">
+                            {% if LoanApplicant.strSurname == None %}
+                              <input type="text" class="form-control" id="strSurname" name="vstrSurname" placeholder="Surname">
+                            {% else %}
+                              <input type="text" class="form-control" id="strSurname" name="vstrSurname" value="{{ LoanApplicant.strSurname }}">
+                            {% endif %}
+                              </div>
+
+                        </div>
+                        <div class="form-group">
+                      <label for="strFullnames" class="col-sm-2 control-label" title="Fullnames of your Lead">Full Names</label>
+                      <div class="col-sm-6">
+                      {% if LoanApplicant.strFullnames == None %}
+                        <input type="text" class="form-control" id="strFullnames" name="vstrFullnames" placeholder="Full Names">
+                      {% else %}
+                        <input type="text" class="form-control" id="strFullnames" name="vstrFullnames" value="{{ LoanApplicant.strFullNames }}">
+                      {% endif %}
+                      </div>
+
+                  </div>
+                        <div class="form-group">
+                      <label for="strIDNumber" class="col-sm-2 control-label" title="Profile Website">ID/Passport Number</label>
+                      <div class="col-sm-6">
+                      {% if LoanApplicant.strIDNumber == None %}
+                      <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber" placeholder="ID Number">
+                      {% else %}
+                      <input type="text" class="form-control" id="strIDNumber" name="vstrIDNumber" value="{{ LoanApplicant.strIDNumber }}">
+                      {% endif %}
+                      </div>
+                  </div>
+                        <div class="form-group">
+                    <label for="strDateofBirth" class="col-sm-2 control-label" title="Fund My Campaign By">Date of Birth</label>
+                    <div class="col-sm-6">
+                      {% if LoanApplicant.strDateofBirth == None %}
+                       <input type="text" class="form-control" id="strDateofBirth" name="vstrDateofBirth" placeholder="yyyy-mm-dd">
+                      {% else %}
+                       <input type="text" class="form-control" id="strDateofBirth" name="vstrDateofBirth" value="{{ LoanApplicant.strDateOfBirth }}">
+                      {% endif %}
+
+                    </div>
+                  </div>
+                        <div class="form-group">
+
+                    <label for="strNationality" class="col-sm-2 control-label" title="Nationality">Nationality</label>
+                    <div class="col-sm-6">
+                      {% if LoanApplicant.strNationality == None %}
+                          <input class="form-control" id="strNationality" name="vstrNationality" placeholder="Nationality">
+                      {% else %}
+                          <input class="form-control" id="strNationality" name="vstrNationality"  value="{{ LoanApplicant.strNationality }}">
+                      {% endif %}
+
+
+                   </div>
+                  </div>
+                 <div class="box box-info">
+                     <div class="box box-title">
+                         <h5>Physical Address</h5>
+                     </div>
+                    <div class="form-group">
+                    <label for="strResidential1" class="col-sm-2 control-label" title="Residential Address">Residential</label>
+                    <div class="col-sm-6">
+                    {% if LoanApplicant.strHouseNumber == None %}
+                      <input type="text" class="form-control" id="strHouseNumber" name="vstrHouseNumber" placeholder="House/Stand Number">
+                    {% else %}
+                        <input type="text" class="form-control" id="strHouseNumber" name="vstrHouseNumber" value="{{ LoanApplicant.strHouseNumber }}">
+                    {% endif %}
+                    {% if LoanApplicant.strStreetName == None %}
+                      <input type="text" class="form-control" id="strStreetName" name="vstrStreetName" placeholder="Street Name">
+                    {% else %}
+                      <input type="text" class="form-control" id="strStreetName" name="vstrStreetName"  value="{{ LoanApplicant.strStreetName }}">
+                    {% endif %}
+                    {% if LoanApplicant.strCityTown == None %}
+                      <input type="text" class="form-control" id="strCityTown" name="vstrCityTown" placeholder="City/Town">
+                    {% else %}
+                        <input type="text" class="form-control" id="strCityTown" name="vstrCityTown" value="{{ LoanApplicant.strCityTown }}">
+                    {% endif %}
+                    {% if LoanApplicant.strProvince == None %}
+                      <input type="text" class="form-control" id="strProvince" name="vstrProvince" placeholder="Province">
+                    {% else %}
+                      <input type="text" class="form-control" id="strProvince" name="vstrProvince" value="{{ LoanApplicant.strProvince }}">
+                    {% endif %}
+                    {% if LoanApplicant.strCountry == None %}
+                      <input type="text" class="form-control" id="strCountry" name="vstrCountry" placeholder="Country">
+                    {% else %}
+                      <input type="text" class="form-control" id="strCountry" name="vstrCountry" value="{{ LoanApplicant.strCountry }}">
+                    {% endif %}
+                    {% if LoanApplicant.strPostalCode == None %}
+                        <input type="text" class="form-control" id="strPostalCode" name="vstrPostalCode" placeholder="Postal Code">
+                    {% else %}
+                        <input type="text" class="form-control" id="strPostalCode" name="vstrPostalCode" value="{{ LoanApplicant.strPostalCode }}">
+                    {% endif %}
+                   </div>
+                  </div>
+                 </div>
+
+                  <div class="box box-info">
+                      <div class="box box-title">
+                          <h5>Postal Address</h5>
+                      </div>
+                        <div class="form-group">
+                    <label for="strPostalAddress1" class="col-sm-2 control-label" title="Postal Address">Postal</label>
+                    <div class="col-sm-6">
+                    {% if LoanApplicant.strBoxNumber == None %}
+                        <input type="text" class="form-control" id="strBoxNumber" name="vstrBoxNumber"  placeholder="Box Number">
+                    {% else %}
+                        <input type="text" class="form-control" id="strBoxNumber" name="vstrBoxNumber"  value="{{ LoanApplicant.strBoxNumber }}">
+                    {% endif %}
+
+                    {% if LoanApplicant.strPostalCityTown == None %}
+                        <input type="text" class="form-control" id="strPostalCityTown" name="vstrPostalCityTown" placeholder="City Town">
+                    {% else %}
+                        <input type="text" class="form-control" id="strPostalCityTown" name="vstrPostalCityTown" value="{{ LoanApplicant.strPostalCityTown }}">
+                    {% endif %}
+
+                    {% if LoanApplicant.strPostalProvince == None %}
+                        <input type="text" class="form-control" id="strPostalProvince" name="vstrPostalProvince" placeholder="Postal Province">
+                    {% else %}
+                        <input type="text" class="form-control" id="strPostalProvince" name="vstrPostalProvince" value="{{ LoanApplicant.strPostalProvince }}">
+                    {% endif %}
+
+                    {% if LoanApplicant.strPostalCountry == None %}
+                        <input type="text" class="form-control" id="strPostalCountry" name="vstrPostalCountry" placeholder="Postal Country">
+                    {% else %}
+                        <input type="text" class="form-control" id="strPostalCountry" name="vstrPostalCountry" value="{{ LoanApplicant.strPostalCountry }}">
+                    {% endif %}
+
+
+                    {% if LoanApplicant.strPostalPostalCode == None %}
+                        <input type="text" class="form-control" id="strPostalPostalCode" name="vstrPostalPostalCode" placeholder="Postal Code">
+                    {% else %}
+                        <input type="text" class="form-control" id="strPostalPostalCode" name="vstrPostalPostalCode" value="{{ LoanApplicant.strPostalPostalCode }}">
+                    {% endif %}
+
+                   </div>
+                  </div>
+                  </div>
+
+                  <div class="box box-info">
+                      <div class="box box-title">
+                          <h5>Contact Details</h5>
+                      </div>
+                  <div class="form-group">
+                    <label for="strTel" class="col-sm-2 control-label" title="Contact Details">Tel/Cell</label>
+                    <div class="col-sm-6">
+                      {% if LoanApplicant.strTel == None %}
+                        <input type="text" class="form-control" id="strTel" name="vstrTel" placeholder="Tel">
+                      {% else %}
+                        <input type="text" class="form-control" id="strTel" name="vstrTel" value="{{ LoanApplicant.strTel }}">
+                      {% endif %}
+
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="strCell" class="col-sm-2 control-label" title="Contact Details">Cell Number</label>
+                    <div class="col-sm-6">
+                      {% if LoanApplicant.strCell == None %}
+                        <input type="text" class="form-control" id="strCell" name="vstrCell" placeholder="Cell">
+                      {% else %}
+                        <input type="text" class="form-control" id="strCell" name="vstrCell" value="{{ LoanApplicant.strCell }}">
+                      {% endif %}
+
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="strEmail" class="col-sm-2 control-label" title="Contact Details">Email</label>
+                    <div class="col-sm-6">
+                      {% if LoanApplicant.strEmail == None %}
+                        <input type="email" class="form-control" id="strEmail" name="vstrEmail" placeholder="Email">
+                      {% else %}
+                        <input type="email" class="form-control" id="strEmail" name="vstrEmail" value="{{ LoanApplicant.strEmail }}">
+                      {% endif %}
+
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="box box-info">
+                      <div class="box box-title">
+                          <h5>Next of Kin</h5>
+                      </div>
+
+                  <div class="form-group">
+                      <label for="strNextOfKinNames" class="col-sm-2 control-label" title="Contact Details">NOK Names</label>
+                      <div class="col-sm-9">
+                      {% if LoanApplicant.strNextOfKinNames == None %}
+                          <input type="text" class="form-control" id="strNextOfKinNames" name="vstrNextOfKin" placeholder="Names">
+                      {% else %}
+                          <input type="text" class="form-control" id="strNextOfKinNames" name="vstrNextOfKin" value="{{ LoanApplicant.strNextOfKinNames }}">
+                      {% endif %}
+                      </div>
+                  </div>
+                   <div class="form-group">
+                      <label for="strNextOfKinAddress" class="col-sm-2 control-label" title="Contact Details">NOK Address</label>
+                      <div class="col-sm-9">
+                          {% if LoanApplicant.strNextOfKinAddress == None %}
+                            <input type="text" class="form-control" id="strNextOfKinAddress" name="vstrNextOfKin" placeholder="Address">
+                          {% else %}
+                          <input type="text" class="form-control" id="strNextOfKinAddress" name="vstrNextOfKin" value="{{ LoanApplicant.strNextOfKinAddress }}">
+                          {% endif %}
+                      </div>
+
+                   </div>
+                   <div class="form-group">
+                      <label for="strNextOfKinCell" class="col-sm-2 control-label" title="Contact Details">NOK Cell:</label>
+                      <div class="col-sm-9">
+                          {% if LoanApplicant.strNextOfKinCell == None %}
+                            <input type="text" class="form-control" id="strNextOfKinCell" name="vstrNextOfKin" placeholder="Cell">
+                          {% else %}
+                            <input type="text" class="form-control" id="strNextOfKinCell" name="vstrNextOfKin" value="{{ LoanApplicant.strNextOfKinCell }}">
+                          {% endif %}
+                      </div>
+
+                   </div>
+                 </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+
+                      <button type="button" id="CreateLoanApplicant" name="SaveButt"  class="btn btn-success"> <i class="fa fa-save"></i> Create Loan Applicant</button>
+                    </div>
+                  </div>
+
+                </form>
+
+                <div class="box box-comments">
+                    <div class="box box-comment">
+                        <div id="LoansDivINF">
+
+                        </div>
+                    </div>
+                </div>
+
+                  </div>
+                </div>
+                          </div>
+                          <div class="tab-pane" id="EmploymentDetails">
+                            <h3>Employment Details</h3>
+
+                               <div id="EmploymentDetailsInfoDiv">
+
+                               </div>
+                          </div>
+                          <div class="tab-pane" id="IncomeExpenditure">
+                            <h3>Income &amp; Expenditure</h3>
+
+                             <div id="IncomeExpenditureDivINF">
+
+                             </div>
+                          </div>
+                          <div class="tab-pane" id="CreditProvider">
+                            <h3>Credit Provider</h3>
+
+                            <div id="CreditProviderDivINF">
+
+                            </div>
+                          </div>
+
+                          <div class="tab-pane" id="AdvancedAmount">
+                            <h3>Advanced Amount</h3>
+                            <!-- TODO Beneficiary List-->
+                            <div id="AdvancedAmountInfoDiv">
+
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="ClientBankingDetails">
+                              <h3>Client Banking Details</h3>
+                              <div id="ClientBankingDetailsDIVINF">
+
+                              </div>
+                          </div>
+                          <div class="tab-pane" id="Dashboard">
+                            <h3>Dashboard</h3>
+                            <div class="box-body box-profile">
+                          <h4>Filing and Loan Activation</h4>
+                          <div class="row">
+                          <div class="col-md-3">
+                              <a href="#" class="btn btn-bitbucket btn-block" id="CreateFileButt"><i class="fa fa-file"> </i> <strong>Create File</strong></a>
+                              <a href="#" class="btn btn-bitbucket btn-block" id="ActivateLoanButt"><i class="fa  fa-toggle-on"> </i> <strong>Activate Loan</strong></a>
+                          </div>
+                          <div class="col-md-9">
+
+                              <div id="DashBoardInfoDiv">
+
+                              </div>
+                          </div>
+                          </div>
+                        </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+              </div>
+              <div class="tab-pane" id="Loans">
+
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"><i class="fa fa-user-plus"> </i> Active Loans</h3>
+            </div>
+
+            <div class="box-body">
+              <table id="ActivePolicyListTable" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>SA Loans Account</th>
+                  <th>ID Number</th>
+                  <th>Surname</th>
+                  <th>Full Names</th>
+                  <th>ALLPS</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for loan in ActiveLoansList %}
+                <tr>
+                  <td><a href="/loans/list/{{ loan.strAccountNumber }}"> {{ loan.strAccountNumber }} </a></td>
+                  <td>{{ loan.strIDNumber }}</td>
+                  <td>{{ loan.strSurname }}</td>
+                  <td>{{ loan.strFullNames }}</td>
+                  <td>{{ loan.strALLPS }}</td>
+
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>SA Loans Account</th>
+                  <th>ID Number</th>
+                  <th>Surname</th>
+                  <th>Full Names</th>
+                  <th>ALLPS</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+              </div>
+
+           </div>
+          </div>
+        </div>
+
+
+        <!-- /.box-body -->
+        <div class="box-footer">
+          <div class="box box-comments">
+              <div class="box box-comment">
+                  <div id="CloseActivePolicyINFDIV">
+
+                  </div>
+              </div>
+          </div>
+          <div class="box box-info">
+              <div class="box box-title">
+                <label class="label label-primary">Active Loan Application</label>
+               </div>
+              <div id="CreatePolicyHolderResponseDiv">
+
+              </div>
+
+
+
+             <a href="#" class="btn btn-danger btn-block" id="NewPolicy" data-toggle="modal" data-target="#CreateModal"><i class="fa fa-close"> </i> <b>Close Active Loan</b></a>
+          </div>
+        </div>
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+    <div id="FooterDIV"></div>
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+
+    <div class="modal modal-danger" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="CreateModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="CreateModalLabel">Close Active Loan</h4>
+            <small>This will delete the present loan application and create a new one </small>
+          </div>
+          <div class="modal-body">
+            <form action="/loans/closeaccountnumber" method="get">
+
+       <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="CloseActivePolicyButt">Close Loan Application</button>
+          </div>
+
+        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!-- Bootstrap 3.3.6 -->
+<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="../static/plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="../static/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="../static/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="../static/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="../static/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="../static/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="../static/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="../static/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="../static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="../static/plugins/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+
+<!-- SlimScroll -->
+<script src="../static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../static/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../static/dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../static/dist/js/demo.js"></script>
+
+
+<!-- DataTables -->
+<script src="../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+<!-- Ion Slider -->
+<script src="../static/plugins/ionslider/ion.rangeSlider.min.js"></script>
+<!-- Bootstrap slider -->
+<script src="../static/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+
+
+<!-- PACE -->
+<script src="../static/plugins/pace/pace.min.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+
+    $('#ActivePolicyListTable').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+
+<script>
+  $(function () {
+
+    $('#LoansByEmploymentTable').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+
+
+</body>
+</html>

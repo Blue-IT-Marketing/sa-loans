@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SA Loans | Payment Processing </title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../../static/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../../static/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../../static/plugins/pace/pace.min.css">
+    <!-- DataTables -->
+  <link rel="stylesheet" href="../../../static/plugins/datatables/dataTables.bootstrap.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<script src="../../../static/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#DynamicHeader').load("/navigation/admin/header")
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#DynamicSideBar').load("/navigation/admin/sidebar")
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('#FooterDIV').load("/navigation/footer")
+    });
+</script>
+<script type="application/javascript">
+    $(document).ready(function(){
+        $('#StatusButt').click(function(){
+            var vstrAccountNumber = document.getElementById('strAccountNumber').value;
+            var dataString = '&vstrAccountNumber=' + vstrAccountNumber;
+              $.ajax({
+                    type: "get",
+                    url: "/loans/paymentstatus",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#InfoDiv').html(html)
+                  }
+              });
+        });
+    });
+</script>
+
+
+<script type="application/javascript">
+    $(document).ready(function(){
+        $('#ButtSave').click(function(){
+            var vstrAccountNumber = document.getElementById('strAccountNumber').value;
+            var vstrBankName = document.getElementById('strBankName').value;
+            var vstrBankAccountNumber = document.getElementById('strBankAccountNumber').value;
+            var vstrBankAccountHolder = document.getElementById('strBankAccountHolder').value;
+            var vstrAccountType = document.getElementById('strAccountType').value;
+            var vstrBranchCode = document.getElementById('strBranchCode').value;
+            var vstrBranchName = document.getElementById('strBranchName').value;
+            var vstrNotes = document.getElementById('strNotes').value;
+
+            var dataString = '&vstrAccountNumber=' + vstrAccountNumber + '&vstrBankName=' + vstrBankName + '&vstrBankAccountNumber=' + vstrBankAccountNumber +
+                    '&vstrBankAccountHolder=' + vstrBankAccountHolder + '&vstrAccountType=' + vstrAccountType + '&vstrBranchCode=' + vstrBranchCode +
+                    '&vstrBranchName=' + vstrBranchName + '&vstrNotes=' + vstrNotes;
+              $.ajax({
+                    type: "post",
+                    url: "/loans/payments",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#InfoDivSub').html(html)
+                  }
+              });
+        });
+    });
+</script>
+
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Loading the Headerfile Dynamically -->
+  <div id="DynamicHeader"></div>
+  <!-- =============================================== -->
+  <!-- Left side column. contains the sidebar -->
+  <div id="DynamicSideBar"></div>
+  <!-- =============================================== -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <div class="box box-comment">
+             SA Loans
+        </div>
+        <small>SA Loans Online Information System</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/employees/loans"><i class="fa fa-dashboard"></i> Loans</a></li>
+        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Payments</a></li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            <input type="hidden" id="strAccountNumber" name="vstrAccountNumber" value="{{ LoanApplicant.strAccountNumber }}">
+            <div class="col-md-3">
+                <a href="/loans/list/{{ LoanApplicant.strAccountNumber }}" class="btn btn-warning btn-block margin-bottom"><i class="fa fa-group"> </i> <strong>Loan Detail</strong></a>
+                <a href="/loans/payments" class="btn btn-success btn-block"><i class="glyphicon glyphicon-hand-right"> </i> <strong>Pay To</strong></a>
+
+                <button class="btn btn-success btn-block" id="StatusButt"><i class="fa fa-check"> </i> <strong>Status</strong></button>
+
+                {% if Rights.bolEmployeeLoanFormSendPayment == True %}
+                        {% if  Advance.strLoanPaidStatus == False %}
+                            <a href="/loans/payclient" class="btn btn-success btn-block"><i class="fa fa-money"> </i> <strong>Pay Client</strong></a>
+                        {% else %}
+                            <button type="button" class="btn btn-warning btn-block"><i class="fa fa-note"> </i> <strong>Loan Already Paid To Client</strong></button>
+                        {% endif %}
+                {% else %}
+                        <a href="" class="btn btn-danger btn-block"><i class="fa fa-lock"> </i> <strong>Pay Client</strong></a>
+                {% endif %}
+            </div>
+            <div class="col-md-9">
+                <div class="box box-danger" id="InfoDiv">
+                    <div class="box box-title">
+                       <h3>Loan Payments</h3>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="box box-info">
+                            <h4>Bank Account</h4>
+                        <div class="form-group">
+                            <label for="strBankName" class="col-sm-3 control-label pull-left" >Bank Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strBankName" name="vstrBankName" placeholder="Bank Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strBankAccountNumber" class="col-sm-3 control-label pull-left" >Bank Account Number</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strBankAccountNumber" name="vstrBankAccountNumber" placeholder="Bank Account Number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strBankAccountHolder" class="col-sm-3 control-label pull-left" >Bank Account Holder</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strBankAccountHolder" name="vstrBankAccountHolder" placeholder="Bank Account Holder">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strAccountType" class="col-sm-3 control-label pull-left" >Account Type</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strAccountType" name="vstrAccountType" placeholder="Account Type">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strBranchCode" class="col-sm-3 control-label pull-left" >Branch Code</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strBranchCode" name="vstrBranchCode" placeholder="Branch Code">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="strBranchName" class="col-sm-3 control-label pull-left" >Branch Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="strBranchName" name="vstrBranchName" placeholder="Branch Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="strNotes" class="col-sm-3 control-label pull-left" >Notes</label>
+                            <div class="col-sm-6">
+                                <textarea class="box box-info" id="strNotes" name="vstrNotes" cols="96" rows="6"></textarea>
+                            </div>
+
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-success btn-block" id="ButtSave"><i class="fa fa-save"> </i> Save </button>
+                            </div>
+                            {% if Rights.bolEmployeeLoanFormSendPayment == True %}
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-success btn-block"><i class="fa fa-print"> </i> Print </button>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </form>
+
+                </div>
+                <div class="box box-comments">
+                    <div class="box box-comment">
+                        <div id="InfoDivSub"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <!-- /.box -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+    <div id="FooterDIV"></div>
+  <div class="control-sidebar-bg"></div>
+</div>
+    <script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="../../../static/plugins/fastclick/fastclick.js"></script>
+    <script src="../../../static/dist/js/app.min.js"></script>
+    <script src="../../../static/dist/js/demo.js"></script>
+    <script src="../../../static/plugins/pace/pace.min.js"></script>
+</body>
+</html>
+
+
+
+
+

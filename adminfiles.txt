@@ -1,0 +1,419 @@
+  <div class="box-body">
+                                                 <div class="box-group" id="accordion">
+                                                    <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                                                    <div class="panel box box-primary">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                            Repayments
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseOne" class="panel-collapse collapse in">
+                                                        <div class="box-body">
+                                                         i Fully ID NO: {{ vstrIDNumber }}  HERE BY Acknowledge that i have fully and trustfully disclosed all my financial commitments to MIDEY in order for them to make an
+                                          accurate assessment to my affordabilty status as required by the nca.i further declared that i am currently not over indebted and accepting this
+                                          loan,i will not be putting myself in a position of indebtedness
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                            Rights &amp; Obligations
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseTwo" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                                                            <p>this pre-agreement/qouatatiom is valid for a period of 5 days and will form part of the contemplated loan agreement if acceptable and signed by
+                                                            the client within the 5 days period</p>
+                                                            <p>The debit order instruction is only required to be signed by the client on acceptance</p>
+                                                            <p>the adminstration/in future instruction are only required to be signed on acceptance qoute</p>
+                                                            <p>should it be determined that any of the information provided by the borrower in order ton determine the offer made in this qoutation was
+                                                            incomplete or incorrect,MIDEY reserves the right to cancel the qoutation and issue the borrower with a quatation which reflrcts the accurate client
+                                                            information</p>
+                                                          </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                                            Payroll Deductions
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseThree" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                               <p>I hearby  irrevocably instruct the payroll department not of the BORROWER ("employer") to deduct the instalment as reflected in the pre agrement statement
+                    and qoutation from myremmunaration until the contractual amoubnt has been paid in full.The  installment amount may be varied or rescheduled as a results of default.
+                    A variation as afore mentioned will results in total contractual amount being adjusted accordingly.I acknowledge that deductions made in accordance to the employer
+                    ,or once the loan has been repaid in full. if the salary deduction implemented on my payroll falls for whatasoever reason, i authorize MIDEY to apply the debit
+                    ortder authorization as compkleted and agrred below</p>
+                                                          <p>signature-------------------------name----------------------------------
+                                                            Date--------------------------Place-----------------------------------</p>
+
+                                                          <p>All such withdrawals from my bank account by you shall be treated as though i have signed them personally.I understand that the</p>
+<ol>
+<li>Withdrawals hereby authoriseed will be processed by computer through an electronic system and also understand tjhat the details of each withdrawaln will
+printed on my bank statement.I agree to bear all the cost and bank charges to me by my bank associated with this debit order instruction.</li>
+
+<li>should be paid weekly or fortnightly, i agree that the instalment be collected party on weekly or fortnighly basis.</li>
+
+<li>in the event of there being insufficient funds available in my bank account to fully satisfy my contractual obliggations to MIDEY</li>
+</ol>
+
+<p>I instruct my bank to collect a portion of the payment that is due,owing and payable by me to MIDEY and will permiut MIDEY to as its discretion to continue
+to re-present the payment instructions to my bank until such time that my obligation in terms of the payment instruction is fully satisfied. I
+further instruct my bank that MIDEY may issue and deliver payment instruction to my bank in addition to the number stipulated payments in respect of any amount
+that may be in arears,including and not limited to any arears interest,penalty costs and charges, that may have occured as a result to me having made regular payment
+of my oblkigations as obtained uin the credit agrrement concluded with MIDEY</p>
+
+<p>SIGNATURE------------------------------NAME----------------------------</p>
+
+<p>DATE------------------------------PLACE--------------------------</p>
+
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                                            Interpretation
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseFour" class="panel-collapse collapse">
+                                                        <div class="box-body">
+
+
+                                                      <p>in the Agreement:</p>
+                                                      <ol>
+                                                      <li>Any gender includes the other genders, the singular includes the plural, and a natural person includes a juristic person</li>
+
+                                                      <li>Any number of days prescribed shall be determinned by including the last day,or where the last day falls on a day that is not a business day,the next business day.</li>
+
+                                                      <li>"act" means the national credit act , 34 of 2005 including all regulations to it.</li>
+
+                                                      <li>Agreement "means the pre agreement statement and qoutation,pay out schedule,termsa and conditions,credit life insurance policy(and any annexure or references to it)
+                                                      ,which contains the material elements of the credit transact ion with the credit provider</li>
+
+                                                      <li>"Consumer "means the application as described in Credit reciever details of the Pre-Agreement statement and quatation</li>
+                                                      <li>quote or quatation means the pre-agreement statement and quatation as
+prescribed inspection 92 of the act </li>
+                                                      </ol>
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                                                            Consent
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseFive" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                                                        <h4>The Consumer Acknowledges that</h4>
+                                                            <ol>
+                                                            <li>he/she understands the cost,risks and implicaation of the agreement,</li>
+                                                            <li>acknowledges that it has been explained to him/her in a language that
+                                                                he/she understands and that the consumer have no objections to the agreement.</li>
+                                                                <li>The consumer is a natural person neither of sound and sober mind and not an
+                                                            emancipated minor nor subject to a court order holding the consumer mentally unfit.</li>
+                                                              <li>The consumer was offered a signed copy of the agreement.</li>
+                                                                <li>The consumer has not applied to be declared insolvent nor been declared insolvent
+                                                                    at the time of the conclusion of the agreement.</li>
+
+                                                              <li>The consumer has not applied to be placed under administration in terms of
+                                                                  section 74 of the  magistrates court act,at the time of the conclusion of the agreement.</li>
+                                                                  <li>The consumer has not applied for debt-review with debt counsellor,nor alleged in court tha the consumer is not indebted,at the time of agreement.</li>
+
+                                                                <li>The consumer is not subject to a debt re-arrangement order in terms of section 87(1((b)(ii)of the act.</li>
+                                                                <li>The consumer is aware that if two or more consumers sign the agreement,said shall be liable,jointly,severally and per person.</li>
+                                                                  <li>Notwithstanding the fact that reference to the consumer is made in the singular or male or female,such reference shall incluede several consumers where applicable.if the agreement implies more than one consumers,the
+                                                            signatories here to shall remain liable in full even if the other consumers so implied did not sign the agreement.</li>
+                                                                    <li>The consumer agrees and gives the credit provider the right to contact any third party to confirm the information supplied
+                                                                        or to acquire or extract any information regarding the consumers financial status,
+                                                            including banking details,credit record,payment history and any information listed on the national credit(loans)register or any registered credit bureau and
+                                                            to confirm the employment record with the employer,including the status of employment,remuneration,pay date and account that salary is deposited into.</li>
+                                                              </ol>
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                                                            Cost of Credit
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseSix" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                                                          <h4>Principal Debt</h4>
+                                                            <p>The Principal Debt,as set out in the quote,will be paid either in
+                                                            cash to the consumer or in a preferred and stipulated bank account,nominated by
+                                                            the consumer as per the pay out schedule.</p><p>In the midey event of a consolidation
+                                                            loan,the principal debt will be paid out ectronically as instructed by the
+                                                            consumer and agreed to by both parties in the pay schedule.</p>
+                                                            <h4>Initiation Fee</h4>
+                                                            <p>it has been explained to the consumer that he/she has the option of
+                                                            paying the initiation fee upfront.the consumer has chosen not to pay initiation
+                                                            fee upfront and understand that it will now form part of the principal debt as set
+                                                            out in the quote. initiation fee will be charged at the maximum rate prescribed in
+                                                            the act.</p>
+                                                            <h4>Interest</h4>
+                                                                <p>The interest rater is a fixed rate as stipilated and calculated in part c of the qoute. interest
+                                                                 will accrue at the fixed interest disclosed in the qoute and will be calculated and charged from the date
+                                                                on which the loan amount or any part thereof is advanced to thr consumer,or on the consumer,s behalf  and calculated
+                                                                dairly on the basis of a year of 365.25 days(capitalized monthly arears),wheather or not the year is a leap year,
+                                                                and debited monthly arears.interest will be calculated as prescribed in the act at the maximum rate  allowed.</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                                                            Admin Charges
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseSeven" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                                                            <p>When a consumer is in default a noticemay be sent to draw the consumwer,s attention to the default.For each and
+                                                             every notice sent in term of section 12 9(1) of the act ,the neessary and reasonable cost to deliver such a
+                                                            letter r plus the prescribed costs for a registered letter of demand in undefended actions in terms of the magistrate
+                                                            court act of 994 will be charged.</p>
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+                                                            Collection Costs
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseEight" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                                                           <p>In the event that the credit provider needs to aproach a court to enforce an
+                                                               agreement , the consumer is liable for all legal and tracing cost on an
+                                                               attorney and own client scale as well as collection commision and disbursements.</p>
+
+                                                               <p>Collection costss will be calculated at the maximum rate in terms of the
+                                                               supreme court act (1959),Magistrates Couert Act(194 4), atorneys act(1979) or
+                                                               the Debt Collector s act(19980,whichever is applicable to the enforcement
+                                                               of the agreement.</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseNine">
+                                                            Penalty Interest
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseNine" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                                                            <p>Any penalty Interest that is charged while the consumer is in arrears or default
+                                                                will be the same rate as the maximum interest prescribed in the qoute.</p>
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTen">
+                                                            Payment Schedule
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseTen" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                                                           <p>Repayment as set out in part B and C of the qoute.</p>
+                                                            <p>A letter r plus the prescribed costs for a registered letter of demandin undefended actions in terms of the Magistrates
+courts Act of 1994 will be charged</p>
+                                                            <h4>Collection Costs</h4>
+
+                                                                <p>in the event that credit provider needs to aproach a court to enforce an Agrement ,the consumer is liable for all legal
+                                                                and tracing costs on an attorney and own client scale asweill as collection commision and disbursements.
+                                                                Collection cost will be calculated at thr maximum rate in terms of the Supreme court Act(1959),Magistrate court Act (1944)
+                                                                ,attorney Act(1979) or the Debt collector act(1998), whichever is applicable to the enforcement of the assesment</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">
+                                                            Rights Repayment
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseEleven" class="panel-collapse collapse">
+                                                        <div class="box-body">
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">
+                                                            Statement
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseTwelve" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                                                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                                                          wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                                          eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                                          assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                                          nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                                          farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                                          labore sustainable VHS.
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen">
+                                                            Information Sharing
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseThirteen" class="panel-collapse collapse">
+                                                        <div class="box-body">
+                                                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                                                          wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                                          eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                                          assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                                          nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                                          farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                                          labore sustainable VHS.
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen">
+                                                            Termination
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseFourteen" class="panel-collapse collapse">
+                                                        <div class="box-body">
+<p>In the event of the agreement being in default,the credit provider may take steps
+in terms of section 129&130 of the act,to enforce and terminate the agreement</p>
+
+<h4>Default Procedures</h4>
+
+<p>Should the consumer breach any terms or conditions of the agreement ,default in
+the punctual payment of the account,commit any insolvency,or surender his/her
+estate or die having made any inaacurate statement or representation in connection
+with the agreement or his/her financial affairs,then upon the happening of any
+these events,to the extent permitted by the act,the credit provider shall entitled to
+claim immediate payment of all amounts owing,all of which shall be deemed due
+and payable.</p>
+
+  <p>In the event of any account or agreement being in default,a notice
+in terms of section 129(1)of the act will be sebt to the consumer drawing his/her
+attention to the default as wel as the remedies available.</p>
+    <p>should the consumer ignore the notice or reject the proposals to bring the agreement up to date,the
+credit provide has the right to approach the court for an order to enforce the
+agreement.all amounts of whatsoever nature,due in terms of the agreement and
+not paid when its due,shall bear interest at the highest interest rate applicable
+(section103(1)of the act)to any part of the principal debt as stipulated on the
+quote(calculated daily and capitalized monthly),calculated from due date until
+actual payment.</p>
+                                                          <p>The consumer acknowledges and gives consent that the credit provider may
+access any information(including credit bureau checks)and approaches any
+party to confirm and assist them in the tracing and collection processes.the
+consumer understands and consents thatadverse information will be submitted to
+the Credit Bureaus.</p>
+<h4>Debt Review</h4>
+
+<p>In the event of the consumer experiencing financial difficulty or at any given time,
+the consumer has the right to approach a registered debt counsellor to have
+his/her debt reviewed.should the debt counsellor find the consumer
+over-indebted,he may proceed to negotiate a re-payment plam for and on behalf
+of the consumer.</p>
+
+<p>If the consumers account was defaulted and steps have been
+taken in terms of section 129(1)and 130 of the act,the credit provider is
+excluded from the debt review process and has the right to continue with legal
+action in terms of section 8 6(2)of the act.</p>
+                                                        <p>effects of debt review a consumer
+who has filed an application in terms of section 86(1)of the act (debt review)or
+who has alleged in court that he is over-indebted.</p>
+
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="panel box box-success">
+                                                      <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFifteen">
+                                                            Address for Notices
+                                                          </a>
+                                                        </h4>
+                                                      </div>
+                                                      <div id="collapseFifteen" class="panel-collapse collapse">
+                                                        <div class="box-body">
+
+<p>The consumer chooses his/her sreet address as described in credit receiver detals
+at the quote as the domiciliary executant-meaning that all legal notices may be served
+at this specified adress and even if the consumer does not receive such
+documents in person,it shal be deemed served.for the purpose of legal
+notifications from the one party to the other,all notices must be deliveredby registered
+mail or by hand.</p>
+ <h4>cessions</h4>
+
+<p>The Credit Provider hasthe right at any time to cede,sell,assign,or tranfer all or
+any of its rights under the agreement,without the consent of/or prior notice to the
+consumer.the consumer may noticed,delegate,sell,assign or transfer any of its
+right or obligation in terms of the agreement to any other party.</p>
+
+
+<h4>Certificate</h4>
+
+<p>The consumer agrees that a certificate signed by a manager of the credit provider
+(whose appointment and authority need not be proven)shall in the absence of
+proof to the contrary,be sufficient and satisfactory proof for all purposes under the
+agreement of the matters stated there ,including the amount of the consumers
+indebtedness to the credit provider.</p>
+
+<h4>jurisdiction</h4>
+both parties agree to jurisdiction of the magistrates court.
+<h4>loan provider</h4>
+<p>name............................</p>
+<p>signature.......................</p>
+<p>date:...........................</p>
+<p>place:..........................</p>
+<h4>consumer</h4>
+<p>name...........................</p>
+<p>signature......................</p>
+<p>date:..........................</p>
+<p>place:.........................</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                            </div>

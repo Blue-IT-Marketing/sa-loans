@@ -1,0 +1,102 @@
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#ButtSendMessage').click(function(){
+            var vstrChatMessage = document.getElementById('strChatMessage').value;
+            var vstrChatID = document.getElementById('strChatID').value;
+            var dataString = '&vstrChatMessage=' + vstrChatMessage + '&vstrChatID='+ vstrChatID;
+              $.ajax({
+                    type: "get",
+                    url: "/chats/sendmessage",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#MessagesDivINF').html(html)
+
+                  }
+              });
+        });
+    });
+</script>
+
+<script type="application/javascript">
+  function Takeover() {
+    alert("Please use the button to send message")
+  }
+</script>
+
+
+ <div class="box box-primary direct-chat direct-chat-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Messages</h3>
+
+              <div class="box-tools pull-right">
+                <span data-toggle="tooltip" title="3 New Messages" class="badge bg-light-blue">{{ vstrMessagesCount }}</span>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                  <i class="fa fa-comments"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <!-- Conversations are loaded here -->
+              <div class="direct-chat-messages">
+                {% for message in MessagesList %}
+                  {% if message.strIsOwner == True %}
+                  <!-- Message. Default to the left -->
+                  {% if message.strMessage == None %}
+                  {% else %}
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-left">{{ MyChats.strOwnerNick }}</span>
+                      <span class="direct-chat-timestamp pull-right">{{ message.strTimeStamp }}</span>
+                    </div>
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" src="../../../static/dist/img/propic.png" alt="Message User Image"><!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      {{ message.strMessage }}
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                  {% endif %}
+                  {% else %}
+                  {% if message.strMessage == None %}
+                  {% else %}
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-right">{{ MyChats.strRecipientNick }}</span>
+                      <span class="direct-chat-timestamp pull-left">{{ message.strTimeStamp }}</span>
+                    </div>
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" src="../../../static/dist/img/propic.png" alt="Message User Image"><!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      {{ message.strMessage }}
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                  {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <form onsubmit="Takeover()">
+                <div class="input-group">
+                  <input type="text" name="message" placeholder="Type Message ..." class="form-control" id="strChatMessage">
+                  <input type="hidden" name="vstrChatID" id="strChatID" value="{{ MyChats.strChatID }}">
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary btn-flat" id="ButtSendMessage">Send</button>
+                      </span>
+                </div>
+              </form>
+            </div>
+            <!-- /.box-footer-->
+          </div>

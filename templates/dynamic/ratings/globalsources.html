@@ -1,0 +1,71 @@
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#AddURLButt').click(function(){
+
+            var vstrURL = document.getElementById('strURL').value;
+
+
+            var dataString = '&vstrURL=' + vstrURL;
+              $.ajax({
+                    type: "post",
+                    url: "/admin/globalhistorycheck",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#globalsource').html(html)
+                  }
+              });
+          });
+      });
+</script>
+
+<div id="globalsource">
+
+<div class="box">
+    <div class="box box-info">
+        <div class="box box-title">
+            <h3>Search Partners</h3>
+        </div>
+
+         <table id="LeadsTable" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>URL</th>
+                  <th>Index</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for Partner in thisSearchPartnersList %}
+                <tr>
+                  <td><a href="{{ Partner.strPartnerURL }}"> {{ Partner.strPartnerURL }} </a></td>
+                  <td>{{ Partner.strIndex }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>URL</th>
+                  <th>Index</th>
+                </tr>
+                </tfoot>
+         </table>
+
+    </div>
+    <div class="box box-info">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="strURL" class="col-sm-3 control-label pull-left">URL</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="strURL" name="vstrURL" placeholder="URL">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" id="AddURLButt"><i class="fa fa-link"> </i> <strong> Add Search Partner</strong></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

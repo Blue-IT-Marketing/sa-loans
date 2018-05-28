@@ -1,0 +1,12 @@
+handlers:
+- url: /tasks
+  login: required
+  script: tasks.app
+
+- url: /tasks/open/.*
+  login: required
+  script: tasks.app
+
+- url: /tasks/reload
+  login: required
+  script: tasks.app

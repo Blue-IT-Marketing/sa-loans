@@ -1,0 +1,133 @@
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#strCommencementDate').click(function(){
+            var d = new Date();
+            var curday = d.getDate();
+            var curmonth = d.getMonth()+1;
+            var curyear = d.getFullYear();
+            document.getElementById('strCommencementDate').value = curyear + "-" + curmonth + "-" + curday;
+          });
+      });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#SaveBankingDetailsButt').click(function(){
+            var vstrAccountNumber = document.getElementById('strAccountNumber').value;
+            var vstrAccountHolder = document.getElementById('strAccountHolder').value;
+            var vstrBankAccountNumber = document.getElementById('strBankAccountNumber').value;
+            var vstrBankingInstitution = document.getElementById('strBankingInstitution').value;
+            var vstrBranchCode = document.getElementById('strBranchCode').value;
+            var vstrAccountType = document.getElementById('strAccountType').value;
+            var vstrCommencementDate = document.getElementById('strCommencementDate').value;
+
+
+
+            var dataString = '&vstrAccountNumber=' + vstrAccountNumber + '&vstrAccountHolder=' + vstrAccountHolder + '&vstrBankAccountNumber=' + vstrBankAccountNumber +
+                    '&vstrBankingInstitution=' + vstrBankingInstitution + '&vstrBranchCode=' + vstrBranchCode + '&vstrAccountType='+ vstrAccountType +
+                    '&vstrCommencementDate=' + vstrCommencementDate;
+              $.ajax({
+                    type: "post",
+                    url: "/loans/clientbankingdetails",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#BankingDetailsINFDIV').html(html)
+
+                  }
+              });
+        });
+    });
+</script>
+<div class="box">
+    <div class="box box-info">
+
+        <div class="box box-title">
+            <h3>Client Banking Details</h3>
+        </div>
+
+        <form class="form-horizontal" id="ClientBankingDetailsForm" action="/loans/clientbankingdetails" method="post">
+            <div class="form-group">
+                 <label for="strAccountHolder" class="col-sm-2 control-label pull-left" title="">Account Holder</label>
+                <div class="col-sm-9">
+                    {% if Banking.strAccountHolder == None %}
+                        <input type="text" class="form-control" id="strAccountHolder" name="vstrAccountHolder" placeholder="Account Holder">
+                    {% else %}
+                        <input type="text" class="form-control" id="strAccountHolder" name="vstrAccountHolder" value="{{ Banking.strAccountHolder }}">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group">
+                 <label for="strAccountNumber" class="col-sm-2 control-label pull-left" title="">Account Number</label>
+                <div class="col-sm-9">
+                    {% if Banking.strBankAccountNumber == None %}
+                        <input type="text" class="form-control" id="strBankAccountNumber" name="vstrBankAccountNumber" placeholder="Bank Account Number">
+                    {% else %}
+                        <input type="text" class="form-control" id="strBankAccountNumber" name="vstrBankAccountNumber" value="{{ Banking.strBankAccountNumber }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                 <label for="strBankingInstitution" class="col-sm-2 control-label pull-left" title="">Banking Institution</label>
+                <div class="col-sm-9">
+                    {% if Banking.strBankingInstitution == None %}
+                        <input type="text" class="form-control" id="strBankingInstitution" name="vstrBankingInstitution" placeholder="Banking Institution">
+                    {% else %}
+                        <input type="text" class="form-control" id="strBankingInstitution" name="vstrBankingInstitution" value="{{ Banking.strBankingInstitution }}">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group">
+                 <label for="strBranchCode" class="col-sm-2 control-label pull-left" title="">Branch Code</label>
+                <div class="col-sm-9">
+                    {% if Banking.strBranchCode == None %}
+                        <input type="text" class="form-control" id="strBranchCode" name="vstrBranchCode" placeholder="Branch Code">
+                    {% else %}
+                        <input type="text" class="form-control" id="strBranchCode" name="vstrBranchCode" value="{{ Banking.strBranchCode }}">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group">
+                 <label for="strAccountType" class="col-sm-2 control-label pull-left" title="">Account Type</label>
+                <div class="col-sm-9">
+                    <select id="strAccountType">
+                        <option value="Cheque">Cheque</option>
+                        <option value="Savings">Savings</option>
+                        <option value="Transmission">Transmission</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                 <label for="strCommencementDate" class="col-sm-2 control-label pull-left" title="Commencement Date">Date</label>
+                <div class="col-sm-9">
+                    {% if Banking.strDateCommencement == None %}
+                        <input type="text" class="form-control" id="strCommencementDate" name="vstrCommencementDate" placeholder="Commencement Date">
+                    {% else %}
+                        <input type="text" class="form-control" id="strCommencementDate" name="vstrCommencementDate" value="{{ Banking.strDateCommencement }}">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <button type="button" class="btn btn-success btn-block" id="SaveBankingDetailsButt"><i class="fa fa-save"> </i> Save Banking Details </button>
+
+            </div>
+
+
+        </form>
+
+        <div class="box box-comments">
+            <div id="BankingDetailsINFDIV">
+
+            </div>
+        </div>
+
+    </div>
+</div>

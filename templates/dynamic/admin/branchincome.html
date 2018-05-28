@@ -1,0 +1,138 @@
+<script type="text/javascript">
+    function isNumber(n){
+    return typeof(n) != "boolean" && !isNaN(n);
+}
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#DepositButt').click(function(){
+
+            var vstrBranchCode = document.getElementById('strBranchCode').value;
+            var vstrCashDeposit = document.getElementById('strCashDeposit').value;
+            var vstrCashAvailable = document.getElementById('strCashAvailable').value;
+            var isNumberCashDeposit = isNumber(vstrCashDeposit);
+
+            var vstrOption = 0;
+
+            if (isNumberCashDeposit == true){
+                document.getElementById('strCashAvailable').value = parseInt(vstrCashAvailable) + parseInt(vstrCashDeposit);
+                var vstrTotalCashAvailable = document.getElementById('strCashAvailable').value;
+
+            var dataString  = '&vstrBranchCode=' + vstrBranchCode + '&vstrTotalCashAvailable=' + vstrTotalCashAvailable + '&vstrOption=' + vstrOption;
+              $.ajax({
+                    type: "post",
+                    url: "/admin/branchincome",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#CompanyCoffersINFDiv').html(html)
+
+                  }
+              });
+            }else{
+                alert("Please input only numbers preferably without commas")
+            }
+
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#BankDepositButt').click(function(){
+
+            var vstrBranchCode = document.getElementById('strBranchCode').value;
+            var vstrBankDeposit = document.getElementById('strBankDeposit').value;
+            var vstrCashInBank = document.getElementById('strCashInBank').value;
+            var isNumberBankDeposit = isNumber(vstrBankDeposit);
+            var vstrOption = 1;
+            if (isNumberBankDeposit == true){
+                document.getElementById('strCashInBank').value = parseInt(vstrCashInBank) + parseInt(vstrBankDeposit);
+                var vstrTotalCashInBank = document.getElementById('strCashInBank').value;
+
+            var dataString  = '&vstrBranchCode=' + vstrBranchCode + '&vstrTotalCashInBank=' + vstrTotalCashInBank + '&vstrOption=' + vstrOption;
+              $.ajax({
+                    type: "post",
+                    url: "/admin/branchincome",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#CompanyCoffersINFDiv').html(html)
+
+                  }
+              });
+            }else{
+                alert("Please input only numbers preferably without commas")
+            }
+
+        });
+    });
+</script>
+
+
+<div class="box">
+    <div class="box box-info">
+        <div class="box box-title">
+            <h3>Branch Income</h3>
+            <ul class="list list-group">
+                <li class="list-group-item">Branch Name : {{ thisBranch.strCompanyBranchName }}</li>
+                <li class="list-group-item">Branch Code : {{ thisBranch.strCompanyBranchCode }}</li>
+            </ul>
+        </div>
+        <div class="box box-body">
+            <div class="box box-info">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strCashAvailable" class="col-sm-2 control-label">Cash Available</label>
+                        <div class="col-sm-6">
+                            {% if thisCompanyCoffers.strCashAvailable == None %}
+                                <input type="text" class="form-control" id="strCashAvailable" name="vstrCashAvailable" value="0" readonly>
+                            {% else %}
+                                <input type="text" class="form-control" id="strCashAvailable" name="vstrCashAvailable" value="{{ thisCompanyCoffers.strCashAvailable }}" readonly>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strCashDeposit" class="col-sm-2 control-label">Cash Deposit</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strCashDeposit" name="vstrCashDeposit">
+                            <button type="button" class="btn btn-warning btn-block" id="DepositButt"><i class="fa fa-money"> </i> <strong>Cash Deposit</strong> </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="box box-info">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="strCashInBank" class="col-sm-2 control-label">Bank Balance</label>
+                        <div class="col-sm-6">
+                            {% if thisCompanyCoffers.strCashInBank == None %}
+                                <input type="text" class="form-control" id="strCashInBank" name="vstrCashInBank" value="0" readonly>
+                            {% else %}
+                                <input type="text" class="form-control" id="strCashInBank" name="vstrCashInBank" value="{{ thisCompanyCoffers.strCashInBank }}" readonly>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="strBankDeposit" class="col-sm-2 control-label">Bank Deposit</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="strBankDeposit" name="vstrBankDeposit">
+                            <button type="button" class="btn btn-warning btn-block" id="BankDepositButt"><i class="fa fa-money"> </i> <strong>Bank Deposit</strong> </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+        </div>
+        <div class="box box-footer">
+            <div class="box box-comments">
+                <div class="box box-comment">
+                    <div id="CompanyCoffersINFDiv"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

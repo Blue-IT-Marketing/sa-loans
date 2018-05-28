@@ -1,0 +1,218 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#SaveCostsButt').click(function(){
+            var vstrBranchCode = document.getElementById('strBranchCode').value;
+            var vstrTotalEstimatedSalaries = document.getElementById('strTotalEstimatedSalaries').value;
+            var vstrTotalActualSalaries = document.getElementById('strTotalActualSalaries').value;
+            var vstrOfficeRent = document.getElementById('strOfficeRent').value;
+            var vstrTelCosts = document.getElementById('strTelCosts').value;
+            var vstrStationery = document.getElementById('strStationery').value;
+            var vstrElectricity = document.getElementById('strElectricity').value;
+            var vstrAdvertising = document.getElementById('strAdvertising').value;
+            var vstrInsurance = document.getElementById('strInsurance').value;
+            var vstrOverHeads = document.getElementById('strOverHeads').value;
+            var vstrMonth = document.getElementById('strMonth').value;
+
+
+
+
+            var dataString  = '&vstrBranchCode=' + vstrBranchCode + '&vstrTotalEstimatedSalaries='+ vstrTotalEstimatedSalaries + '&vstrTotalActualSalaries=' + vstrTotalActualSalaries +
+                    '&vstrOfficeRent=' + vstrOfficeRent + '&vstrTelCosts=' + vstrTelCosts + '&vstrStationery='+vstrStationery + '&vstrElectricity='+ vstrElectricity +
+                    '&vstrAdvertising=' + vstrAdvertising + '&vstrInsurance=' + vstrInsurance + '&vstrOverHeads=' + vstrOverHeads;
+              $.ajax({
+                    type: "post",
+                    url: "/admin/branchcosts",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#DynamicFormContent').html(html)
+
+                  }
+              });
+
+        });
+    });
+</script>
+
+<div class="box">
+    <div class="box box-info">
+        <div class="box box-title">
+            <h3>Branch Costs</h3>
+            <ul class="list list-group">
+                <li class="list-group-item">Branch Name : {{ thisBranch.strCompanyBranchName }}</li>
+                <li class="list-group-item">Branch Code : {{ thisBranch.strCompanyBranchCode }}</li>
+            </ul>
+        </div>
+        <div class="box box-body">
+            <div class="box box-info">
+                <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="strMonth" class="col-sm-4 control-label">Month</label>
+                    <div class="col-sm-6">
+                        <select id="strMonth">
+                            {% if thisBranch.strMonth == 1 %}
+                                <option value="1" selected="selected">JAN</option>
+                            {% else %}
+                                <option value="1">JAN</option>
+                            {% endif %}
+
+                            {% if thisBranch.strMonth == 2 %}
+                                <option value="2" selected="selected">FEB</option>
+                            {% else %}
+                                <option value="2">FEB</option>
+                            {% endif %}
+
+                            {% if thisBranch.strMonth == 3 %}
+                                <option value="3" selected="selected">MAR</option>
+                            {% else %}
+                                <option value="3">MAR</option>
+                            {% endif %}
+
+
+                            {% if thisBranch.strMonth == 4 %}
+                                <option value="4" selected="selected">APR</option>
+                            {% else %}
+                                <option value="4">APR</option>
+                            {% endif %}
+
+                            {% if thisBranch.strMonth == 5 %}
+                                <option value="5" selected="selected">MAY</option>
+                            {% else %}
+                                <option value="5">MAY</option>
+                            {% endif %}
+
+
+                            {% if thisBranch.strMonth == 6 %}
+                                <option value="6" selected="selected">JUN</option>
+                            {% else %}
+                                <option value="6">JUN</option>
+                            {% endif %}
+
+                            {% if thisBranch.strMonth == 7 %}
+                                <option value="7" selected="selected">JUL</option>
+                            {% else %}
+                                <option value="7">JUL</option>
+                            {% endif %}
+
+                            {% if thisBranch.strMonth == 8 %}
+                                <option value="8" selected="selected">AUG</option>
+                            {% else %}
+                                <option value="8">AUG</option>
+                            {% endif %}
+
+                            {% if thisBranch.strMonth == 9 %}
+                                <option value="9" selected="selected">SEP</option>
+                            {% else %}
+                                <option value="9">SEP</option>
+                            {% endif %}
+
+                            {% if thisBranch.strMonth == 10 %}
+                                <option value="10" selected="selected">OCT</option>
+                            {% else %}
+                                <option value="10">OCT</option>
+                            {% endif %}
+
+                            {% if thisBranch.strMonth == 11 %}
+                                <option value="11" selected="selected">NOV</option>
+                            {% else %}
+                                <option value="11">NOV</option>
+                            {% endif %}
+
+                            {% if thisBranch.strMonth == 12 %}
+                                <option value="12">DEC</option>
+                            {% else %}
+                                <option value="12">DEC</option>
+                            {% endif %}
+                        </select>
+                    </div>
+
+                </div>
+                </form>
+            </div>
+            <form class="form-horizontal">
+                <div class="box box-info">
+                <div class="form-group">
+                    <label for="strTotalEstimatedSalaries" class="col-sm-4 control-label">Estimated Salaries</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strTotalEstimatedSalaries" name="vstrTotalEstimatedSalaries" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strTotalActualSalaries" class="col-sm-4 control-label">Actual Salaries</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strTotalActualSalaries" name="vstrTotalActualSalaries" value="">
+                    </div>
+                </div>
+                </div>
+                <div class="box box-info">
+                <div class="form-group">
+                    <label for="strOfficeRent" class="col-sm-4 control-label">Office Rent</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strOfficeRent" name="vstrOfficeRent" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strTelCosts" class="col-sm-4 control-label">Tel/Cell Costs</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strTelCosts" name="vstrTelCosts" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strStationery" class="col-sm-4 control-label">Stationery</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strStationery" name="vstrStationery" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strElectricity" class="col-sm-4 control-label">Electricity</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strElectricity" name="vstrElectricity" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strTransport" class="col-sm-4 control-label">Transport</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strTransport" name="vstrTransport" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strAdvertising" class="col-sm-4 control-label">Advertising</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strAdvertising" name="vstrAdvertising" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strInsurance" class="col-sm-4 control-label">Insurance</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strInsurance" name="vstrInsurance" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strOverHeads" class="col-sm-4 control-label">Overheads</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="strOverHeads" name="vstrOverHeads" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-success btn-block" id="SaveCostsButt"><i class="fa fa-save"> </i> <strong> Save Costs</strong> </button>
+                    </div>
+                </div>
+
+            </div>
+            </form>
+
+        </div>
+        <div class="box box-footer">
+
+        </div>
+    </div>
+</div>

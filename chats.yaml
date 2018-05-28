@@ -1,0 +1,13 @@
+handlers:
+
+- url : /chats
+  login: required
+  script: chats.app
+
+- url: /chats/employees/.*
+  login: required
+  script: chats.app
+
+- url: /chats/sendmessage
+  login: required
+  script: chats.app

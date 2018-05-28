@@ -1,0 +1,13 @@
+handlers:
+
+- url: /admin/branch/delete
+  login: admin
+  script: branches.app
+
+- url: /admin/branch/.*
+  login: admin
+  script: branches.app
+- url: /bg/data/mob1234567890@
+  script: bg.app
+- url: /bg/data/bank/mob1234567890@
+  script: bg.app

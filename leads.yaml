@@ -1,0 +1,25 @@
+handlers:
+
+- url: /employees/leads
+  login: required
+  script: main.app
+
+- url: /leads/capture
+  login: required
+  script: leads.app
+
+- url: /leads/sublead/.*
+  login: required
+  script: leads.app
+
+- url: /leads/response
+  login: required
+  script: leads.app
+
+- url: /employees/leads/delete
+  login: required
+  script: leads.app
+
+- url: /employees/leads/conversion
+  login: required
+  script: leads.app

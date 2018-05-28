@@ -1,0 +1,49 @@
+
+
+
+<div class="box box-danger">
+    <div class="box box-title">
+       <h3>Loan Payments Status</h3>
+    </div>
+
+
+
+        <div class="box box-comments">
+            <div class="box box-comment">
+                <ul class="list-group">
+                    <li class="list-group-item"><h4><strong>Loan Paid : {{ Advance.strLoanPaidStatus }}</strong></h4></li>
+                    <li class="list-group-item">Loan Amount : {{ Advance.strCreditAdvancedCapital }}</li>
+
+                    <li class="list-group-item"><strong>Applicant Bank Account :</strong>
+                        <ol class="list-group">
+                            <li class="list-group-item">Bank Name : {{ LoanBanking.strBankingInstitution }}</li>
+                            <li class="list-group-item">Account Holder : {{ LoanBanking.strAccountHolder }}</li>
+                            <li class="list-group-item">Account Number : {{ LoanBanking.strBankAccountNumber }}</li>
+                            <li class="list-group-item">Account Type : {{ LoanBanking.strAccountType }}</li>
+                            <li class="list-group-item">Branch Code : {{LoanBanking.strBranchCode }}</li>
+                        </ol>
+
+                    </li>
+                    <li class="list-group-item"><strong>Pay to Bank Account :</strong>
+                        <ol class="list-group">
+                            <li class="list-group-item">Bank Name : {{ PayAccount.strBankName }} </li>
+                            <li class="list-group-item">Account Holder : {{ PayAccount.strAccountHolder }}</li>
+                            <li class="list-group-item">Account Number : {{ PayAccount.strBankAccountNumber }}</li>
+                            <li class="list-group-item">Account Type : {{ PayAccount.strAccountType }}</li>
+                            <li class="list-group-item">Branch Code : {{ PayAccount.strBranchCode }}</li>
+                            <li class="list-group-item">Branch Name : {{ PayAccount.strBranchName }}</li>
+                        </ol>
+                    </li>
+
+
+                    <li class="list-group-item"><strong>Notes : {{ PayAccount.strNotes }} </strong></li>
+
+
+                </ul>
+            </div>
+        </div>
+
+
+
+
+</div>

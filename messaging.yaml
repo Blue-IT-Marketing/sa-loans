@@ -1,0 +1,27 @@
+handlers:
+
+
+- url: /inbox
+  login: required
+  script: messaging.app
+
+- url: /admin/employees/messaging
+  login: admin
+  script: messaging.app
+
+- url: /admin/sms/templates
+  login: admin
+  script: messaging.app
+
+
+- url : /inbox/messages/read/.*
+  login: required
+  script: messaging.app
+
+- url: /inbox/messages/delete
+  login: required
+  script: messaging.app
+
+- url: /inbox/compose
+  login: required
+  script: messaging.app

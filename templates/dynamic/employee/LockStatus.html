@@ -1,0 +1,14 @@
+<div class="box box-info">
+    <div class="box box-title">
+        <h3 class="fa fa-lock">Lock Status</h3>
+    </div>
+    <div class="box box-body">
+        <div class="list-group">
+
+            <li class="list-group-item-danger"><i class="fa fa-lock"> </i> <strong>Suspended : {{ thisEmployee.strSuspend }}</strong></li>
+            <li class="list-group-item-danger"><i class="fa fa-lock"> </i> <strong>Suspended on Pay : {{ thisEmployee.strSuspendOnPay }}</strong></li>
+            <li class="list-group-item-danger"><i class="fa fa-lock"> </i> <strong>Lockout 24 Hour : {{ thisEmployee.str24HourLock }}</strong></li>
+            <li class="list-group-item-danger"><i class="fa fa-lock"> </i> <strong>Lockout Indefinitely : {{ thisEmployee.strLockIndefinetely }}</strong> </li>
+        </div>
+    </div>
+</div>

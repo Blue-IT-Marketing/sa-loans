@@ -1,0 +1,290 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#AddEmployementButt').click(function(){
+            var varstrAccountNumber = document.getElementById('strAccountNumber').value;
+            var varstrNameOfEmployer = document.getElementById('strNameOfEmployer').value;
+            var varstrEmployeeNumber = document.getElementById('strEmployeeNumber').value;
+            var varstrDepartment = document.getElementById('strDepartment').value;
+            var varstrEmployeeKind = document.getElementById('strEmployeeKind').value;
+            var varstrContract = document.getElementById('strContract').value;
+            var varstrDateJoined = document.getElementById('strDateJoined').value;
+            var varstrStandNumber = document.getElementById('strStandNumber').value;
+            var varstrStreetName = document.getElementById('strStreetName').value;
+            var varstrTownCity = document.getElementById('strTownCity').value;
+            var varstrProvince = document.getElementById('strProvince').value;
+            var varstrCountry = document.getElementById('strCountry').value;
+            var varstrPostalCode = document.getElementById('strPostalCode').value;
+            var dataString = '&vstrAccountNumber=' + varstrAccountNumber +  '&vstrNameOfEmployer=' +  varstrNameOfEmployer + '&vstrEmployeeNumber=' + varstrEmployeeNumber +
+                    '&vstrDepartment='+ varstrDepartment + '&vstrEmployeeKind=' + varstrEmployeeKind +  '&vstrContract='+ varstrContract + '&vstrDateJoined='+ varstrDateJoined +
+                    '&vstrStandNumber='+ varstrStandNumber + '&vstrStreetName=' + varstrStreetName + '&vstrTownCity=' + varstrTownCity +
+                    '&vstrProvince='+ varstrProvince + '&vstrCountry=' + varstrCountry + '&vstrPostalCode='+ varstrPostalCode;
+            var EmployerNameLength = varstrNameOfEmployer.length;
+            var DateLength = varstrDateJoined.length;
+            if (EmployerNameLength > 2)
+            {
+                if (DateLength == 10){
+                $.ajax({
+                    type: "post",
+                    url: "/loans/employmentdetails",
+                    data: dataString,
+                    cache: false,
+                    success: function (html) {
+                        $('#ActionStatus').html(html)
+                    }
+                });
+                }else{
+                    alert("Please enter your date in this format yyyy-mm-dd")
+                }
+            }else{
+                alert("Please Enter Employer Name")
+            }
+             });
+      });
+</script>
+<div class="box">
+    <div class="box box-info">
+        <div class="box box-title">
+            <label class="label label-primary">Employment Details</label>
+        </div>
+    </div>
+    <div class="box box-body">
+    <div class="box box-header">
+       <h4>Employment Details</h4>
+    </div>
+        <form class="form-horizontal" name="EmploymentDetails" action="" method="post">
+          <div class="form-group">
+              <label for="strNameOfEmployer" class="col-sm-2 control-label pull-left" title="Your First and Second Names">Name of Employer</label>
+                    <div class="col-sm-6">
+                        {% if Employment.strNameOfEmployer == None %}
+                        <input type="text" class="form-control" id="strNameOfEmployer" name="vstrNameOfEmployer" placeholder="Name Of Employer">
+                        {% else %}
+                            <input type="text" class="form-control" id="strNameOfEmployer" name="vstrNameOfEmployer" placeholder="Name Of Employer" value="{{ Employment.strNameOfEmployer }}">
+                        {% endif %}
+                     </div>
+          </div>
+          <div class="form-group">
+              <label for="strEmployeeNumber" class="col-sm-2 control-label pull-left" title="your Surname">Employee Number</label>
+                    <div class="col-sm-6">
+                        {% if Employment.strEmployeeNumber == None %}
+                        <input type="text" class="form-control" id="strEmployeeNumber" name="vstrEmployeeNumber" placeholder="Employee Number" >
+                        {% else %}
+                        <input type="text" class="form-control" id="strEmployeeNumber" name="vstrEmployeeNumber" placeholder="Employee Number" value="{{ Employment.strEmployeeNumber }}">
+                        {% endif %}
+                     </div>
+          </div>
+          <div class="form-group">
+              <label for="strDepartment" class="col-sm-2 control-label pull-left" title="your Surname">Department</label>
+                    <div class="col-sm-6">
+                        {% if Employment.strDepartment == None %}
+                        <input type="text" class="form-control" id="strDepartment" name="vstrDepartment" placeholder="Department">
+                        {% else %}
+                        <input type="text" class="form-control" id="strDepartment" name="vstrDepartment" placeholder="Department" value="{{ Employment.strDepartment }}">
+                        {% endif %}
+                     </div>
+          </div>
+
+          <div class="form-group">
+              <label for="strEmployeeKind" class="col-sm-2 control-label pull-left" title="Employee Kind">Employee Kind</label>
+                    <div class="col-sm-6">
+                        <select id="strEmployeeKind" style="width: 100%;">
+                            {% if Employment.strEmployeeKind == "government" %}
+                                <option value="government" selected="selected">Government</option>
+                            {% else %}
+                                <option value="government">Government</option>
+                            {% endif %}
+
+                            {% if Employment.strEmployeeKind == "private" %}
+                                <option value="private" selected="selected">Private</option>
+                            {% else %}
+                                <option value="private">Private</option>
+                            {% endif %}
+
+                            {% if Employment.strEmployeeKind == "pension" %}
+                                <option value="pension" selected="selected">Pension</option>
+                            {% else %}
+                                <option value="pension">Pension</option>
+                            {% endif %}
+
+                            {% if Employment.strEmployeeKind == "grant" %}
+                                <option value="grant" selected="selected">Grant</option>
+                            {% else %}
+                                <option value="grant">Grant</option>
+                            {% endif %}
+                        </select>
+                     </div>
+          </div>
+          <div class="form-group">
+                <label for="strContract" class="col-sm-2 control-label pull-left" title="Contract Type">Contract</label>
+                <div class="col-sm-6">
+                    <select  id="strContract" style="width: 100%;">
+                        {% if Employment.strContract == "Permanent" %}
+                            <option value="Permanent" selected="selected">Permanent</option>
+                        {% else %}
+                            <option value="Permanent">Permanent</option>
+                        {% endif %}
+
+                        {% if Employment.strContract == "Temporary" %}
+                            <option value="Temporary" selected="selected">Temporary</option>
+                        {% else %}
+                            <option value="Temporary">Temporary</option>
+                        {% endif %}
+
+                        {% if Employment.strContract == "Freelance" %}
+                            <option value="Freelance" selected="selected">Freelance</option>
+                        {% else %}
+                            <option value="Freelance">Freelance</option>
+                        {% endif %}
+
+                        {% if Employment.strContract == "Agent" %}
+                            <option value="Agent" selected="selected">Agent</option>
+                        {% else %}
+                            <option value="Agent">Agent</option>
+                        {% endif %}
+                    </select>
+                    <!-- /.input group -->
+                </div>
+          </div>
+          <div class="form-group">
+                <label class="col-sm-2 control-label pull-left" title="Date of Employment">Date Joined</label>
+                <div class="col-sm-6">
+                    {% if Employment.strDateJoined == None %}
+                    <input type="text" id="strDateJoined" name="vstrDateJoined" placeholder="yyyy-mm-dd">
+                    {% else %}
+                    <input type="text" id="strDateJoined" name="vstrDateJoined" placeholder="yyyy-mm-dd" value="{{ Employment.strDateJoined }}">
+                    {% endif %}
+                </div>
+          </div>
+            <div class="box box-comments">
+  <label title="Employer Address">Employer Address</label>
+  <div class="box box-comment">
+      <label class="col-sm-2 control-label pull-left" title="Stand Number">Stand Number</label>
+      <div class="col-sm-9">
+          {% if Employment.strStandNumber == None %}
+            <input type="text" id="strStandNumber" name="vstrStandNumber" placeholder="Stand Number">
+          {% else %}
+            <input type="text" id="strStandNumber" name="vstrStandNumber" placeholder="Stand Number" value="{{ Employment.strStandNumber }}">
+          {% endif %}
+
+      </div>
+  </div>
+  <div class="box box-comment">
+      <label class="col-sm-2 control-label pull-left" title="Street Name">Street Name</label>
+      <div class="col-sm-9">
+          {% if Employment.strStreetName == None %}
+            <input type="text" id="strStreetName" name="vstrStreetName" placeholder="Street Name">
+          {% else %}
+            <input type="text" id="strStreetName" name="vstrStreetName" placeholder="Street Name" value="{{ Employment.strStreetName }}">
+          {% endif %}
+      </div>
+  </div>
+  <div class="box box-comment">
+      <label class="col-sm-2 control-label pull-left" title="Town/City">Town City</label>
+      <div class="col-sm-9">
+          {% if Employment.strTownCity == None %}
+                <input type="text" id="strTownCity" name="vstrTownCity" placeholder="Town/City">
+          {%  else %}
+                <input type="text" id="strTownCity" name="vstrTownCity" placeholder="Town/City" value="{{ Employment.strTownCity }}">
+          {% endif %}
+      </div>
+  </div>
+  <div class="box box-comment">
+      <label for="strProvince" class="col-sm-2 control-label pull-left" title="Province">Province</label>
+      <div class="col-sm-9">
+          <select id="strProvince" style="width: 100%;">
+              {% if Employment.strProvince == "Limpopo" %}
+              <option value="Limpopo" selected="selected">Limpopo</option>
+              {% else %}
+              <option value="Limpopo">Limpopo</option>
+              {% endif %}
+
+              {% if Employment.strProvince == "North West" %}
+                <option value="North West" selected="selected">North West</option>
+              {% else %}
+                <option value="North West">North West</option>
+              {% endif %}
+
+              {% if Employment.strProvince == "Mpumalanga" %}
+                <option value="Mpumalanga" selected="selected">Mpulanga</option>
+              {% else %}
+                <option value="Mpumalanga">Mpulanga</option>
+              {% endif %}
+
+              {% if Employment.strProvince == "Gauteng" %}
+                <option value="Gauteng" selected="selected">Gauteng</option>
+              {% else %}
+                <option value="Gauteng">Gauteng</option>
+              {% endif %}
+
+              {% if Employment.strProvince == "Bloemfontein" %}
+                <option value="Bloemfontein" selected="selected">Bloemfontein</option>
+              {% else %}
+                <option value="Bloemfontein">Bloemfontein</option>
+              {% endif %}
+
+              {% if Employment.strProvince == "KZN" %}
+                <option value="KZN" selected="selected">KZN</option>
+              {% else %}
+                <option value="KZN">KZN</option>
+              {% endif %}
+
+              {% if Employment.strProvince == "Western Cape" %}
+                <option value="Western Cape" selected="selected">Western Cape</option>
+              {% else %}
+                <option value="Western Cape">Western Cape</option>
+              {% endif %}
+
+              {% if Employment.strProvince == "Eastern Cape" %}
+                <option value="Eastern Cape" selected="selected">Eastern Cape</option>
+              {% else %}
+                <option value="Eastern Cape">Eastern Cape</option>
+              {% endif %}
+
+              {% if Employment.strProvince == "Northern Cape" %}
+                <option value="Northern Cape" selected="selected" >Northern Cape</option>
+              {% else %}
+                <option value="Northern Cape">Northern Cape</option>
+              {% endif %}
+          </select>
+      </div>
+  </div>
+
+  <div class="box box-comment">
+      <label class="col-sm-2 control-label pull-left" title="Country">Country</label>
+      <div class="col-sm-9">
+          {% if Employment.strCountry == None %}
+          <input type="text" id="strCountry" name="vstrCountry" placeholder="South Africa">
+          {% else %}
+          <input type="text" id="strCountry" name="vstrCountry" placeholder="South Africa" value="{{ Employment.strCountry }}">
+          {% endif %}
+      </div>
+
+  </div>
+   <div class="box box-comment">
+       <label class="col-sm-2 control-label pull-left" title="Postal Code">Postal Code</label>
+       <div class="col-sm-9">
+           {% if Employment.strPostalCode == None %}
+           <input type="text" id="strPostalCode" name="vstrPostalCode" placeholder="Postal Code">
+           {% else %}
+           <input type="text" id="strPostalCode" name="vstrPostalCode" placeholder="Postal Code" value="{{ Employment.strPostalCode }}">
+           {% endif %}
+       </div>
+
+   </div>
+      <!-- /.form group -->
+  <div class="box box-comment">
+      <button type="button" id="AddEmployementButt" name="SaveButt"  class="btn btn-success">Save Employment Details</button>
+  </div>
+
+  </div>
+
+        </form>
+    </div>
+</div>
+<div class="box box-comments">
+    <div class="box box-comment">
+    <div id="ActionStatus">
+    </div>
+    </div>
+</div>
+
+

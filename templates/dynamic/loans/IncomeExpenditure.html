@@ -1,0 +1,291 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#CalculateAffordabilityButt').click(function(){
+
+            var strIncomeAfterDeduction = document.getElementById('strIncomeAfterDeduction').value;
+            var strOverTime = document.getElementById('strOverTime').value;
+            var strCommission = document.getElementById('strCommission').value;
+            var strOtherIncome = document.getElementById('strOtherIncome').value;
+
+            document.getElementById('strTotalIncome').value = parseInt(strIncomeAfterDeduction) + parseInt(strOverTime) + parseInt(strCommission) + parseInt(strOtherIncome);
+
+            var strBondRepayments = document.getElementById('strBondRepayments').value;
+            var strLoanInstallments = document.getElementById('strLoanInstallments').value;
+            var strWaterElectricityTel = document.getElementById('strWaterElectricityTel').value;
+            var strInsurance = document.getElementById('strInsurance').value;
+            var strChildrenMaintenance = document.getElementById('strChildrenMaintenance').value;
+            var strVehicleMaintenance = document.getElementById('strVehicleMaintenance').value;
+            var strBasicNecessities = document.getElementById('strBasicNecessities').value;
+            var strDomesticWages = document.getElementById('strDomesticWages').value;
+            var strEducation = document.getElementById('strEducation').value;
+            var strOtherExpenses = document.getElementById('strOtherExpenses').value;
+
+
+            document.getElementById('strTotalExpenses').value = parseInt(strBondRepayments) + parseInt(strLoanInstallments) + parseInt(strWaterElectricityTel) +
+                            parseInt(strInsurance) + parseInt(strChildrenMaintenance) + parseInt(strVehicleMaintenance) + parseInt(strBasicNecessities) +
+                            parseInt(strDomesticWages) + parseInt(strEducation) + parseInt(strOtherExpenses);
+            document.getElementById('strAffordability').value = parseInt(document.getElementById('strTotalIncome').value) - parseInt(document.getElementById('strTotalExpenses').value);
+          });
+      });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#SaveAffordabilityButt').click(function(){
+
+            var varstrAccoutNumber = document.getElementById('strAccountNumber').value;
+
+            var strIncomeAfterDeduction = document.getElementById('strIncomeAfterDeduction').value;
+            var strOverTime = document.getElementById('strOverTime').value;
+            var strCommission = document.getElementById('strCommission').value;
+            var strOtherIncome = document.getElementById('strOtherIncome').value;
+
+            var strTotalIncome = document.getElementById('strTotalIncome').value;
+
+            var strBondRepayments = document.getElementById('strBondRepayments').value;
+            var strLoanInstallments = document.getElementById('strLoanInstallments').value;
+            var strWaterElectricityTel = document.getElementById('strWaterElectricityTel').value;
+            var strInsurance = document.getElementById('strInsurance').value;
+
+            var strChildrenMaintenance = document.getElementById('strChildrenMaintenance').value;
+            var strVehicleMaintenance = document.getElementById('strVehicleMaintenance').value;
+            var strBasicNecessities = document.getElementById('strBasicNecessities').value;
+            var strDomesticWages = document.getElementById('strDomesticWages').value;
+            var strEducation = document.getElementById('strEducation').value;
+
+            var strOtherExpenses = document.getElementById('strOtherExpenses').value;
+            var strTotalExpenses = document.getElementById('strTotalExpenses').value;
+            var strAffordability =  document.getElementById('strAffordability').value;
+
+            var dataString = '&vstrAccountNumber=' + varstrAccoutNumber + '&vstrIncomeAfterDeduction=' + strIncomeAfterDeduction + '&vstrOverTime=' + strOverTime + '&vstrCommission=' + strCommission + '&vstrOtherIncome=' + strOtherIncome +
+                    '&vstrTotalIncome='+ strTotalIncome + '&vstrBondRepayments=' + strBondRepayments + '&vstrLoanInstallments=' + strLoanInstallments +
+                    '&vstrWaterElectricityTel=' + strWaterElectricityTel + '&vstrInsurance=' + strInsurance + '&vstrChildrenMaintenance=' + strChildrenMaintenance +
+                    '&vstrVehicleMaintenance=' + strVehicleMaintenance + '&vstrBasicNecessities=' + strBasicNecessities + '&vstrDomesticWages=' + strDomesticWages +
+                    '&vstrEducation=' + strEducation + '&vstrOtherExpenses=' + strOtherExpenses + '&vstrTotalExpenses=' + strTotalExpenses +'&vstrAffordability=' + strAffordability;
+
+              $.ajax({
+                    type: "post",
+                    url: "/loans/incomeexpenditure",
+                    data: dataString,
+                    cache: false,
+                  success: function(html){
+                    $('#AffordabilityINFDiv').html(html)
+                  }
+
+              });
+
+          });
+
+      });
+</script>
+<div class="box">
+    <div class="box box-info">
+        <div class="box box-title">
+            <h3>Income &amp; Expenditure</h3>
+        </div>
+        <div class="box box-comments">
+            <form class="form-horizontal" id="Income" action="loans/incomeexpenditure" method="post">
+            <div class="form-group">
+                 <label for="strIncomeAfterDeduction" class="col-sm-3 control-label pull-left" title="">Income After Deduction</label>
+                <div class="col-sm-9">
+                    {% if IncExpense.strIncomeAfterDeduction == None %}
+                    <input type="text" class="form-control" id="strIncomeAfterDeduction" name="vstrIncomeAfterDeduction" value="0">
+                    {% else %}
+                    <input type="text" class="form-control" id="strIncomeAfterDeduction" name="vstrIncomeAfterDeduction" value="{{ IncExpense.strIncomeAfterDeduction }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strOverTime" class="col-sm-3 control-label pull-left" title="">Overtime</label>
+                <div class="col-sm-9">
+                    {% if IncExpense.strOverTime == None %}
+                    <input type="text" class="form-control" id="strOverTime" name="vstrOverTime" value="0">
+                    {% else %}
+                    <input type="text" class="form-control" id="strOverTime" name="vstrOverTime" value="{{ IncExpense.strOverTime }}">
+                    {% endif %}
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="strCommission" class="col-sm-3 control-label pull-left" title="">Commission</label>
+                <div class="col-sm-9">
+                    {% if IncExpense.strCommission == None %}
+                    <input type="text" id="strCommission" name="vstrCommission" value="0">
+                    {% else %}
+                    <input type="text" id="strCommission" name="vstrCommission" value="{{ IncExpense.strCommission }}">
+                    {% endif %}
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="strOtherIncome" class="col-sm-3 control-label pull-left" title="">Other Income</label>
+                <div class="col-sm-9">
+                    {% if IncExpense.strOtherIncome == None %}
+                        <input type="text" id="strOtherIncome" name="vstrOtherIncome" value="0">
+                    {% else %}
+                        <input type="text" id="strOtherIncome" name="vstrOtherIncome" value="{{ IncExpense.strOtherIncome }}">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="strTotalIncome" class="col-sm-3 control-label pull-left" title="">Total Income</label>
+                <div class="col-sm-9">
+                    {% if IncExpense.strTotalIncome == None %}
+                        <input type="text" id="strTotalIncome" name="vstrTotalIncome" value="0">
+                    {% else %}
+                        <input type="text" id="strTotalIncome" name="vstrTotalIncome" value="{{ IncExpense.strTotalIncome }}">
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+         </div>
+        <div class="box box-comments">
+            <form class="form-horizontal" id="Expenditure" action="loans/incomeexpenditure" method="post">
+                <div class="form-group">
+                    <label for="strBondRepayments" class="col-sm-3 control-label pull-left" title="">Bond Repayments</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strBondRepayments == None %}
+                            <input type="text" class="form-control" id="strBondRepayments" name="vstrBondRepayments" value="0">
+                        {% else %}
+                            <input type="text" class="form-control" id="strBondRepayments" name="vstrBondRepayments" value="{{ IncExpense.strBondRepayments }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strLoanInstallments" class="col-sm-3 control-label pull-left" title="">Other Credit/Loan Installments</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strLoanInstallments == None %}
+                        <input type="text" class="form-control" id="strLoanInstallments" name="vstrLoanInstallments" value="0">
+                        {% else %}
+                        <input type="text" class="form-control" id="strLoanInstallments" name="vstrLoanInstallments" value="{{ IncExpense.strLoanInstallments }}">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strWaterElectricityTel" class="col-sm-3 control-label pull-left" title="">Water/Electricity and Telephone</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strWaterElectricityTel == None %}
+                        <input type="text" class="form-control" id="strWaterElectricityTel" name="vstrWaterElectricityTel" value="0">
+                        {% else %}
+                        <input type="text" class="form-control" id="strWaterElectricityTel" name="vstrWaterElectricityTel" value="{{ IncExpense.strWaterElectricityTel }}">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strInsurance" class="col-sm-3 control-label pull-left" title="">Insurance</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strInsurance == None %}
+                        <input type="text" class="form-control" id="strInsurance" name="vstrInsurance" value="0">
+                        {% else %}
+                        <input type="text" class="form-control" id="strInsurance" name="vstrInsurance" value="{{ IncExpense.strInsurance }}">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strChildrenMaintenance" class="col-sm-3 control-label pull-left" title="">Children Maintenance</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strChildrenMaintenance == None %}
+                            <input type="text" class="form-control" id="strChildrenMaintenance" name="vstrChildrenMaintenance" value="0">
+                        {% else %}
+                            <input type="text" class="form-control" id="strChildrenMaintenance" name="vstrChildrenMaintenance" value="{{ IncExpense.strChildrenMaintenance }}">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strVehicleMaintenance" class="col-sm-3 control-label pull-left" title="">Vehicle Maintenance/ Transport</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strVehicleMaintenance == None %}
+                            <input type="text" class="form-control" id="strVehicleMaintenance" name="vstrVehicleMaintenance" value="0">
+                        {% else %}
+                            <input type="text" class="form-control" id="strVehicleMaintenance" name="vstrVehicleMaintenance" value="{{ IncExpense.strVehicleMaintenance }}">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strBasicNecessities" class="col-sm-3 control-label pull-left" title="">Basic Necessities</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strBasicNecessities == None %}
+                            <input type="text" class="form-control" id="strBasicNecessities" name="vstrBasicNecessities" value="0">
+                        {% else %}
+                            <input type="text" class="form-control" id="strBasicNecessities" name="vstrBasicNecessities" value="{{ IncExpense.strBasicNecessities }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strDomesticWages" class="col-sm-3 control-label pull-left" title="">Domestic Wages</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strDomesticWages == None %}
+                            <input type="text" class="form-control" id="strDomesticWages" name="vstrDomesticWages" value="0">
+                        {% else %}
+                            <input type="text" class="form-control" id="strDomesticWages" name="vstrDomesticWages" value="{{ IncExpense.strDomesticWages }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strEducation" class="col-sm-3 control-label pull-left" title="">Education</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strEducation == None %}
+                            <input type="text" class="form-control" id="strEducation" name="vstrEducation" value="0">
+                        {% else %}
+                            <input type="text" class="form-control" id="strEducation" name="vstrEducation" value="{{ IncExpense.strEducation }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="strOtherExpenses" class="col-sm-3 control-label pull-left" title="">Other Expenses</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strOtherExpenses == None %}
+                            <input type="text" class="form-control" id="strOtherExpenses" name="vstrOtherExpenses" value="0">
+                        {% else %}
+                            <input type="text" class="form-control" id="strOtherExpenses" name="vstrOtherExpenses" value="{{ IncExpense.strOtherExpenses }}">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="strTotalExpenses" class="col-sm-3 control-label pull-left" title="">Total Expenses</label>
+                    <div class="col-sm-9">
+                        {% if IncExpense.strTotalExpenses == None %}
+                            <input type="text" class="form-control" id="strTotalExpenses" name="vstrTotalExpenses" value="0">
+                        {% else %}
+                            <input type="text" class="form-control" id="strTotalExpenses" name="vstrTotalExpenses" value="{{ IncExpense.strTotalExpenses }}">
+                        {% endif %}
+                    </div>
+
+                </div>
+            <div class="form-group">
+                    <label for="strAffordability" class="col-sm-3 control-label pull-left" title="">Affordability</label>
+                <div class="col-sm-9">
+                    {% if IncExpense.strAffordability == None %}
+                        <input type="text" class="form-control" id="strAffordability" name="vstrAffordability" value="0">
+                    {% else %}
+                        <input type="text" class="form-control" id="strAffordability" name="vstrAffordability" value="{{ IncExpense.strAffordability }}">
+                    {% endif %}
+
+                </div>
+
+            </div>
+            </form>
+
+        </div>
+        <div class="box box-comments">
+            <button type="button" class="btn btn-facebook btn-block" id="CalculateAffordabilityButt"><i class="fa  fa-calculator"> </i> Calculate Affordability</button>
+            <button type="button" class="btn btn-bitbucket btn-block" id="SaveAffordabilityButt"><i class="fa fa-save"> </i> Save</button>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="box box-comments">
+    <div class="box box-comment">
+        <div id="AffordabilityINFDiv">
+
+        </div>
+    </div>
+</div>

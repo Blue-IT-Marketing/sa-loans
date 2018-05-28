@@ -1,0 +1,14 @@
+handlers:
+
+
+- url: /dynamic/admin/editbranch.html
+  login: admin
+  script: dynamic.app
+
+- url: /dynamic/admin/editemployees.html
+  login: admin
+  script: dynamic.app
+
+
+
+

@@ -1,0 +1,58 @@
+<script type="text/javascript">
+     $(document).ready(function() {
+         $('#buttSaveNote').click(function () {
+             var vstrAccountNumber = document.getElementById('strAccountNumber').value;
+             var vstrNoteSubject = document.getElementById('strNoteSubject').value;
+             var vstrNote = document.getElementById('strNote').value;
+
+             var dataString = '&vstrAccountNumber=' + vstrAccountNumber + '&vstrNoteSubject=' + vstrNoteSubject +
+                     '&vstrNote=' + vstrNote;
+             $.ajax({
+                 type: "post",
+                 url: "/loans/notes",
+                 data: dataString,
+                 cache: false,
+                 success: function (html) {
+                     $('#NotepadDIVINF').html(html)
+                 }
+             });
+         });
+     });
+</script>
+
+<div class="box box-info">
+    <div class="box box-title">
+          <h3>Notes</h3>
+    </div>
+ {% if NotesList %}
+ {% for Note in NotesList %}
+    <ul class="list-group">
+      <li class="list-group-item">Subject : {{ Note.strSubject }}</li>
+      <li class="list-group-item">Note : {{ Note.strNotes }}</li>
+      <li class="list-group-item">Employee : <a href="/admin/employees/{{ Note.strEmployeeCode }}"> {{ Note.strFullNames }} - {{ Note.strSurname }}</a></li>
+      <li class="list-group-item">Date Taken : {{ Note.strDateTimeTaken }}</li>
+    </ul>
+{% endfor %}
+{% else %}
+    <strong>Please use the form below to create Notes</strong>
+{% endif %}
+</div>
+<div class="box box-comments">
+  <div class="box box-title">
+      <h3>Sticky Notes</h3>
+  </div>
+  <form class="form-horizontal">
+      <div class="box box-comments">
+          <div class="box box-comment">
+              <input type="text" class="form-control" id="strNoteSubject" name="vstrNoteSubject" placeholder="Subject">
+          </div>
+          <div class="box box-comment">
+              <textarea id="strNote" name="vstrNotes" cols="94" rows="8" placeholder="Note"></textarea>
+          </div>
+          <div class="box box-comment">
+              <button type="button" class="btn btn-success btn-block" id="buttSaveNote"><i class="fa fa-save"> </i> <strong>Save Note</strong></button>
+          </div>
+      </div>
+  </form>
+</div>
+
