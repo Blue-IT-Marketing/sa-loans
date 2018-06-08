@@ -21,7 +21,7 @@ class ClientReport(ndb.Expando):
     def writeIDNumber(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strIDNumber = strinput
                 return True
             else:
@@ -41,7 +41,7 @@ class ClientReport(ndb.Expando):
     def writeReference(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strReference = strinput
                 return True
             else:
@@ -157,11 +157,6 @@ class PrintGlobalRatingHandler(webapp2.RequestHandler):
             template = template_env.get_template("templates/dynamic/ratings/printglobal.html")
             context = {'thisClientReport':thisClientReport}
             self.response.write(template.render(context))
-
-
-
-
-
 
 
 

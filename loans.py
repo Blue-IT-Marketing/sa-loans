@@ -22,7 +22,7 @@ class LoanConstant(ndb.Expando):
 
             strinput = str(strinput)
 
-            if not (strinput == None):
+            if strinput != None:
                 self.strAccountNumber = strinput
                 return True
             else:
@@ -89,7 +89,7 @@ class Loan(LoanConstant):
     def writeDateLoaned(self,strinput):
         try:
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strDateLoaned = strinput
                 return True
             else:
@@ -119,7 +119,7 @@ class Loan(LoanConstant):
     def writePaymentDate(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strPaymentDate = int(strinput)
                 return True
             else:
@@ -189,7 +189,7 @@ class LoanApplicantDetails(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strTitle = strinput
                 return True
             else:
@@ -200,7 +200,7 @@ class LoanApplicantDetails(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strBoxNumber = strinput
                 return True
             else:
@@ -210,7 +210,7 @@ class LoanApplicantDetails(LoanConstant):
     def writePostalCityTown(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strPostalCityTown = strinput
                 return True
             else:
@@ -221,7 +221,7 @@ class LoanApplicantDetails(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strPostalProvince = strinput
                 return True
             else:
@@ -232,7 +232,7 @@ class LoanApplicantDetails(LoanConstant):
     def writePostalCountry(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strPostalCountry = strinput
                 return True
             else:
@@ -244,7 +244,7 @@ class LoanApplicantDetails(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strPostalPostalCode = strinput
                 return True
             else:
@@ -255,7 +255,7 @@ class LoanApplicantDetails(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strFullNames = strinput
                 return True
             else:
@@ -265,7 +265,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeSurname(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strSurname = strinput
                 return True
             else:
@@ -276,7 +276,7 @@ class LoanApplicantDetails(LoanConstant):
         try:
             strinput  = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strIDNumber = strinput
                 return True
             else:
@@ -285,7 +285,7 @@ class LoanApplicantDetails(LoanConstant):
             return False
     def writeDateOfBirth(self,strinput):
         try:
-            if not(strinput == None):
+            if strinput != None:
                 self.strDateOfBirth = strinput
                 return True
             else:
@@ -297,7 +297,7 @@ class LoanApplicantDetails(LoanConstant):
             strinput = str(strinput)
 
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strNationality = strinput
                 return True
             else:
@@ -307,7 +307,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeHouseNumber(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strHouseNumber = strinput
                 return True
             else:
@@ -317,7 +317,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeStreetName(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strStreetName = strinput
                 return True
             else:
@@ -327,7 +327,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeCityTown(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strCityTown = strinput
                 return True
             else:
@@ -337,7 +337,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeProvince(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strProvince = strinput
                 return True
             else:
@@ -348,7 +348,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeCountry(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strCountry = strinput
                 return True
             else:
@@ -358,7 +358,7 @@ class LoanApplicantDetails(LoanConstant):
     def writePostalCode(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strPostalCode = strinput
                 return True
             else:
@@ -368,7 +368,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeTel(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strTel = strinput
                 return True
             else:
@@ -378,7 +378,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeCell(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strCell = strinput
                 return True
             else:
@@ -388,7 +388,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeEmail(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strEmail = strinput
                 return True
             else:
@@ -398,7 +398,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeNextOfKinNames(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strNextOfKinNames = strinput
                 return True
             else:
@@ -408,7 +408,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeNextOfKinAddress(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strNextOfKinAddress = strinput
                 return True
             else:
@@ -418,7 +418,7 @@ class LoanApplicantDetails(LoanConstant):
     def writeNextOfKinCell(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strNextOfKinCell = strinput
                 return True
             else:
@@ -429,7 +429,7 @@ class LoanApplicantDetails(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strALLPS = strinput
                 return True
             else:
@@ -466,7 +466,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writeNameOfEmployer(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strNameOfEmployer = strinput
                 return True
             else:
@@ -477,7 +477,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writeEmployeeNumber(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strEmployeeNumber = strinput
                 return True
             else:
@@ -488,7 +488,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writeDepartment(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strDepartment = strinput
                 return True
             else:
@@ -499,7 +499,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writeContract(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strContract = strinput
                 return True
             else:
@@ -509,7 +509,7 @@ class LoanEmploymentDetails(LoanConstant):
 
     def writeDateJoined(self,strinput):
         try:
-            if not(strinput == None):
+            if strinput != None:
                 self.strDateJoined = strinput
                 return True
             else:
@@ -520,7 +520,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writeStandNumber(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strStandNumber = strinput
                 return True
             else:
@@ -531,7 +531,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writeStreetName(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strStreetName = strinput
                 return True
             else:
@@ -542,7 +542,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writeTownCity(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strTownCity = strinput
                 return True
             else:
@@ -553,7 +553,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writeProvince(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strProvince = strinput
                 return True
             else:
@@ -564,7 +564,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writeCountry(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strCountry = strinput
                 return True
             else:
@@ -575,7 +575,7 @@ class LoanEmploymentDetails(LoanConstant):
     def writePostalCode(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strPostalCode = strinput
                 return True
             else:
@@ -595,7 +595,7 @@ class CreditProvider(LoanConstant):
     def writeBranchName(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strBranchName = strinput
                 return True
             else:
@@ -606,7 +606,7 @@ class CreditProvider(LoanConstant):
     def writeLoanOfficer(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strLoanOfficer = strinput
                 return True
             else:
@@ -822,7 +822,7 @@ class PayTO(LoanConstant):
     def writeBankName(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strBankName = strinput
                 return True
             else:
@@ -833,7 +833,7 @@ class PayTO(LoanConstant):
     def writeAccountHolder(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strAccountHolder = strinput
                 return True
             else:
@@ -844,7 +844,7 @@ class PayTO(LoanConstant):
     def writeBankAccountNumber(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strBankAccountNumber = strinput
                 return True
             else:
@@ -855,7 +855,7 @@ class PayTO(LoanConstant):
     def writeAccountType(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strAccountType = strinput
                 return True
             else:
@@ -866,7 +866,7 @@ class PayTO(LoanConstant):
     def writeBranchCode(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strBranchCode = strinput
                 return True
             else:
@@ -877,7 +877,7 @@ class PayTO(LoanConstant):
     def writeBranchName(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strBranchName = strinput
                 return True
             else:
@@ -888,7 +888,7 @@ class PayTO(LoanConstant):
     def writeNotes(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strNotes = strinput
                 return True
             else:
@@ -906,7 +906,7 @@ class CompanyCoffers(ndb.Expando):
     def writeReference(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strReference = strinput
                 return True
             else:
@@ -918,7 +918,7 @@ class CompanyCoffers(ndb.Expando):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strBranchCode = strinput
                 return True
             else:
@@ -929,7 +929,7 @@ class CompanyCoffers(ndb.Expando):
     def writeCashAvailable(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strCashAvailable = int(strinput)
                 return True
             else:
@@ -940,7 +940,7 @@ class CompanyCoffers(ndb.Expando):
     def writeCashInBank(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strCashInBank = int(strinput)
                 return True
             else:
@@ -1006,7 +1006,7 @@ class PaymentTOClient(LoanConstant):
     def writeAmountRequested(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strAmountRequested = int(strinput)
                 return True
             else:
@@ -1018,7 +1018,7 @@ class PaymentTOClient(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strAmountPaid = int(strinput)
                 return True
             else:
@@ -1029,7 +1029,7 @@ class PaymentTOClient(LoanConstant):
     def writeBalance(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strBalance = int(strinput)
                 return True
             else:
@@ -1045,7 +1045,7 @@ class PaymentFromClient(LoanConstant):
     def writeAmountOwed(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strAmountOwed = int(strinput)
                 return True
             else:
@@ -1056,7 +1056,7 @@ class PaymentFromClient(LoanConstant):
     def writeAmountPaid(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strAmountPaid = int(strinput)
                 return True
             else:
@@ -1067,7 +1067,7 @@ class PaymentFromClient(LoanConstant):
     def writeBalance(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strBalance = int(strinput)
                 return True
             else:
@@ -1164,7 +1164,7 @@ class AdvancedAmount(LoanConstant):
     def writeFrequency(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strFreequency = strinput
                 return True
             else:
@@ -1184,7 +1184,7 @@ class AdvancedAmount(LoanConstant):
     def writeLoanTerm(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strLoanTerm = strinput
                 return True
             else:
@@ -1232,7 +1232,7 @@ class LoanBankingDetails(LoanConstant):
     def writeAccountHolder(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strAccountHolder = strinput
                 return True
             else:
@@ -1254,7 +1254,7 @@ class LoanBankingDetails(LoanConstant):
     def writeBankingInstitution(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strBankingInstitution = strinput
                 return True
             else:
@@ -1275,7 +1275,7 @@ class LoanBankingDetails(LoanConstant):
     def writeAccountType(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strAccountType = strinput
                 return True
             else:
@@ -1285,7 +1285,7 @@ class LoanBankingDetails(LoanConstant):
 
     def writeCommencementDate(self,strinput):
         try:
-            if not(strinput == None):
+            if strinput != None:
                 self.strDateCommencement = strinput
                 return True
             else:
@@ -1313,7 +1313,7 @@ class LoanReceiver(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strNameCreditReceiver = strinput
                 return True
             else:
@@ -1324,7 +1324,7 @@ class LoanReceiver(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strStandNumber = strinput
                 return True
             else:
@@ -1335,7 +1335,7 @@ class LoanReceiver(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strStreetName = strinput
                 return True
             else:
@@ -1345,7 +1345,7 @@ class LoanReceiver(LoanConstant):
     def writeCityTown(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strCityTown = strinput
                 return True
             else:
@@ -1355,7 +1355,7 @@ class LoanReceiver(LoanConstant):
     def writePostalCode(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strPostalCode = strinput
                 return True
             else:
@@ -1365,7 +1365,7 @@ class LoanReceiver(LoanConstant):
     def writeProvince(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strProvince = strinput
                 return True
             else:
@@ -1375,7 +1375,7 @@ class LoanReceiver(LoanConstant):
     def writeCountry(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strCountry = strinput
                 return True
             else:
@@ -1386,7 +1386,7 @@ class LoanReceiver(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strWorkTel = strinput
                 return True
             else:
@@ -1396,7 +1396,7 @@ class LoanReceiver(LoanConstant):
     def writeHomeTel(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strHomeTel = strinput
                 return True
             else:
@@ -1406,7 +1406,7 @@ class LoanReceiver(LoanConstant):
     def writeCell(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strCell = strinput
                 return True
             else:
@@ -1416,7 +1416,7 @@ class LoanReceiver(LoanConstant):
     def writeIDNumber(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strIDNumber = strinput
                 return True
             else:
@@ -1427,7 +1427,7 @@ class LoanReceiver(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strEmployer = strinput
                 return True
             else:
@@ -1447,7 +1447,7 @@ class LoanNotes(LoanConstant):
         try:
             strinput = str(strinput)
 
-            if not(strinput == None):
+            if strinput != None:
                 self.strNotes = strinput
                 return True
             else:
@@ -1458,7 +1458,7 @@ class LoanNotes(LoanConstant):
     def writeSubject(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strSubject = strinput
                 return True
             else:
@@ -1469,7 +1469,7 @@ class LoanNotes(LoanConstant):
     def writeFullNames(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strFullNames = strinput
                 return True
             else:
@@ -1480,7 +1480,7 @@ class LoanNotes(LoanConstant):
     def writeSurname(self,strinput):
         try:
             strinput = str(strinput)
-            if not(strinput == None):
+            if strinput != None:
                 self.strSurname = strinput
                 return True
             else:
